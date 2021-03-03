@@ -6,16 +6,15 @@ export const setCurrentUser = user => {
     }
 }
 
-
-//asynchronous action creators
 export const login = credentials => {
     return dispatch => {
-        return fetch("http://localhost:3001/login" {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({email: "kris@google.com", password: "Kris1!"})
-        })
+      return fetch("http://localhost:3001/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(credentials)
+      })
+      
     }
-}
+  }
