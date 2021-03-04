@@ -2,14 +2,14 @@
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
-        user: user
+        user
     }
 }
 
 export const login = credentials => {
-    console.log("Credentials", credentials)
     return dispatch => {
       return fetch("http://localhost:3001/login", {
+        credentials: "include",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -22,6 +22,27 @@ export const login = credentials => {
                 alert(user.error)
             } else {
                 dispatch(setCurrentUser(user))
+            }
+        })
+        .catch(console.log)
+    }
+  }
+
+  export const getCurrentUser = () => {
+    return dispatch => {
+      return fetch("http://localhost:3001/get_current_user", {
+        credentials: "include",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      })
+        .then(resp => resp.json())
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
+            } else {
+                dispatch(setCurrentUser(response.data))
             }
         })
         .catch(console.log)
