@@ -6,6 +6,13 @@ export const setCurrentUser = user => {
     }
 }
 
+export const clearCurrentUser = () => {
+    return {
+        type: "CLEAR_CURRENT_USER"
+    }
+}
+
+//asynchronous action creators
 export const login = credentials => {
     return dispatch => {
       return fetch("http://localhost:3001/login", {
@@ -28,6 +35,16 @@ export const login = credentials => {
     }
   }
 
+  export const logout = () => {
+      return (dispatch) => {
+          dispatch(clearCurrentUser())
+          return fetch('http://localhost:3001/logout', {
+              credentials: "include",
+              method: "DELETE"
+          })
+      }
+  }
+
   export const getCurrentUser = () => {
     return dispatch => {
       return fetch("http://localhost:3001/get_current_user", {
@@ -40,7 +57,7 @@ export const login = credentials => {
         .then(resp => resp.json())
         .then(response => {
             if (response.error) {
-                alert(response.error)
+                console.log("No User")
             } else {
                 dispatch(setCurrentUser(response.data))
             }
