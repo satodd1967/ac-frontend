@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateLoginForm } from "../actions/loginForm.js"
 import { login } from "../actions/currentUser.js"
+import { Link } from 'react-router-dom'
 
 const Login = ({ loginFormData, updateLoginForm, login }) => {
 
@@ -21,7 +22,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
 
     return (
         <div className="firstpage">
-            <div class="logo-text">
+            <div className="logo-text">
                 <h1 style={{textAlign: 'center'}}>Accountability Challenge</h1>
                 <h2>Sign in</h2>
             </div>
@@ -37,6 +38,8 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
                     type="text"
                     onChange={handleChange}/>
                 <input type="submit" value="Log In"/>
+                <span><br/><br/></span>
+                <Link to="/signup-form">Sign Up Here!</Link>
             </form>
         </div>
     )

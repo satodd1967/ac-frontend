@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import Welcome from './components/Welcome';
 import Home from './components/Home';
+import SignupForm from './components/SignupForm'
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
-import { Route } from 'react-router-dom';
-
+import { Route, withRouteer } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -16,7 +16,8 @@ class App extends React.Component {
   render()  {
     return (
       <div className="App">
-        <Route exact path='/' render={()=> this.props.loggedIn ? <Home/> : <Welcome/>}/>
+          <Route exact path='/' render={()=> this.props.loggedIn ? <Home/> : <Welcome/>}/>
+          <Route exact path='/signup-form' component={SignupForm}/>
       </div>
     );
   }
