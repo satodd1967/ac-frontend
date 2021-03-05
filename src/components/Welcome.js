@@ -4,7 +4,7 @@ import Login from './Login';
 const Welcome = () => {
 
     return (
-        <div>
+        <div className="welcome">    
             <Login/>
         </div>
     )

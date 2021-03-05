@@ -1,11 +1,19 @@
 import React from 'react';
-import Logout from './Logout';
+import LeftNav from './LeftNav';
 
 const Welcome = () => {
 
     return (
-        <div>
-            <Logout/>
+        <div className="home">
+            <div className="column-1">
+                <LeftNav/>
+            </div>
+            <div className="column-2">
+
+            </div>
+            <div className="column-3">
+
+            </div>
         </div>
     )
 }

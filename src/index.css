@@ -170,6 +170,14 @@ margin-top: 2%;
 padding: 10px;
 }
 
+.column-1 {
+  float: left;
+  padding: 10px;
+  height: 100%;
+  width: 20%;
+  background-color: #bbb;
+}
+
 /* .weights {
 background-image: url('/images/gym1main.jpg');
 } */
