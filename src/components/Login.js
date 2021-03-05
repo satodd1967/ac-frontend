@@ -20,19 +20,25 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input placeholder="email"
-                value={loginFormData.email}
-                name="email"
-                type="text"
-                onChange={handleChange}/>
-            <input placeholder="password"
-                value={loginFormData.password}
-                name="password"
-                type="text"
-                onChange={handleChange}/>
-            <input type="submit" value="Log In"/>
-        </form>
+        <div className="firstpage">
+            <div class="logo-text">
+                <h1 style={{textAlign: 'center'}}>Accountability Challenge</h1>
+                <h2>Sign in</h2>
+            </div>
+            <form onSubmit={handleSubmit}>
+                <input placeholder="email"
+                    value={loginFormData.email}
+                    name="email"
+                    type="text"
+                    onChange={handleChange}/>
+                <input placeholder="password"
+                    value={loginFormData.password}
+                    name="password"
+                    type="text"
+                    onChange={handleChange}/>
+                <input type="submit" value="Log In"/>
+            </form>
+        </div>
     )
 }
 

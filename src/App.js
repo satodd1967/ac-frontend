@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import Login from "./components/Login"
-import Logout from "./components/Logout"
-import Signup from "./components/SignupForm"
-import { connect } from 'react-redux'
-import { getCurrentUser } from "./actions/currentUser"
-// import { Route } from 'react-router-dom'
+import Welcome from './components/Welcome';
+import Home from './components/Home';
+import { connect } from 'react-redux';
+import { getCurrentUser } from './actions/currentUser';
+import { Route } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -16,19 +15,16 @@ class App extends React.Component {
 
   render()  {
     return (
-      <div>
-        <Signup/>
-        <Login/>
-        <Logout/>
+      <div className="App">
+        <Route exact path='/' render={()=> this.props.loggedIn ? <Home/> : <Welcome/>}/>
       </div>
-        // this.props.currentUser ? <Logout/> : <Login/>
     );
   }
 }
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = state => {
   return {
-    currentUser
+    loggedIn: !!state.currentUser
   }
 }
 
