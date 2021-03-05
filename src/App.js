@@ -2,8 +2,10 @@ import React from 'react';
 import './App.css';
 import Login from "./components/Login"
 import Logout from "./components/Logout"
+import Signup from "./components/SignupForm"
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser"
+// import { Route } from 'react-router-dom'
 
 
 class App extends React.Component {
@@ -15,15 +17,18 @@ class App extends React.Component {
   render()  {
     return (
       <div>
-        {this.props.currentUser ? <Logout/> : <Login/>}
+        <Signup/>
+        <Login/>
+        <Logout/>
       </div>
+        // this.props.currentUser ? <Logout/> : <Login/>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ currentUser }) => {
   return {
-    currentUser: state.currentUser
+    currentUser
   }
 }
 

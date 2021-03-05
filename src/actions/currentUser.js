@@ -1,3 +1,6 @@
+import { resetLoginForm } from './loginForm'
+import { resetSignupForm } from './signupForm'
+
 //synchronous action creators
 export const setCurrentUser = user => {
     return {
@@ -29,12 +32,45 @@ export const login = credentials => {
                 alert(user.error)
             } else {
                 dispatch(setCurrentUser(user))
+                dispatch(resetLoginForm())
             }
         })
         .catch(console.log)
     }
   }
 
+  export const signup = credentials => {
+      console.log(credentials.email)
+      return dispatch => {
+          const userInfo = {
+              user: {
+                  email: credentials.email,
+                  password: credentials.password,
+                  username: credentials.username,
+                  image: "images/users/defaultUser.png"
+              }
+          }
+          return fetch("http://localhost:3001/signup", {
+              credentials: "include",
+              method: "Post",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify(userInfo)
+          })
+          .then(resp => resp.json())
+          .then(response => {
+              if (response.error) {
+                  alert(response.error)
+              } else {
+                  dispatch(setCurrentUser(response))
+                  dispatch(resetSignupForm())
+              }
+          })
+          .catch(console.log)
+      }
+  }
+  
   export const logout = () => {
       return (dispatch) => {
           dispatch(clearCurrentUser())
