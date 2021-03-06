@@ -3,6 +3,7 @@ import LeftNav from './LeftNav';
 import YourChallenges from './YourChallenges';
 import { setChallenges } from '../actions/challenges';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom'
 
 
 class Home extends React.Component {

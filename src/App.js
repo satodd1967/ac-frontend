@@ -16,7 +16,6 @@ class App extends React.Component {
   componentDidMount() {
     console.log("App Props", this.props)
     this.props.getCurrentUser(this.props.history)
-    // this.props.setChallenges()
   }
 
   render()  {
