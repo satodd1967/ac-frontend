@@ -23,9 +23,9 @@ class App extends React.Component {
       <div className="App">
           {
             this.props.loggedIn ?
-            <Home/>
+            <Route exact path='/' render={() => <Home/> }/>
              :
-            <Welcome/>
+            <Route exact path='/' render={() => <Welcome/> }/>
           }
           <Route exact path='/signup-form' component={SignupForm}/>
           <Route exact path='/logout' component={Logout}/>
