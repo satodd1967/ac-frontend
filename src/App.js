@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Welcome from './components/Welcome';
-import Home from './components/Home';
+import Home from './components/UserHome';
 import SignupForm from './components/SignupForm';
 import Logout from './components/Logout';
 import { connect } from 'react-redux';
