@@ -8,7 +8,7 @@ import Challenges from './components/Challenges';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
 import { setChallenges } from './actions/challenges';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 class App extends React.Component {
@@ -21,6 +21,7 @@ class App extends React.Component {
   render()  {
     return (
       <div className="App">
+        <Switch>
           {
             this.props.loggedIn ?
             <Route exact path='/' render={() => <Home/> }/>
@@ -30,6 +31,7 @@ class App extends React.Component {
           <Route exact path='/signup-form' component={SignupForm}/>
           <Route exact path='/logout' component={Logout}/>
           <Route exact path='/challenges' component={Challenges}/>
+        </Switch>
       </div>
     );
   }
