@@ -1,9 +1,10 @@
 import React from 'react';
 import LeftNav from './LeftNav';
 import YourChallenges from './YourChallenges';
+import Challenges from './Challenges';
 import { setChallenges } from '../actions/challenges';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 
 class Home extends React.Component {
@@ -17,10 +18,13 @@ class Home extends React.Component {
         return (
             <div className="home">
                 <div className="column-1">
-                    <LeftNav/>
                 </div>
                 <div className="column-2">
-                    <YourChallenges/>
+                    <LeftNav/>
+                    <Switch>
+                        <Route path='/' component={YourChallenges}/>
+                        <Route path='/challenges' component={Challenges}/>
+                    </Switch>
                 </div>
                 <div className="column-3">
     

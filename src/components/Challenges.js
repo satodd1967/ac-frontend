@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const Challenges = (props) => {
 
     const challenges = props.challenges.map(challenge => {
-        return <li><ChallengeCards key={challenge.id} challenge={challenge}/></li>
+        return <li key={challenge.id}><ChallengeCards key={challenge.id} challenge={challenge}/></li>
         })
     
     return (
