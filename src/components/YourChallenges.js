@@ -1,5 +1,5 @@
 import React from 'react';
-import ChallengeCardsP from './ChallengeCardsP'
+import ChallengeCardsP from './YourChallengeCards'
 import { connect } from 'react-redux';
 
 const YourChallenges = (props) => {

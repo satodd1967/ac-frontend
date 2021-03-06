@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from "../actions/currentUser.js";
-import { Link } from 'react-router-dom';
 
 const Logout = ({ logout }) => {
 
