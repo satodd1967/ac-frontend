@@ -1,18 +1,17 @@
 import React from 'react';
-import ChallengeCardsP from './YourChallengeCards'
+import ChallengeCards from './YourChallengeCards'
 import { connect } from 'react-redux';
 
 const YourChallenges = (props) => {
 
-    const challenges = props.partChallenges.map(pc => {
-        return <li><ChallengeCardsP key={pc.id} challenge={pc}/></li>
+    const challenges = props.challenges.map(challenge => {
+        return <li key={challenge.id}><ChallengeCards key={challenge.id} challenge={challenge}/></li>
         })
     
     return (
         <div className="your-challenges">
             <h1>Welcome {props.user.username}</h1>
             <h3>Your Challenges</h3>
-            <h4>Participating</h4>
             <ul>
             {challenges}
             </ul>
@@ -22,9 +21,8 @@ const YourChallenges = (props) => {
 
 const mapStateToProps = state => {
     return {
-        user: state.currentUser.attributes,
-        partChallenges: state.currentUser.attributes.challenges,
-        nonPartChallenges: state.currentUser.attributes.owned_challenges
+        user: state.currentUser,
+        challenges: state.currentUser.challenges,
     }
 }
 

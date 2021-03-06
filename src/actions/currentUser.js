@@ -27,11 +27,12 @@ export const login = credentials => {
         body: JSON.stringify(credentials)
       })
         .then(resp => resp.json())
-        .then(user => {
-            if (user.error) {
-                alert(user.error)
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
             } else {
-                dispatch(setCurrentUser(user))
+                console.log("login", response.data.attributes)
+                dispatch(setCurrentUser(response.data.attributes))
                 dispatch(resetLoginForm())
             }
         })
@@ -63,7 +64,8 @@ export const login = credentials => {
               if (response.error) {
                   alert(response.error)
               } else {
-                  dispatch(setCurrentUser(response))
+                  console.log("signup", response.data.attributes)
+                  dispatch(setCurrentUser(response.data.attributes))
                   dispatch(resetSignupForm())
                   history.push('/')
               }
@@ -82,7 +84,7 @@ export const login = credentials => {
       }
   }
 
-  export const getCurrentUser = () => {
+  export const getCurrentUser = (history) => {
     return dispatch => {
       return fetch("http://localhost:3001/get_current_user", {
         credentials: "include",
@@ -96,7 +98,9 @@ export const login = credentials => {
             if (response.error) {
                 console.log("No User")
             } else {
-                dispatch(setCurrentUser(response.data))
+                console.log("get current user", response.data.attributes)
+                dispatch(setCurrentUser(response.data.attributes))
+                history.push('/')
             }
         })
         .catch(console.log)
