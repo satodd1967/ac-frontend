@@ -1,7 +1,9 @@
 import React from 'react';
 import LeftNav from './LeftNav';
+import YourChallenges from './YourChallenges';
+import { connect } from 'react-redux';
 
-const Welcome = () => {
+const Home = (props) => {
 
     return (
         <div className="home">
@@ -9,7 +11,7 @@ const Welcome = () => {
                 <LeftNav/>
             </div>
             <div className="column-2">
-
+                <YourChallenges/>
             </div>
             <div className="column-3">
 
@@ -18,4 +20,10 @@ const Welcome = () => {
     )
 }
 
-export default Welcome
+const mapStateToProps = state => {
+    return {
+        user: state.currentUser.attributes
+    }
+}
+
+export default connect(mapStateToProps)(Home)
