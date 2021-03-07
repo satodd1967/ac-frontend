@@ -49,7 +49,7 @@ export const sendChallenge = (challengeData, history, user) => {
       const newChallengeData = {
         name: challengeData.name,
         description: challengeData.description,
-        start_data: challengeData.startDate,
+        start_date: challengeData.startDate,
         duration: challengeData.duration,
         active_calorie_goal: challengeData.active_calorie_goal,
         points_worked_out: challengeData.pointsWorkedOut,
