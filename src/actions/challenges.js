@@ -8,6 +8,12 @@ export const getChallenges = challenges => {
     }
 }
 
+export const clearChallenges = () => {
+    return {
+      type: "CLEAR_CHALLENGES"
+    }
+  }
+
 //asycchronous actions
 export const setChallenges = () => {
     return dispatch => {
