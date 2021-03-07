@@ -15,4 +15,4 @@ const joinChallengeForm = (state=initialState, action) => {
     }
 }
 
-export default signupForm
+export default joinChallengeForm
