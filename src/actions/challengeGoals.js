@@ -1,4 +1,6 @@
 import { resetJoinChallengeForm } from './joinChallengeForm';
+import { getCurrentUser } from './currentUser';
+
 
 //synchronous actions
 // export const getChallengeGoals = challengeGoals => {
@@ -67,14 +69,9 @@ export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
           if (response.error) {
             alert(response.error)
           } else {
-              console.log("New ChallengeGoal Post", response)
-              //Don't think I need to dispatch createChallengeGoal because the getCurrentUser
-              //already pulls back the challenge goals for the user and I don't think there
-              //will be anyplace in the application where I show challengeGoals that don't belong
-              //to the user
-            // dispatch(createChallengeGoal(response.data))
+            console.log("New ChallengeGoal Post", response)
+            dispatch(getCurrentUser(history))
             dispatch(resetJoinChallengeForm())
-            history.push('/')
           }
         })
         .catch(console.log)
