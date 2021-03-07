@@ -1,48 +1,48 @@
 import { resetJoinChallengeForm } from './joinChallengeForm';
 
 //synchronous actions
-export const getChallengeGoals = challengeGoals => {
-    return {
-        type: "GET_CHALLENGE_GOALS",
-        challengeGoals
-    }
-}
+// export const getChallengeGoals = challengeGoals => {
+//     return {
+//         type: "GET_CHALLENGE_GOALS",
+//         challengeGoals
+//     }
+// }
 
-export const clearChallengeGoals = () => {
-    return {
-      type: "CLEAR_CHALLENGES_GOALS"
-    }
-  }
+// export const clearChallengeGoals = () => {
+//     return {
+//       type: "CLEAR_CHALLENGES_GOALS"
+//     }
+//   }
 
-export const createChallengeGoal = challengeGoal => {
-    return {
-        type: "CREATE_CHALLENGE_GOAL",
-        challengeGoal
-    }
-}
+// export const createChallengeGoal = challengeGoal => {
+//     return {
+//         type: "CREATE_CHALLENGE_GOAL",
+//         challengeGoal
+//     }
+// }
 
 //asycchronous actions
-export const setChallenges = () => {
-    return dispatch => {
-        return fetch("http://localhost:3001/api/challenges", {
-            credentials: "include",
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        })
-        .then(resp => resp.json())
-        .then(response => {
-            if (response.error) {
-                alert(response.error)
-            } else {
-                console.log("Challenges Response", response.data)
-                dispatch(getChallengeGoals(response.data))
-            }
-        })
-        .catch(console.log)
-    }
-}
+// export const setChallengeGoals = () => {
+//     return dispatch => {
+//         return fetch("http://localhost:3001/api/challenge_goals", {
+//             credentials: "include",
+//             method: "GET",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//         })
+//         .then(resp => resp.json())
+//         .then(response => {
+//             if (response.error) {
+//                 alert(response.error)
+//             } else {
+//                 console.log("Get Challenge Goals Response", response.data)
+//                 dispatch(getChallengeGoals(response.data))
+//             }
+//         })
+//         .catch(console.log)
+//     }
+// }
 
 export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
     return dispatch => {
@@ -68,11 +68,13 @@ export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
             alert(response.error)
           } else {
               console.log("New ChallengeGoal Post", response)
-            dispatch(createChallengeGoal(response.data))
-            // dispatch(resetChallengeGoalForm())
-            // history.push(`/challenges/${response.id}/challenge_goals/new`)
-            // go somewhere else --> challenge show?
-            // add the new challenge to the store
+              //Don't think I need to dispatch createChallengeGoal because the getCurrentUser
+              //already pulls back the challenge goals for the user and I don't think there
+              //will be anyplace in the application where I show challengeGoals that don't belong
+              //to the user
+            // dispatch(createChallengeGoal(response.data))
+            dispatch(resetJoinChallengeForm())
+            history.push('/')
           }
         })
         .catch(console.log)
