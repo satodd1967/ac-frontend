@@ -5,7 +5,7 @@ export const updateJoinChallengeForm = formData => {
     }
   }
   
-  export const resetSignupForm = () => {
+  export const resetJoinChallengeForm = () => {
     return {
       type: "RESET_JOIN_CHALLENGE_FORM"
     }
