@@ -3,6 +3,7 @@ import LeftNav from './LeftNav';
 import YourChallenges from './YourChallenges';
 import Challenges from './Challenges';
 import CreateChallenge from './CreateChallengeForm'
+import JoinChallenge from './JoinChallengeForm'
 import { setChallenges } from '../actions/challenges';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom'
@@ -27,6 +28,7 @@ class Home extends React.Component {
                         <Route exact path='/' component={YourChallenges}/>
                         <Route exact path='/challenges' component={Challenges}/>
                         <Route exact path='/challenges/new' component={CreateChallenge}/>
+                        <Route exact path='/challenges/:id/challenge_goals/new' component={JoinChallenge}/>
                     </Switch>
                 </div>
                 <div className="column-3">
