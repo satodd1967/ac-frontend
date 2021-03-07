@@ -3,13 +3,15 @@ import currentUser from './reducers/currentUser';
 import loginForm from './reducers/loginForm';
 import signupForm from './reducers/signupForm';
 import challenges from './reducers/challenges';
+import challengeForm from './reducers/createChallengeForm';
 import thunk from 'redux-thunk';
 
 const reducer = combineReducers({
     currentUser,
     loginForm,
     signupForm,
-    challenges
+    challenges,
+    challengeForm
   });
   
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
