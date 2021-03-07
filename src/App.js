@@ -11,7 +11,6 @@ import { withRouter } from 'react-router';
 class App extends React.Component {
 
   componentDidMount() {
-    console.log("App Props", this.props)
     this.props.getCurrentUser(this.props.history)
   }
 
