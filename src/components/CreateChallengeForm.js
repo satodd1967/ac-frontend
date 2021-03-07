@@ -21,6 +21,7 @@ const CreateChallenge = ({ challengeFormData, updateChallengeForm, sendChallenge
 
     return (
         <form onSubmit={handleSubmit}>
+            <h1>Start a new Challenge</h1>
             <input placeholder="name"
                 value={challengeFormData.name}
                 name="name"

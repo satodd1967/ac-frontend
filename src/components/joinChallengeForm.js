@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { updateJoinChallengeForm } from "../actions/joinChallengeForm"
 import { sendChallengeGoal } from "../actions/challengeGoals"
 
-const JoinChallenge = ({ joinChallengeFormData, updateJoinChallengeForm, sendChallengeGoal, history, match, user}) => {
+const JoinChallenge = ({ joinChallengeFormData, updateJoinChallengeForm, sendChallengeGoal, history, match, user, lastChallenge}) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -21,6 +21,8 @@ const JoinChallenge = ({ joinChallengeFormData, updateJoinChallengeForm, sendCha
 
     return (
         <form onSubmit={handleSubmit}>
+            <h2>Join This Challenge</h2>
+            <h3>{user.username} Setup Your Challenge Goals for {lastChallenge.name} </h3>
             <input placeholder="start body fat"
                 value={joinChallengeFormData.startBodyFat}
                 name="startBodyFat"
@@ -45,7 +47,8 @@ const JoinChallenge = ({ joinChallengeFormData, updateJoinChallengeForm, sendCha
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        joinChallengeFormData: state.joinChallengeForm
+        joinChallengeFormData: state.joinChallengeForm,
+        lastChallenge: state.challenges[state.challenges.length -1]
     }
 }
 
