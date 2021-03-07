@@ -6,11 +6,13 @@ import { connect } from 'react-redux'
 const CreateChallenge = ({ challengeFormData, updateChallengeForm, sendChallenge, history, user}) => {
 
     const handleChange = event => {
+        console.log("Event Target", event.target)
         const { name, value } = event.target
         const updatedFormInfo = {
             ...challengeFormData,
             [name]: value
         }
+        console.log("Updated Form Info", updatedFormInfo)
         updateChallengeForm(updatedFormInfo)
     }
 
@@ -32,53 +34,53 @@ const CreateChallenge = ({ challengeFormData, updateChallengeForm, sendChallenge
                 name="description"
                 type="text"
                 onChange={handleChange}/>
-            <input placeholder="start data"
+            <input placeholder="start date"
                 value={challengeFormData.startDate}
                 name="startDate"
-                type="text"
+                type="date"
                 onChange={handleChange}/>
-             <input placeholder="duration"
+             <input placeholder="duration in number of weeks"
                 value={challengeFormData.duration}
                 name="duration"
                 type="text"
                 onChange={handleChange}/>
-            <input placeholder="end data"
-                value={challengeFormData.startDate}
-                name="endData"
+            <input placeholder="end date"
+                value={challengeFormData.endDate}
+                name="endDate"
                 type="text"
                 onChange={handleChange}/>
             <input placeholder="active calorie goal"
-                value={challengeFormData.startDate}
+                value={challengeFormData.activeCalorieGoal}
                 name="activeCalorieGoal"
                 type="text"
                 onChange={handleChange}/>
             <input placeholder="points worked out"
-                value={challengeFormData.startDate}
+                value={challengeFormData.pointsWorkedOut}
                 name="pointsWorkedOut"
                 type="text"
                 onChange={handleChange}/>
             <input placeholder="points tracked food"
-                value={challengeFormData.startDate}
+                value={challengeFormData.pointsTrackedFood}
                 name="pointsTrackedFood"
                 type="text"
                 onChange={handleChange}/>
             <input placeholder="points met calorie goal"
-                value={challengeFormData.startDate}
+                value={challengeFormData.pointsMetCalorieGoal}
                 name="pointsMetCalorieGoal"
                 type="text"
                 onChange={handleChange}/>
             <input placeholder="points maintain weight"
-                value={challengeFormData.startDate}
+                value={challengeFormData.pointsMaintainWeight}
                 name="pointsMaintainWeight"
                 type="text"
                 onChange={handleChange}/>
             <input placeholder="points maintain body fat"
-                value={challengeFormData.startDate}
+                value={challengeFormData.pointsMaintainBodyFat}
                 name="pointsMaintainBodyFat"
                 type="text"
                 onChange={handleChange}/>
             <input placeholder="points met active calorie goal"
-                value={challengeFormData.startDate}
+                value={challengeFormData.pointsMetActiveCalorieGoal}
                 name="pointsMetActiveCalorieGoal"
                 type="text"
                 onChange={handleChange}/>  
