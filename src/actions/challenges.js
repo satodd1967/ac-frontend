@@ -76,7 +76,7 @@ export const sendChallenge = (challengeData, history, user) => {
               console.log("New Challenge Post", response)
             dispatch(createChallenge(response.data))
             dispatch(resetChallengeForm())
-            // history.push(`/challenges/${response.data.id}`)
+            history.push(`/challenges/${response.id}/challenge_goals/new`)
             // go somewhere else --> challenge show?
             // add the new challenge to the store
           }
