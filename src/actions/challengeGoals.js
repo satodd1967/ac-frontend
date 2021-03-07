@@ -1,7 +1,7 @@
 import { resetJoinChallengeForm } from './joinChallengeForm';
 
 //synchronous actions
-export const getChallengesGoals = challengeGoals => {
+export const getChallengeGoals = challengeGoals => {
     return {
         type: "GET_CHALLENGE_GOALS",
         challengeGoals
@@ -37,22 +37,23 @@ export const setChallenges = () => {
                 alert(response.error)
             } else {
                 console.log("Challenges Response", response.data)
-                dispatch(getChallenges(response.data))
+                dispatch(getChallengeGoals(response.data))
             }
         })
         .catch(console.log)
     }
 }
 
-export const sendChallengeGoal = (challengeGoalData, history, user,) => {
+export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
     return dispatch => {
       const newChallengeGoalData = {
         start_weight: challengeGoalData.startWeight,
         start_body_fat: challengeGoalData.startBodyFat,
         start_calorie_goal: challengeGoalData.startCalorieGoal,
         user_id: user.id,
-        challenge_id: challenge.id
+        challenge_id: match.params.id
       }
+      console.log("newChallengeGoalData", newChallengeGoalData)
       return fetch("http://localhost:3001/api/challenge_goals", {
         credentials: "include",
         method: "POST",
