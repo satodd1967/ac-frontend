@@ -5,6 +5,7 @@ import Challenges from './Challenges';
 import { setChallenges } from '../actions/challenges';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom'
+import { withRouter } from 'react-router';
 
 
 class Home extends React.Component {
@@ -18,12 +19,12 @@ class Home extends React.Component {
         return (
             <div className="home">
                 <div className="column-1">
+                    <LeftNav history={this.props.history}/>
                 </div>
                 <div className="column-2">
-                    <LeftNav/>
                     <Switch>
-                        <Route path='/' component={YourChallenges}/>
-                        <Route path='/challenges' component={Challenges}/>
+                        <Route exact path='/' component={YourChallenges}/>
+                        <Route exact path='/challenges' component={Challenges}/>
                     </Switch>
                 </div>
                 <div className="column-3">
@@ -40,4 +41,4 @@ const mapStateToProps = state => {
     }
   }
   
-  export default connect(mapStateToProps, { setChallenges })(Home);
+  export default withRouter(connect(mapStateToProps, { setChallenges })(Home));

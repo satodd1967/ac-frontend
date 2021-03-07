@@ -2,9 +2,6 @@ import React from 'react';
 import './App.css';
 import Welcome from './components/Welcome';
 import Home from './components/Home';
-import SignupForm from './components/SignupForm';
-import Logout from './components/Logout';
-import Challenges from './components/Challenges';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
 import { setChallenges } from './actions/challenges';
@@ -24,13 +21,10 @@ class App extends React.Component {
         <Switch>
           {
             this.props.loggedIn ?
-            <Route exact path='/' render={() => <Home/> }/>
+            <Route path='/' render={(props) => <Home history={props.history}/> }/>
              :
-            <Route exact path='/' render={() => <Welcome/> }/>
+            <Route path='/' render={() => <Welcome/> }/>
           }
-          <Route exact path='/signup-form' component={SignupForm}/>
-          <Route exact path='/logout' component={Logout}/>
-          <Route exact path='/challenges' component={Challenges}/>
         </Switch>
       </div>
     );
