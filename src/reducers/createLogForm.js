@@ -1,16 +1,11 @@
 const initialState = {
-    name: "",
-    description: "",
-    startDate: "",
-    duration: "",
-    endDate: "",
-    activeCalorieGoal: "",
-    pointsWorkedOut: "",
-    pointsTrackedFood: "",
-    pointsMetCalorieGoal: "",
-    pointsMaintainWeight: "",
-    pointsMaintainBodyFat: "",
-    pointsMetActiveCalorieGoal: ""
+    log_date: "",
+    worked_out: "",
+    tracked_food: "",
+    weight: "",
+    body_fat: "",
+    active_calories: "",
+    calories: ""
 }
 
 const logForm = (state=initialState, action) => {

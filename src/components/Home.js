@@ -5,6 +5,7 @@ import YourLogs from './YourLogs';
 import Challenges from './Challenges';
 import CreateChallenge from './CreateChallengeForm'
 import JoinChallenge from './JoinChallengeForm'
+import CreateLog from './CreateLogForm';
 import { setChallenges } from '../actions/challenges';
 import { setLogs } from '../actions/logs';
 import { connect } from 'react-redux';
@@ -33,6 +34,7 @@ class Home extends React.Component {
                         <Route exact path='/challenges' component={Challenges}/>
                         <Route exact path='/challenges/new' component={CreateChallenge}/>
                         <Route exact path='/challenges/:id/challenge_goals/new' component={JoinChallenge}/>
+                        <Route exact path='/logs/new' component={CreateLog}/>
                     </Switch>
                     </div>
                     <div className="bottom-element-column2">
