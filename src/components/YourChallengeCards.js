@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ChallengeCardsP = (props) => {
+const ChallengeCards = (props) => {
 
     return (
         <div className="challenge-cards">
@@ -13,4 +13,4 @@ const ChallengeCardsP = (props) => {
     )
 }
 
-export default ChallengeCardsP
+export default ChallengeCards
