@@ -1,6 +1,7 @@
 import React from 'react';
 import LeftNav from './LeftNav';
 import YourChallenges from './YourChallenges';
+import YourLogs from './YourLogs';
 import Challenges from './Challenges';
 import CreateChallenge from './CreateChallengeForm'
 import JoinChallenge from './JoinChallengeForm'
@@ -24,12 +25,19 @@ class Home extends React.Component {
                     <LeftNav history={this.props.history}/>
                 </div>
                 <div className="column-2">
+                    <div className="top-element-column-2">
                     <Switch>
                         <Route exact path='/' component={YourChallenges}/>
                         <Route exact path='/challenges' component={Challenges}/>
                         <Route exact path='/challenges/new' component={CreateChallenge}/>
                         <Route exact path='/challenges/:id/challenge_goals/new' component={JoinChallenge}/>
                     </Switch>
+                    </div>
+                    <div className="bottom-element-column2">
+                    <Switch>
+                        <Route exact path='/' component={YourLogs}/>
+                    </Switch>
+                    </div>
                 </div>
                 <div className="column-3">
     

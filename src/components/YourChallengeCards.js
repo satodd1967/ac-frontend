@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ChallengeCardsP = (props) => {
 
     return (
-        <div className="participating-challenges">
+        <div className="challenge-cards">
             <h4><Link to={`/challenges/${props.challenge.id}`}>{props.challenge.name}</Link></h4>
             <p>{props.challenge.description}</p>
             <p><Link to={`/challenge-goals/${undefined}`}>View your goals</Link></p>
