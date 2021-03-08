@@ -19,10 +19,18 @@ const JoinChallenge = ({ joinChallengeFormData, updateJoinChallengeForm, sendCha
         sendChallengeGoal(joinChallengeFormData, history, user, match)
     }
 
+    const fixChallengeName = input => {
+        if (input) {
+            return input.name
+        } else {
+            return null
+        }
+    };
+
     return (
         <form onSubmit={handleSubmit}>
             <h2>Join This Challenge</h2>
-            <h3>{user.username} Setup Your Challenge Goals for {lastChallenge.name} </h3>
+            <h3>{user.username} Setup Your Challenge Goals for {fixChallengeName(lastChallenge)} </h3>
             <input placeholder="start body fat"
                 value={joinChallengeFormData.startBodyFat}
                 name="startBodyFat"

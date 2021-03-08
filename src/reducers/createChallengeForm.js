@@ -15,9 +15,9 @@ const initialState = {
 
 const logForm = (state=initialState, action) => {
     switch (action.type) {
-        case "UPDATE_LOG_FORM":
+        case "UPDATE_CHALLENGE_FORM":
             return action.formData
-        case "RESET_LOG_FORM":
+        case "RESET_CHALLENGE_FORM":
             return initialState
         default:
             return state
