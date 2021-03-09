@@ -1,10 +1,10 @@
 const initialState = {
-    log_date: "",
-    worked_out: "",
-    tracked_food: "",
+    logDate: "",
+    workedOut: "",
+    trackedFood: "",
     weight: "",
-    body_fat: "",
-    active_calories: "",
+    bodyFat: "",
+    activeCalories: "",
     calories: ""
 }
 

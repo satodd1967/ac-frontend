@@ -24,20 +24,22 @@ const CreateLog = ({ logFormData, updateLogForm, sendLog, history, user}) => {
     return (
         <form onSubmit={handleSubmit}>
             <h1>Create a New Log</h1>
-            <input placeholder="log date"
+            <input
                 value={logFormData.logDate}
                 name="logDate"
                 type="date"
                 onChange={handleChange}/>
-            <input placeholder="worked out?"
+            Worked Out?
+            <input id="workedOut"
                 value={logFormData.workedOut}
                 name="workedOut"
-                type="radio"
+                type="checkbox"
                 onChange={handleChange}/>
-            <input placeholder="tracked food?"
+            Tracked Food?
+            <input id="trackedFood"
                 value={logFormData.trackedFood}
                 name="trackedFood"
-                type="radio"
+                type="checkbox"
                 onChange={handleChange}/>
              <input placeholder="weight"
                 value={logFormData.weight}

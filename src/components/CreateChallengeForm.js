@@ -12,7 +12,6 @@ const CreateChallenge = ({ challengeFormData, updateChallengeForm, sendChallenge
             ...challengeFormData,
             [name]: value
         }
-        console.log("Updated Challenge Form Info", updatedFormInfo)
         updateChallengeForm(updatedFormInfo)
     }
 
