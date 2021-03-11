@@ -50,10 +50,10 @@ export const sendLog = (logData, history, user) => {
         log_date: logData.logDate,
         worked_out: logData.workedOut,
         tracked_food: logData.trackedFood,
-        weight: logData.wight,
+        weight: logData.weight,
         body_fat: logData.bodyFat,
         active_calories: logData.activeCalories,
-        calories: logData.activeCalories,
+        calories: logData.calories,
         user_id: user.id,
       }
       return fetch("http://localhost:3001/api/logs", {

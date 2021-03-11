@@ -7,7 +7,9 @@ const CreateLog = ({ logFormData, updateLogForm, sendLog, history, user}) => {
 
     const handleChange = event => {
         console.log("Event Target", event.target)
-        const { name, value } = event.target
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
         const updatedFormInfo = {
             ...logFormData,
             [name]: value
@@ -24,6 +26,7 @@ const CreateLog = ({ logFormData, updateLogForm, sendLog, history, user}) => {
     return (
         <form onSubmit={handleSubmit}>
             <h1>Create a New Log</h1>
+            Log Date
             <input
                 value={logFormData.logDate}
                 name="logDate"
