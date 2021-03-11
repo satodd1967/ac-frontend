@@ -1,7 +1,7 @@
 const initialState = {
     logDate: "",
-    workedOut: "",
-    trackedFood: "",
+    workedOut: false,
+    trackedFood: false,
     weight: "",
     bodyFat: "",
     activeCalories: "",

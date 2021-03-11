@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 const CreateLog = ({ logFormData, updateLogForm, sendLog, history, user}) => {
 
     const handleChange = event => {
+        console.log(event.target.checked)
+        console.log(event.target.value)
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -13,6 +15,7 @@ const CreateLog = ({ logFormData, updateLogForm, sendLog, history, user}) => {
             ...logFormData,
             [name]: value
         }
+        console.log("Updated Log Form Data", updatedFormInfo)
         updateLogForm(updatedFormInfo)
     }
 
