@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 const CreateChallenge = ({ challengeFormData, updateChallengeForm, sendChallenge, history, user}) => {
 
     const handleChange = event => {
-        console.log("Event Target", event.target)
         const { name, value } = event.target
         const updatedFormInfo = {
             ...challengeFormData,

@@ -1,5 +1,5 @@
 import { resetJoinChallengeForm } from './joinChallengeForm';
-import { getCurrentUser } from './currentUser';
+import { getCurrentUser } from './users/currentUser';
 
 
 //synchronous actions
@@ -55,7 +55,6 @@ export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
         user_id: user.id,
         challenge_id: match.params.id
       }
-      console.log("newChallengeGoalData", newChallengeGoalData)
       return fetch("http://localhost:3001/api/challenge_goals", {
         credentials: "include",
         method: "POST",

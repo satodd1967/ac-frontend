@@ -1,4 +1,5 @@
 import { resetLogForm } from './createLogForm';
+import { getCurrentUser } from './users/currentUser';
 
 //synchronous actions
 export const getLogs = logs => {
@@ -14,12 +15,12 @@ export const clearLogs = () => {
     }
   }
 
-export const createLog = log => {
-    return {
-        type: "CREATE_LOG",
-        log
-    }
-}
+// export const createLog = log => {
+//     return {
+//         type: "CREATE_LOG",
+//         log
+//     }
+// }
 
 //asycchronous actions
 export const setLogs = () => {
@@ -68,10 +69,10 @@ export const sendLog = (logData, history, user) => {
           if (response.error) {
             alert(response.error)
           } else {
-              console.log("New Log Post", response)
-            dispatch(createLog(response))
+            console.log("New Log Post", response)
+            dispatch(getCurrentUser(history))
+            // dispatch(createLog(response))
             dispatch(resetLogForm())
-            // history.push(`/challenges/${response.id}/challenge_goals/new`)
           }
         })
         .catch(console.log)
