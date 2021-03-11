@@ -100,7 +100,6 @@ export const login = credentials => {
             if (response.error) {
                 console.log("No User")
             } else {
-                console.log("get current user", response.data.attributes)
                 dispatch(setCurrentUser(response.data.attributes))
                 history.push('/')
             }

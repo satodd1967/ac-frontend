@@ -16,7 +16,6 @@ import { withRouter } from 'react-router';
 class Home extends React.Component {
 
     componentDidMount() {
-        console.log("Home Props", this.props)
         this.props.setChallenges()
         this.props.setLogs()
       }

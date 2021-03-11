@@ -36,7 +36,6 @@ export const setLogs = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                console.log("Logs Response", response.data)
                 dispatch(getLogs(response.data))
             }
         })

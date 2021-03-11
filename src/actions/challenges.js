@@ -36,7 +36,6 @@ export const setChallenges = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                console.log("Challenges Response", response.data)
                 dispatch(getChallenges(response.data))
             }
         })
@@ -73,7 +72,6 @@ export const sendChallenge = (challengeData, history, user) => {
           if (response.error) {
             alert(response.error)
           } else {
-              console.log("New Challenge Post", response)
             dispatch(createChallenge(response))
             dispatch(resetChallengeForm())
             history.push(`/challenges/${response.id}/challenge_goals/new`)
