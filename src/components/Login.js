@@ -39,7 +39,7 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
                     onChange={handleChange}/>
                 <input type="submit" value="Log In"/>
                 <span><br/><br/></span>
-                <Link to="/signup-form">Sign Up Here!</Link>
+                <Link to="/signup">Sign Up Here!</Link>
             </form>
         </div>
     )
