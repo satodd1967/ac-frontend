@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from './Login';
-import SignupForm from './SignupForm'
+import Login from '../components/Login';
+import SignupForm from '../components/SignupForm'
 import { Route, Switch } from 'react-router-dom';
 
 const Welcome = () => {
