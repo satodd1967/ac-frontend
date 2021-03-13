@@ -9,9 +9,9 @@ const Challenge = (props) => {
         return challenge.id === props.match.params.id
     })
 
-    const logs = challenge.attributes.logs.map(log => {
-        return <li key={log.id}><YourLogCards key={log.id} log={log}/></li>
-        })
+    // const logs = challenge.attributes.logs.map(log => {
+    //     return <li key={log.id}><YourLogCards key={log.id} log={log}/></li>
+    //     })
 
     return (
         <div className="challenge-show">
@@ -22,7 +22,7 @@ const Challenge = (props) => {
             <h2>Ranking:</h2>
             <h3>Details:</h3>
             <div>
-                {logs}
+                {/* {logs} */}
             </div>         
         </div>
     )

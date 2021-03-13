@@ -32,7 +32,7 @@ class Home extends React.Component {
                     <Switch>
                         <Route exact path='/' component={YourChallenges}/>
                         <Route exact path='/challenges' component={Challenges}/>
-                        <Route exact path='/challenges/:id' component={Challenge}/> 
+                        {/* <Route exact path='/challenges/:id' component={Challenge}/>  */}
                         <Route exact path='/challenges/new' component={CreateChallenge}/>
                         <Route exact path='/challenges/:id/challenge_goals/new' component={JoinChallenge}/>
                         <Route exact path='/logs/new' component={CreateLog}/>
