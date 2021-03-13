@@ -70,8 +70,8 @@ export const sendLog = (logData, history, user) => {
             alert(response.error)
           } else {
             console.log("New Log Post", response)
+            dispatch(setLogs())
             dispatch(getCurrentUser(history))
-            // dispatch(createLog(response))
             dispatch(resetLogForm())
           }
         })

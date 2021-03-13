@@ -50,7 +50,7 @@ export const sendChallenge = (challengeData, history, user) => {
         description: challengeData.description,
         start_date: challengeData.startDate,
         duration: challengeData.duration,
-        active_calorie_goal: challengeData.active_calorie_goal,
+        active_calorie_goal: challengeData.activeCalorieGoal,
         points_worked_out: challengeData.pointsWorkedOut,
         points_tracked_food: challengeData.pointsTrackedFood,
         points_met_calorie_goal: challengeData.pointsMetCalorieGoal,
