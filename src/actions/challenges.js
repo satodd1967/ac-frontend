@@ -14,12 +14,12 @@ export const clearChallenges = () => {
     }
   }
 
-export const createChallenge = challenge => {
-    return {
-        type: "CREATE_CHALLENGE",
-        challenge
-    }
-}
+// export const createChallenge = challenge => {
+//     return {
+//         type: "CREATE_CHALLENGE",
+//         challenge
+//     }
+// }
 
 //asycchronous actions
 export const setChallenges = () => {
@@ -72,7 +72,7 @@ export const sendChallenge = (challengeData, history, user) => {
           if (response.error) {
             alert(response.error)
           } else {
-            dispatch(createChallenge(response))
+            dispatch(setChallenges())
             dispatch(resetChallengeForm())
             history.push(`/challenges/${response.id}/challenge_goals/new`)
           }
