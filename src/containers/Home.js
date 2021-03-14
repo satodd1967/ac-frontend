@@ -3,7 +3,7 @@ import LeftNav from '../components/LeftNav';
 import YourChallenges from '../components/YourChallenges';
 import YourLogs from '../components/YourLogs';
 import Challenges from '../components/Challenges';
-import Challenge from '../components/ChallengeCard';
+import ChallengeShow from '../components/ChallengeShow';
 import CreateChallenge from '../components/CreateChallengeForm'
 import JoinChallenge from '../components/JoinChallengeForm'
 import CreateLog from '../components/CreateLogForm';
@@ -33,7 +33,7 @@ class Home extends React.Component {
                         <Route exact path='/' component={YourChallenges}/>
                         <Route exact path='/challenges' component={Challenges}/>
                         <Route exact path='/challenges/new' component={CreateChallenge}/>
-                        <Route exact path='/challenges/:id' component={Challenge}/> 
+                        <Route exact path='/challenges/:id' render={props => <ChallengeShow challengeId={props.match.params.id}/> }/>
                         <Route exact path='/challenges/:id/challenge_goals/new' component={JoinChallenge}/>
                         <Route exact path='/logs/new' component={CreateLog}/>
                     </Switch>

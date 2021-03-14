@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import YourLogCards from './LogCards'
+import ChallengeCard from './ChallengeCard';
+import LogCards from './LogCards'
 import { Link } from 'react-router-dom';
 
 const Challenge = (props) => {
 
     // const challenge = props.challenges.find(challenge => {
-    //     return challenge.id === props.match.params.id
+    //     return challenge.id === challengeId
     // })
 
     // const logs = challenge.attributes.logs.map(log => {
@@ -15,7 +16,7 @@ const Challenge = (props) => {
 
     return (
         <div className="challenge-show">
-            
+            {props.challengeId}
         </div>
     )
 }
