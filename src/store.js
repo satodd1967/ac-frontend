@@ -4,6 +4,7 @@ import loginForm from './reducers/loginForm';
 import signupForm from './reducers/signupForm';
 import challenges from './reducers/challenges';
 import logs from './reducers/logs';
+import users from './reducers/users';
 import challengeForm from './reducers/createChallengeForm';
 import joinChallengeForm from './reducers/joinChallengeForm';
 import logForm from './reducers/createLogForm';
@@ -17,7 +18,8 @@ const reducer = combineReducers({
     challengeForm,
     joinChallengeForm,
     logs,
-    logForm
+    logForm,
+    users
   });
   
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
