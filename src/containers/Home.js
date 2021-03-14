@@ -9,6 +9,7 @@ import JoinChallenge from '../components/JoinChallengeForm'
 import CreateLog from '../components/CreateLogForm';
 import { setChallenges } from '../actions/challenges';
 import { setLogs } from '../actions/logs';
+import { setUsers } from '../actions/users';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router';
@@ -19,6 +20,7 @@ class Home extends React.Component {
     componentDidMount() {
         this.props.setChallenges()
         this.props.setLogs()
+        this.props.setUsers()
       }
 
     render() {
@@ -59,4 +61,4 @@ const mapStateToProps = state => {
     }
   }
   
-  export default withRouter(connect(mapStateToProps, { setChallenges, setLogs })(Home));
+  export default withRouter(connect(mapStateToProps, { setChallenges, setLogs, setUsers })(Home));
