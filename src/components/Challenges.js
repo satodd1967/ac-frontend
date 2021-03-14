@@ -11,10 +11,6 @@ const Challenges = (props) => {
             <li key={challenge.attributes.user.id}><ChallengeOwners key={challenge.attributes.user.id} challenge={challenge}/></li>
             </ul>
         })
-
-    // const challengeOwners = props.challenges.map(challenge => {
-    //     return <li key={challenge.attributes.user.id}><ChallengeOwners key={challenge.attributes.user.id} challenge={challenge}/></li>
-    // })
     
     return (
         <div className="all-challenges">
