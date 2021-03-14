@@ -7,6 +7,7 @@ const ChallengeCards = (props) => {
         <div className="challenge-cards">
             <li><h4><Link to={`/challenges/${props.challenge.id}`}>{props.challenge.attributes.name}</Link></h4></li>
             <li>{props.challenge.attributes.description}</li>
+            <br/>
         </div>
     )
 }
