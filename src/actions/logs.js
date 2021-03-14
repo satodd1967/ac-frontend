@@ -1,5 +1,6 @@
 import { resetLogForm } from './createLogForm';
 import { getCurrentUser } from './users/currentUser';
+import { setChallenges } from './challenges';
 
 //synchronous actions
 export const getLogs = logs => {
@@ -71,6 +72,7 @@ export const sendLog = (logData, history, user) => {
           } else {
             console.log("New Log Post", response)
             dispatch(setLogs())
+            dispatch(setChallenges())
             dispatch(getCurrentUser(history))
             dispatch(resetLogForm())
           }

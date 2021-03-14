@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import YourLogCards from './YourLogCards'
+import YourLogCards from './LogCards'
 import { Link } from 'react-router-dom';
 
 const Challenge = (props) => {

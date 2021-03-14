@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const YourLogCards = (props) => {
+const LogCards = (props) => {
 
     const fixBoolean = input => {
         if (input) {
@@ -24,4 +24,4 @@ const YourLogCards = (props) => {
     )
 }
 
-export default YourLogCards
+export default LogCards

@@ -1,11 +1,11 @@
 import React from 'react';
-import YourLogCards from './YourLogCards'
+import LogCards from './LogCards'
 import { connect } from 'react-redux';
 
 const YourLogs = (props) => {
 
     const logs = props.logs.map(log => {
-        return <li key={log.id}><YourLogCards key={log.id} log={log}/></li>
+        return <li key={log.id}><LogCards key={log.id} log={log}/></li>
         })
     
     return (
