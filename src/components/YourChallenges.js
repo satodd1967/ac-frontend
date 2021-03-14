@@ -26,7 +26,6 @@ const YourChallenges = (props) => {
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        // challenges: state.currentUser.challenges
         challenges: state.challenges
     }
 }

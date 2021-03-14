@@ -3,7 +3,7 @@ import LeftNav from '../components/LeftNav';
 import YourChallenges from '../components/YourChallenges';
 import YourLogs from '../components/YourLogs';
 import Challenges from '../components/Challenges';
-import Challenge from '../components/Challenge';
+import Challenge from '../components/ChallengeCard';
 import CreateChallenge from '../components/CreateChallengeForm'
 import JoinChallenge from '../components/JoinChallengeForm'
 import CreateLog from '../components/CreateLogForm';
