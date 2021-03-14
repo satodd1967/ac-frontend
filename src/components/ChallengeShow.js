@@ -4,11 +4,13 @@ import ChallengeCard from './ChallengeCard';
 import LogCards from './LogCards'
 import { Link } from 'react-router-dom';
 
-const Challenge = (props) => {
+const ChallengeShow = (props) => {
 
-    // const challenge = props.challenges.find(challenge => {
-    //     return challenge.id === challengeId
-    // })
+    const challenge = props.challenges.find(challenge => {
+        return challenge.id === props.challengeId
+    })
+
+    const challengeCard = challenge ? <ChallengeCard key={challenge.id} challenge={challenge}/> : <p>No Challenge</p>
 
     // const logs = challenge.attributes.logs.map(log => {
     //     return <li key={log.id}><YourLogCards key={log.id} log={log}/></li>
@@ -16,7 +18,7 @@ const Challenge = (props) => {
 
     return (
         <div className="challenge-show">
-            {props.challengeId}
+            {challengeCard}
         </div>
     )
 }
@@ -28,4 +30,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Challenge)
+export default connect(mapStateToProps)(ChallengeShow)

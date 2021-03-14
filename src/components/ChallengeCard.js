@@ -5,8 +5,7 @@ const ChallengeCard = (props) => {
 
     return (
         <div className="challenge-cards">
-            <li><h4><Link to={`/challenges/${props.challenge.id}`}>{props.challenge.attributes.name}</Link></h4></li>
-            <li>{props.challenge.attributes.description}</li>
+            <h1>{props.challenge.attributes.name}</h1>
         </div>
     )
 }
