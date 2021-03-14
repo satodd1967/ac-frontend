@@ -1,5 +1,6 @@
 import { resetJoinChallengeForm } from './joinChallengeForm';
 import { getCurrentUser } from './users/currentUser';
+import { setChallenges } from './challenges';
 
 
 //synchronous actions
@@ -70,6 +71,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
           } else {
             console.log("New ChallengeGoal Post", response)
             dispatch(getCurrentUser(history))
+            dispatch(setChallenges())
             dispatch(resetJoinChallengeForm())
           }
         })
