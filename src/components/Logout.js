@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logout } from "../actions/users/currentUser.js";
+import { logout } from "../actions/currentUser.js";
 
 const Logout = ({ logout, history}) => {
 

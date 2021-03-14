@@ -1,5 +1,5 @@
 import { resetJoinChallengeForm } from './joinChallengeForm';
-import { getCurrentUser } from './users/currentUser';
+import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
 
 

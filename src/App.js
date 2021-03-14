@@ -3,7 +3,7 @@ import './App.css';
 import Welcome from './containers/Welcome';
 import Home from './containers/Home';
 import { connect } from 'react-redux';
-import { getCurrentUser } from './actions/users/currentUser';
+import { getCurrentUser } from './actions/currentUser';
 import { Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 

@@ -1,6 +1,6 @@
 import { resetLoginForm } from './loginForm';
 import { resetSignupForm } from './signupForm';
-import { clearChallenges } from '../challenges';
+import { clearChallenges } from './challenges';
 
 //synchronous action creators
 export const setCurrentUser = user => {

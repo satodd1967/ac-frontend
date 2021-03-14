@@ -1,5 +1,5 @@
 import { resetLogForm } from './createLogForm';
-import { getCurrentUser } from './users/currentUser';
+import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
 
 //synchronous actions
