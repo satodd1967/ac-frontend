@@ -9,15 +9,15 @@ const YourChallenges = (props) => {
         return challenge.attributes.user.id === props.user.id
     })
 
-    const challenges = yourChallenges.map(challenge => {
-        return <ChallengeCards key={challenge.id} challenge={challenge}/>
-    })
-
     // const challenges = yourChallenges.map(challenge => {
-    //     return challenge ? <ul><ChallengeCards key={challenge.id} challenge={challenge}/>
-    //         <h3>Ranking</h3>
-    //         <ChallengeRanking challenge={challenge}/></ul> : <p>No Challenge</p>
+    //     return <ChallengeCards key={challenge.id} challenge={challenge}/>
     // })
+
+    const challenges = yourChallenges.map(challenge => {
+        return challenge ? <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
+            <h4>Ranking</h4>
+            <ChallengeRanking challenge={challenge}/></ul> : <p>No Challenge</p>
+    })
 
     return (
         <div className="your-challenges">

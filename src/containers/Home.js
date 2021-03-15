@@ -20,7 +20,6 @@ class Home extends React.Component {
     componentDidMount() {
         this.props.setChallenges()
         this.props.setLogs()
-        this.props.setUsers()
       }
 
     render() {
