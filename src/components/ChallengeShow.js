@@ -27,7 +27,8 @@ const ChallengeShow = (props) => {
             <div className="challenge-show-header">
                 <h1>{challenge ? challenge.attributes.name : `No Challenge`}</h1>
                 <h3>{challengeOwner}</h3>
-                <h1>{challengeRanking}</h1>
+                <h3>Ranking</h3>
+                <h3>{challengeRanking}</h3>
             </div>
             <div className="challenge-show-details">
                 <h1>Details</h1>

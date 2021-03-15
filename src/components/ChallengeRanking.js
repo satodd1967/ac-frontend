@@ -1,4 +1,5 @@
 import React from 'react';
+import ChallengeRankingCard from './ChallengeRankingCard'
 import { connect } from 'react-redux';
 
 const ChallengeRanking = (props) => {
@@ -40,16 +41,15 @@ const ChallengeRanking = (props) => {
          }
      })
 
+     const rankingCard = props.challenge ? rankingWithName.map(place => {
+        return <ChallengeRankingCard key={place.username} place={place}/>
+        }) : <p>No Challenge</p>
+
     return (
         <div className="challenge-owner">
-            {console.log("LogScores", logScores)}
-            {console.log("Users", users)}
-            {/* {console.log("User", user)} */}
-            {console.log("PointsArray",pointsArray)}
-            {console.log("TotalPoints", totalPoints)}
-            {console.log("Ranking", ranking)}
-            {console.log("Ranking With Name", rankingWithName)}
-            <p>Ranking</p>
+            <ul>
+                {rankingCard}
+            </ul>
         </div>
     )
 }

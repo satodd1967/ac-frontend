@@ -1,5 +1,6 @@
 import React from 'react';
-import ChallengeCards from './ChallengeCards'
+import ChallengeCards from './ChallengeCards';
+import ChallengeRanking from './ChallengeRanking';
 import { connect } from 'react-redux';
 
 const YourChallenges = (props) => {
@@ -10,8 +11,14 @@ const YourChallenges = (props) => {
 
     const challenges = yourChallenges.map(challenge => {
         return <ChallengeCards key={challenge.id} challenge={challenge}/>
-        })
-    
+    })
+
+    // const challenges = yourChallenges.map(challenge => {
+    //     return challenge ? <ul><ChallengeCards key={challenge.id} challenge={challenge}/>
+    //         <h3>Ranking</h3>
+    //         <ChallengeRanking challenge={challenge}/></ul> : <p>No Challenge</p>
+    // })
+
     return (
         <div className="your-challenges">
             <h1>Welcome {props.user.username}</h1>
