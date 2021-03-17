@@ -1,5 +1,5 @@
 import React from 'react';
-import ChallengeRankingCard from './ChallengeRankingCard'
+import ChallengeRankingCard from '../components/ChallengeRankingCard'
 import { connect } from 'react-redux';
 
 const ChallengeRanking = (props) => {

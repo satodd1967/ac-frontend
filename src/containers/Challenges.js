@@ -1,6 +1,6 @@
 import React from 'react';
-import ChallengeCards from './ChallengeCards';
-import ChallengeOwners from './ChallengeOwners';
+import ChallengeCards from '../components/ChallengeCards';
+import ChallengeOwners from '../components/ChallengeOwners';
 import { connect } from 'react-redux';
 
 const Challenges = (props) => {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ChallengeCard from './ChallengeCard';
-import ChallengeOwner from './ChallengeOwners';
+import ChallengeCard from '../components/ChallengeCard';
+import ChallengeOwner from '../components/ChallengeOwners';
 import ChallengeRanking from './ChallengeRanking';
-import LogCards from './LogCards'
+import LogCards from '../components/LogCards'
 import { Link } from 'react-router-dom';
 
 const ChallengeShow = (props) => {

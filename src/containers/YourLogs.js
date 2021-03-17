@@ -1,5 +1,5 @@
 import React from 'react';
-import LogCards from './LogCards'
+import LogCards from '../components/LogCards'
 import { connect } from 'react-redux';
 
 const YourLogs = (props) => {

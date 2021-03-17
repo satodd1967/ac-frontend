@@ -1,5 +1,5 @@
 import React from 'react';
-import ChallengeCards from './ChallengeCards';
+import ChallengeCards from '../components/ChallengeCards';
 import ChallengeRanking from './ChallengeRanking';
 import { connect } from 'react-redux';
 
