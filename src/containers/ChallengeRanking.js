@@ -41,10 +41,17 @@ const ChallengeRanking = (props) => {
          }
      })
 
-     const rankingCard = props.challenge ? rankingWithName.map(place => {
-        return <ChallengeRankingCard key={place.username} place={place}/>
-        }) : <p>No Challenge</p>
-
+     const rankingCard = props.challenge ? props.type === "full" ? 
+        rankingWithName.map((place, index) => {
+            return <ChallengeRankingCard key={place.username} index={index} place={place}/>
+        }) : 
+            rankingWithName.map((place, index) => {
+                 if(place.username === props.user.username) {
+                    return <ChallengeRankingCard key={place.username} index={index} place={place}/>
+                }
+            }) 
+        : <p>No Challenge</p>
+        
     return (
         <div className="challenge-owner">
             <ul>
@@ -56,7 +63,8 @@ const ChallengeRanking = (props) => {
 
 const mapStateToProps = state => {
     return {
-        users: state.users
+        users: state.users,
+        user: state.currentUser
     }
 }
 

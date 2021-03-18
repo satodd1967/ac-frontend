@@ -16,7 +16,7 @@ const YourChallenges = (props) => {
     const challenges = yourChallenges.map(challenge => {
         return challenge ? <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
             <h4>Ranking</h4>
-            <ChallengeRanking challenge={challenge}/></ul> : <p>No Challenge</p>
+            <ChallengeRanking challenge={challenge} type={"single"}/></ul> : <p>No Challenge</p>
     })
 
     return (
