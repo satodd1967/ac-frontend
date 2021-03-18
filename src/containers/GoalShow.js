@@ -11,7 +11,7 @@ const GoalShow = (props) => {
     return (
         <div className="challenge-show">
             <div className="goal-show-header">
-                <h1>{challenge ? challenge.attributes.name : `No Challenge`}</h1>
+                <h1>{challenge ? challenge.attributes.name : `No Goal`}</h1>
             </div>
         </div>
     )

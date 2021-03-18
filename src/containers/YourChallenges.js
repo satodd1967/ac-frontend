@@ -10,7 +10,10 @@ const YourChallenges = (props) => {
     })
 
     const challenges = yourChallenges.map(challenge => {
-        return challenge ? <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
+        const currentUserChallengeGoal = challenge.attributes.challenge_goals.find(challengeGoal => {
+            return challengeGoal.user_id === props.user.id
+        }) 
+        return challenge ? <ul key={challenge.id}><ChallengeCards challenge={challenge} currentUserCGId={currentUserChallengeGoal.id}/>
             <h4>Ranking</h4>
             <ChallengeRanking challenge={challenge} type={"single"}/></ul> : <p>No Challenge</p>
     })
