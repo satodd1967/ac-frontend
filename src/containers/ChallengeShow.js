@@ -16,7 +16,7 @@ const ChallengeShow = (props) => {
 
     const challengeCard = challenge ? <ChallengeCard challenge={challenge}/> : <p>No Challenge</p>
 
-    const challengeRanking = challenge ? <ChallengeRanking challenge={challenge}/> : <p>No Challenge</p>
+    const challengeRanking = challenge ? <ChallengeRanking challenge={challenge} type={"full"}/> : <p>No Challenge</p>
 
     const logs = challenge ? challenge.attributes.logs.map(log => {
         return <li key={log.id}><LogCards key={log.id} log={log}/></li>
