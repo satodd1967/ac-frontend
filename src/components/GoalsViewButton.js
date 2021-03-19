@@ -7,7 +7,8 @@ const viewGoals = (props) => {
         <div>
             <Link to={{ 
                 pathname: `/goals/${props.currentUserCGId}`, 
-                challengeId: props.challengeId 
+                challengeId: props.challengeId,
+                challengeGoalId: props.currentUserCGId 
             }}>
             <button type="button">
                 View Goals

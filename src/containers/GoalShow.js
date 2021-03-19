@@ -1,17 +1,29 @@
 import React from 'react';
+import GoalCard from '../components/GoalCard';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const GoalShow = (props) => {
 
     const challenge = props.challenges.find(challenge => {
-        return challenge.id === props.challengeId
+        return challenge.id === props.location.challengeId
+    })
+
+    const challengeGoals = props.user.challenge_goals.map(challengeGoal => {
+        if (challengeGoal.id === props.location.challengeGoalId) {
+             return <GoalCard key={challengeGoal.id} challengeGoal={challengeGoal}/>
+         } else {
+             return ""
+         }
     })
 
     return (
-        <div className="challenge-show">
+        <div className="goal-show">
             <div className="goal-show-header">
-                <h1>{challenge ? challenge.attributes.name : `No Goal`}</h1>
+                <h1>Your goals for {challenge ? challenge.attributes.name : `No Goal`}</h1>
+                <h4>Start Date: {challenge ? challenge.attributes.start_date : `No Goal`} End Date: {challenge ? challenge.attributes.end_date : `No Goal`} </h4>
+                <h3>Duration {challenge ? `${challenge.attributes.duration} weeks` : `No Goal`}</h3>
+                {challengeGoals}
             </div>
         </div>
     )
