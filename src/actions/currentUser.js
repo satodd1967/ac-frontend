@@ -1,6 +1,8 @@
 import { resetLoginForm } from './loginForm';
 import { resetSignupForm } from './signupForm';
 import { clearChallenges } from './challenges';
+import { clearLogs } from './logs';
+import { clearUsers } from './users';
 
 //synchronous action creators
 export const setCurrentUser = user => {
@@ -79,6 +81,8 @@ export const login = credentials => {
       return (dispatch) => {
             dispatch(clearCurrentUser())
             dispatch(clearChallenges())
+            dispatch(clearLogs())
+            dispatch(clearUsers())
             return fetch('http://localhost:3001/logout', {
                 credentials: "include",
                 method: "DELETE"
