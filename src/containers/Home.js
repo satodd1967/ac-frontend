@@ -5,7 +5,7 @@ import YourLogs from './YourLogs';
 import Challenges from './Challenges';
 import ChallengeShow from './ChallengeShow';
 import GoalShow from './GoalShow';
-import CreateChallenge from '../components/CreateChallengeForm'
+import CreateChallenge from '../components/ChallengeForm'
 import JoinChallenge from '../components/JoinChallengeForm'
 import CreateLog from '../components/CreateLogForm';
 import { setChallenges } from '../actions/challenges';
@@ -21,6 +21,7 @@ class Home extends React.Component {
     componentDidMount() {
         this.props.setChallenges()
         this.props.setLogs()
+        this.props.setUsers()
       }
 
     render() {

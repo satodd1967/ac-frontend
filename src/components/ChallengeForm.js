@@ -1,5 +1,5 @@
 import React from 'react'
-import { updateChallengeForm } from '../actions/createChallengeForm'
+import { updateChallengeForm } from '../actions/ChallengeForm'
 import { sendChallenge } from '../actions/challenges'
 import { connect } from 'react-redux'
 

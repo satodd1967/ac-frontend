@@ -1,4 +1,4 @@
-import { resetChallengeForm } from './createChallengeForm';
+import { resetChallengeForm } from './ChallengeForm';
 
 //synchronous actions
 export const getChallenges = challenges => {
