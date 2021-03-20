@@ -3,6 +3,7 @@ import { resetSignupForm } from './signupForm';
 import { clearChallenges } from './challenges';
 import { clearLogs } from './logs';
 import { clearUsers } from './users';
+import { setUsers } from './users';
 
 //synchronous action creators
 export const setCurrentUser = user => {
@@ -19,7 +20,7 @@ export const clearCurrentUser = () => {
 }
 
 //asynchronous action creators
-export const login = credentials => {
+export const login = (credentials, history) => {
     return dispatch => {
       return fetch("http://localhost:3001/login", {
         credentials: "include",
@@ -35,7 +36,8 @@ export const login = credentials => {
                 alert(response.error)
             } else {
                 console.log("login", response.data.attributes)
-                dispatch(setCurrentUser(response.data.attributes))
+                dispatch(getCurrentUser(history))
+                dispatch(setUsers())
                 dispatch(resetLoginForm())
             }
         })
@@ -68,7 +70,7 @@ export const login = credentials => {
                   alert(response.error)
               } else {
                   console.log("signup", response.data.attributes)
-                  dispatch(setCurrentUser(response.data.attributes))
+                  dispatch(getCurrentUser(history))
                   dispatch(resetSignupForm())
                   history.push('/')
               }

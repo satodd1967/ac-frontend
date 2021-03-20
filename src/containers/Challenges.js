@@ -6,8 +6,11 @@ import { connect } from 'react-redux';
 const Challenges = (props) => {
 
     const challenges = props.challenges.map(challenge => {
+        const currentUserChallengeGoal = challenge.attributes.challenge_goals.find(challengeGoal => {
+            return challengeGoal.user_id === props.user.id
+        }) 
         return <ul key={challenge.id}>
-            <ChallengeCards challenge={challenge}/>
+            <ChallengeCards challenge={challenge} currentUserCGId={currentUserChallengeGoal ? currentUserChallengeGoal.id : "null"}/>
             <li key={challenge.attributes.user.id}><ChallengeOwners key={challenge.attributes.user.id} challenge={challenge}/></li>
             </ul>
         })
