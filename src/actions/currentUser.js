@@ -3,7 +3,6 @@ import { resetSignupForm } from './signupForm';
 import { clearChallenges } from './challenges';
 import { clearLogs } from './logs';
 import { clearUsers } from './users';
-import { setUsers } from './users';
 
 //synchronous action creators
 export const setCurrentUser = user => {
