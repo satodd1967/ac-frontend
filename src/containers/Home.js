@@ -5,8 +5,8 @@ import YourLogs from './YourLogs';
 import Challenges from './Challenges';
 import ChallengeShow from './ChallengeShow';
 import GoalShow from './GoalShow';
-// import CreateChallenge from '../components/ChallengeForm'
 import ChallengeCreateForm from './ChallengeCreateForm';
+import ChallengeEditForm from './ChallengeEditForm';
 import JoinChallenge from '../components/JoinChallengeForm'
 import CreateLog from '../components/CreateLogForm';
 import { setChallenges } from '../actions/challenges';
@@ -38,6 +38,7 @@ class Home extends React.Component {
                         <Route exact path='/challenges' component={Challenges}/>
                         <Route exact path='/challenges/new' component={ChallengeCreateForm}/>
                         <Route exact path='/challenges/:id' render={props => <ChallengeShow challengeId={props.match.params.id}/> }/>
+                        <Route exact path='/challenges/:id/edit' component={ChallengeEditForm}/>
                         <Route exact path='/goals/:id' component={GoalShow}/>
                         <Route exact path='/challenges/:id/challenge_goals/new' component={JoinChallenge}/>
                         <Route exact path='/logs/new' component={CreateLog}/>

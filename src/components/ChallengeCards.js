@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import GoalsViewButton from './GoalsViewButton';
 import ChallengeQuitButton from './ChallengeQuitButton';
+import ChallengeEditButton from './ChallengeEditButton';
 
 const ChallengeCards = (props) => {
 
@@ -14,7 +15,11 @@ const ChallengeCards = (props) => {
         <li>
             <ChallengeQuitButton challengeGoalId={props.currentUserCGId}/>
         </li>
-    
+
+    const challengeEditButton = props.challenge === "null" ? "" :
+        <li>
+            <ChallengeEditButton challengeId={props.challenge.id}/>
+        </li>
 
     return (
         <div className="challenge-cards">
@@ -22,6 +27,7 @@ const ChallengeCards = (props) => {
             <li>{props.challenge.attributes.description}</li>
             {goalsViewButton}
             {challengeQuitButton}
+            {challengeEditButton}
             <br/>
         </div>
     )
