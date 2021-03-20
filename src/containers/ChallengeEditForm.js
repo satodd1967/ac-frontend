@@ -8,7 +8,10 @@ const CreateChallengeWrapper = ({ sendChallenge, history, user}) => {
     const handleSubmit = (challengeFormData, user) => {
         sendChallenge(challengeFormData, history, user)
     }
-    return  <ChallengeForm history={history} handleSubmit={handleSubmit} />
+    return  <div>
+                <h1>Edit </h1>
+                <ChallengeForm history={history} handleSubmit={handleSubmit} />
+            </div>
 }
 
 export default connect(null, { sendChallenge } )(CreateChallengeWrapper)

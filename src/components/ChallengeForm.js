@@ -2,7 +2,7 @@ import React from 'react';
 import { updateChallengeForm } from '../actions/challengeForm';
 import { connect } from 'react-redux';
 
-const CreateChallenge = ({ challengeFormData, updateChallengeForm, handleSubmit, user }) => {
+const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, user }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -18,7 +18,6 @@ const CreateChallenge = ({ challengeFormData, updateChallengeForm, handleSubmit,
             event.preventDefault()
             handleSubmit(challengeFormData, user)
             }}>
-            <h1>Start a new Challenge</h1>
             <input placeholder="name"
                 value={challengeFormData.name}
                 name="name"
@@ -86,4 +85,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateChallengeForm } )(CreateChallenge)
+export default connect(mapStateToProps, { updateChallengeForm } )(ChallengeForm)

@@ -3,12 +3,15 @@ import ChallengeForm from '../components/ChallengeForm';
 import { sendChallenge } from '../actions/challenges'
 import { connect } from 'react-redux'
 
-const CreateChallengeWrapper = ({ sendChallenge, history, user}) => {
+const CreateChallenge = ({ sendChallenge, history, user}) => {
 
     const handleSubmit = (challengeFormData, user) => {
         sendChallenge(challengeFormData, history, user)
     }
-    return  <ChallengeForm history={history} handleSubmit={handleSubmit} />
+    return  <div>
+                <h1>Start a new Challenge</h1>
+                <ChallengeForm history={history} handleSubmit={handleSubmit} />
+            </div>
 }
 
-export default connect(null, { sendChallenge } )(CreateChallengeWrapper)
+export default connect(null, { sendChallenge } )(CreateChallenge)
