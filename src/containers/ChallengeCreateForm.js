@@ -3,7 +3,7 @@ import ChallengeForm from '../components/ChallengeForm';
 import { sendChallenge } from '../actions/challenges'
 import { connect } from 'react-redux'
 
-const CreateChallenge = ({ sendChallenge, history, user}) => {
+const CreateChallenge = ({ sendChallenge, history }) => {
 
     const handleSubmit = (challengeFormData, user) => {
         sendChallenge(challengeFormData, history, user)

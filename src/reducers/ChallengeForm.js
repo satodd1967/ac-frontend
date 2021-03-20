@@ -19,6 +19,8 @@ const logForm = (state=initialState, action) => {
             return action.formData
         case "RESET_CHALLENGE_FORM":
             return initialState
+        case "SET_EDIT_CHALLENGE_FORM":
+            return action.formData
         default:
             return state
     }
