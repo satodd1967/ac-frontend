@@ -1,20 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logout } from "../actions/currentUser.js";
+import { deleteChallengeGoal } from "../actions/challengeGoals.js";
 
-const quitChallenge = ({ logout, history}) => {
+const quitChallengeButton = ({ deleteChallengeGoal, history}) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        logout()
-        history.push('/')
+        deleteChallengeGoal()
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="submit" value="Log Out"/>
+            <input type="submit" value="Quit Challenge"/>
         </form>
     )
 }
 
-export default connect(null, { logout } )(Logout)
+export default connect(null, { deleteChallengeGoal } )(quitChallengeButton)
