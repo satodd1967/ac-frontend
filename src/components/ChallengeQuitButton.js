@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteChallengeGoal } from "../actions/challengeGoals.js";
 
-const quitChallengeButton = ({ deleteChallengeGoal, history}) => {
+const quitChallengeButton = ({ deleteChallengeGoal, history, challengeGoalId}) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        deleteChallengeGoal()
+        deleteChallengeGoal(challengeGoalId, history)
     }
 
     return (
