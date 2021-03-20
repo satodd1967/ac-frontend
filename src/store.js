@@ -5,7 +5,7 @@ import signupForm from './reducers/signupForm';
 import challenges from './reducers/challenges';
 import logs from './reducers/logs';
 import users from './reducers/users';
-import challengeForm from './reducers/ChallengeForm';
+import challengeForm from './reducers/challengeForm';
 import joinChallengeForm from './reducers/joinChallengeForm';
 import logForm from './reducers/createLogForm';
 import thunk from 'redux-thunk';

@@ -1,9 +1,8 @@
-import React from 'react'
-import { updateChallengeForm } from '../actions/ChallengeForm'
-import { sendChallenge } from '../actions/challenges'
-import { connect } from 'react-redux'
+import React from 'react';
+import { updateChallengeForm } from '../actions/challengeForm';
+import { connect } from 'react-redux';
 
-const CreateChallenge = ({ challengeFormData, updateChallengeForm, sendChallenge, history, user}) => {
+const CreateChallenge = ({ challengeFormData, updateChallengeForm, handleSubmit, user }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -14,13 +13,11 @@ const CreateChallenge = ({ challengeFormData, updateChallengeForm, sendChallenge
         updateChallengeForm(updatedFormInfo)
     }
 
-    const handleSubmit = event => {
-        event.preventDefault()
-        sendChallenge(challengeFormData, history, user)
-    }
-
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={event => {
+            event.preventDefault()
+            handleSubmit(challengeFormData, user)
+            }}>
             <h1>Start a new Challenge</h1>
             <input placeholder="name"
                 value={challengeFormData.name}
@@ -89,4 +86,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateChallengeForm, sendChallenge } )(CreateChallenge)
+export default connect(mapStateToProps, { updateChallengeForm } )(CreateChallenge)
