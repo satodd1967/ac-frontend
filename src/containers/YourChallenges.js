@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 const YourChallenges = (props) => {
 
     const yourChallenges = props.challenges.filter(challenge => {
-        return challenge.attributes.user.id === props.user.id
+        return challenge.attributes.users.find(user => {
+           return user.id === props.user.id
+        })
     })
 
     const challenges = yourChallenges.map(challenge => {
