@@ -81,14 +81,3 @@ export const sendChallenge = (challengeData, history, user) => {
   
     }
   }
-
-//   export const quitChallenge = () => {
-//     return (dispatch) => {
-//           dispatch(clearCurrentUser())
-//           dispatch(clearChallenges())
-//           return fetch('http://localhost:3001/logout', {
-//               credentials: "include",
-//               method: "DELETE"
-//           })
-//       }
-// }

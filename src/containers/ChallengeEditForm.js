@@ -12,9 +12,6 @@ class EditChallenge extends React.Component {
         }))
     }
 
-
-    // = ({ sendChallenge, history, match, challenges }) => {
-
     handleSubmit = (challengeFormData, user) => {
         sendChallenge(challengeFormData, this.props.history, user)
     }
@@ -26,11 +23,7 @@ class EditChallenge extends React.Component {
             </div>
         )
     }
-    // return  <div>
-    //             <h1>Edit </h1>
-    //             <ChallengeForm history={history} handleSubmit={handleSubmit} />
-    //         </div>
-    // }
+
 }
 
 const mapStateToProps = state => {
