@@ -79,3 +79,29 @@ export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
   
     }
   }
+
+  export const deleteChallengeGoal = (challengeGoalId, history) => {
+    return dispatch => {
+      return fetch(`http://localhost:3001/api/challenge_goals/${challengeGoalId}`, {
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(resp => resp.json())
+        .then(response => {
+          if (response.error) {
+            alert(response.error)
+          } else {
+            dispatch(getCurrentUser(history))
+            dispatch(setChallenges())
+            history.push(`/challenges`)
+          }
+        })
+        .catch(console.log)
+  
+    }
+  
+  }
+  
