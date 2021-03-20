@@ -23,7 +23,7 @@ class App extends React.Component {
             this.props.loggedIn ?
             <Route path='/' render={(props) => <Home history={props.history}/> }/>
              :
-            <Route path='/' render={() => <Welcome/> }/>
+            <Route path='/' render={(props) => <Welcome history={props.history}/> }/>
           }
         </Switch>
       </div>
