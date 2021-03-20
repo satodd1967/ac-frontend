@@ -6,15 +6,10 @@ import { connect } from 'react-redux';
 
 class EditChallenge extends React.Component {
 
-    // static challenge = this.props ? this.props.challenges.find(challenge => {
-    //     return challenge.id === this.props.match.params.id
-    // }) : "No Challenge Id"
-
     componentDidMount(){
         this.props.setEditChallengeForm(this.props.challenges.find(challenge => {
             return challenge.id === this.props.match.params.id
         }))
-        // this.props.setEditChallengeForm(this.challenge)
     }
 
 
@@ -27,7 +22,7 @@ class EditChallenge extends React.Component {
     render() {
         return (
             <div>
-                <p>stuff</p>
+                <ChallengeForm handleSubmit={this.handleSubmit}/>
             </div>
         )
     }
