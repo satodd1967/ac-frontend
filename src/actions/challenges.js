@@ -105,7 +105,7 @@ export const updateChallenge = (challengeData, history, user, challengeId) => {
       points_met_active_calorie_goal: challengeData.pointsMetActiveCalorieGoal,
       user_id: user.id
     }
-    console.log("Hopefull Fuckness")
+    
       return fetch(`http://localhost:3001/api/challenges/${challengeId}`, {
       credentials: "include",
       method: "PATCH",
@@ -120,7 +120,6 @@ export const updateChallenge = (challengeData, history, user, challengeId) => {
           alert(response.error)
         } else {
           dispatch(setChallenges())
-          dispatch(resetChallengeForm())
           history.push(`/challenges/${response.id}`)
         }
       })
