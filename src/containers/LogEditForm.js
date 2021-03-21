@@ -1,8 +1,8 @@
 import React from 'react';
 import LogForm from '../components/LogForm';
 import DeleteButton from '../components/DeleteButton';
-import { updateLog, deleteLog } from '../actions/challenges';
-import { setEditLogForm, resetLogForm } from '../actions/challengeForm';
+import { updateLog, deleteLog } from '../actions/logs';
+import { setEditLogForm, resetLogForm } from '../actions/logForm';
 import { connect } from 'react-redux';
 
 class EditLog extends React.Component {
@@ -27,7 +27,7 @@ class EditLog extends React.Component {
     const history = this.props.history ? this.props.history : null
     return  <>
             {console.log(logId)}
-                <ChallengeForm editMode handleSubmit={this.handleSubmit}/>
+                <LogForm editMode handleSubmit={this.handleSubmit}/>
                 <DeleteButton type={"Delete Log"} deleteId={logId} history={history}/>
             </>
   }

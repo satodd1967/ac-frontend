@@ -7,6 +7,7 @@ import ChallengeShow from './ChallengeShow';
 import GoalShow from './GoalShow';
 import ChallengeCreateForm from './ChallengeCreateForm';
 import ChallengeEditForm from './ChallengeEditForm';
+import LogEditForm from './LogEditForm';
 import JoinChallenge from '../components/JoinChallengeForm'
 import LogCreateForm from './LogCreateForm';
 import { setChallenges } from '../actions/challenges';
@@ -46,6 +47,11 @@ class Home extends React.Component {
                         <Route exact path='/goals/:id' component={GoalShow}/>
                         <Route exact path='/challenges/:id/challenge_goals/new' component={JoinChallenge}/>
                         <Route exact path='/logs/new' component={LogCreateForm}/>
+                        <Route exact path='/logs/:id/edit' render={props => {
+                            const log = this.props.logs.find(log => log.id === props.match.params.id)
+                            return <LogEditForm log={log} history={props.history}/>
+                            }
+                        }/>
                     </Switch>
                     </div>
                     <div className="bottom-element-column2">
@@ -66,7 +72,8 @@ const mapStateToProps = state => {
     return {
         user: state.currentUser,
         loggedIn: !!state.currentUser,
-        challenges: state.challenges
+        challenges: state.challenges,
+        logs: state.logs
     }
   }
   

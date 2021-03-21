@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteChallenge } from "../actions/challenges";
 import { deleteChallengeGoal } from "../actions/challengeGoals";
+import { deleteLog } from '../actions/logs';
 
-const deleteButton = ({ deleteChallengeGoal, deleteChallenge, history, deleteId, type }) => {
+const deleteButton = ({ deleteChallengeGoal, deleteChallenge, deleteLog, history, deleteId, type }) => {
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -13,6 +14,9 @@ const deleteButton = ({ deleteChallengeGoal, deleteChallenge, history, deleteId,
                 break;
             case "Delete Challenge":
                 deleteChallenge(deleteId, history)
+                break;
+            case "Delete Log":
+                deleteLog(deleteId, history)
                 break;
             default:
                 history.push('/')
@@ -27,4 +31,4 @@ const deleteButton = ({ deleteChallengeGoal, deleteChallenge, history, deleteId,
     )
 }
 
-export default connect(null, { deleteChallengeGoal, deleteChallenge } )(deleteButton)
+export default connect(null, { deleteChallengeGoal, deleteChallenge, deleteLog } )(deleteButton)

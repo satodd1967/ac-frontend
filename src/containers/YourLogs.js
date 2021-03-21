@@ -1,12 +1,20 @@
 import React from 'react';
 import LogCards from '../components/LogCards'
+import LogEditButton from '../components/LogEditButton';
 import { connect } from 'react-redux';
 
 const YourLogs = (props) => {
 
     const logs = props.logs.map(log => {
-        return <li key={log.id}><LogCards key={log.id} log={log} currentUserId={props.user.id}/></li>
-        })
+        const editButton = log && log.user_id === props.user.id ? 
+            <LogEditButton logId={log.id}/> : ""
+        return <ul>
+                    <li key={log.id}><LogCards key={log.id} log={log} currentUserId={props.user.id}/></li>
+                    {editButton}
+                </ul>
+            })
+
+    
     
     return (
         <div className="your-logs">
