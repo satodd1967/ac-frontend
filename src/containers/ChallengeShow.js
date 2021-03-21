@@ -4,7 +4,6 @@ import ChallengeCard from '../components/ChallengeCard';
 import ChallengeOwner from '../components/ChallengeOwners';
 import ChallengeRanking from './ChallengeRanking';
 import LogCards from '../components/LogCards'
-import { Link } from 'react-router-dom';
 
 const ChallengeShow = (props) => {
 

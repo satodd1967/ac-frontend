@@ -142,10 +142,8 @@ export const deleteChallenge = (challengeId, history) => {
         if (response.error) {
           alert(response.error)
         } else {
-          dispatch(deleteChallengeSuccess(challengeId))
-          history.push(`/challenges`)
-          // go somewhere else --> trip show?
-          // add the new trip to the store
+          dispatch(setChallenges())
+          history.push('/challenges')
         }
       })
       .catch(console.log)

@@ -40,7 +40,7 @@ class Home extends React.Component {
                         <Route exact path='/challenges/:id' render={props => <ChallengeShow challengeId={props.match.params.id}/> }/>
                         <Route exact path='/challenges/:id/edit' render={props => {
                             const challenge = this.props.challenges.find(challenge => challenge.id === props.match.params.id)
-                            return <ChallengeEditForm challenge={challenge} {...props}/>
+                            return <ChallengeEditForm challenge={challenge} history={props.history}/>
                             }
                         }/>
                         <Route exact path='/goals/:id' component={GoalShow}/>

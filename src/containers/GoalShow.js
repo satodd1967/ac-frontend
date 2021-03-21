@@ -1,7 +1,6 @@
 import React from 'react';
 import GoalCard from '../components/GoalCard';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 const GoalShow = (props) => {
 
