@@ -30,7 +30,7 @@ const ChallengeShow = (props) => {
     const challengeRanking = challenge ? <ChallengeRanking challenge={challenge} type={"full"}/> : <p>No Challenge</p>
 
     const logs = challenge ? challenge.attributes.logs.map(log => {
-        return <li key={log.id}><LogCards key={log.id} log={log}/></li>
+        return <li key={log.id}><LogCards key={log.id} log={log} userId={props.user.id}/></li>
         }) : <p>No Challenge</p>
 
     return (

@@ -11,9 +11,13 @@ const LogCards = (props) => {
         }
     };
 
+    const logDate = props.log.id === props.userId ? 
+        <h4><Link to={`/logs/${props.log.id}`}>{props.log.log_date}</Link></h4> 
+        : <h4>{props.log.log_date}</h4>
+
     return (
         <div className="your-log-cards">
-            <h4><Link to={`/logs/${props.log.id}`}>{props.log.log_date}</Link></h4>
+            {logDate}
             <p>Worked Out: {fixBoolean(props.log.worked_out)}</p>
             <p>Tracked Food: {fixBoolean(props.log.tracked_food)}</p>
             <p>Weight: {props.log.weight}</p>
