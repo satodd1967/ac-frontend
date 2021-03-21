@@ -1,6 +1,7 @@
 import React from 'react';
 import ChallengeCards from '../components/ChallengeCards';
 import ChallengeOwners from '../components/ChallengeOwners';
+import ChallengeRanking from './ChallengeRanking';
 import { connect } from 'react-redux';
 
 const Challenges = (props) => {
@@ -12,6 +13,9 @@ const Challenges = (props) => {
         return <ul key={challenge.id}>
             <ChallengeCards challenge={challenge} currentUserCGId={currentUserChallengeGoal ? currentUserChallengeGoal.id : "null"}/>
             <li key={challenge.attributes.user.id}><ChallengeOwners key={challenge.attributes.user.id} challenge={challenge}/></li>
+            <br/>
+            <h4>Ranking</h4>
+            <ChallengeRanking challenge={challenge} type={"full"}/>
             </ul>
         })
     
