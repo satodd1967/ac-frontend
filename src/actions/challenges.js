@@ -131,7 +131,7 @@ export const updateChallenge = (challengeData, history, user, challengeId) => {
 
 export const deleteChallenge = (challengeId, history) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/v1/trips/${challengeId}`, {
+    return fetch(`http://localhost:3001/api/challenges/${challengeId}`, {
       credentials: "include",
       method: "DELETE",
       headers: {
