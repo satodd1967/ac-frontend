@@ -13,9 +13,9 @@ const ChallengeShow = (props) => {
         return challenge.id === props.challengeId
     })
 
-    const currentUserChallengeGoal = challenge.attributes.challenge_goals.find(challengeGoal => {
+    const currentUserChallengeGoal = challenge ? challenge.attributes.challenge_goals.find(challengeGoal => {
         return challengeGoal.user_id === props.user.id
-    }) 
+    }) : "null"
 
     const editButton = challenge && challenge.attributes.user_id === props.user.id ? 
         <ChallengeEditButton challengeId={challenge.id}/> : ""
@@ -30,7 +30,13 @@ const ChallengeShow = (props) => {
     const challengeRanking = challenge ? <ChallengeRanking challenge={challenge} type={"full"}/> : <p>No Challenge</p>
 
     const logs = challenge ? challenge.attributes.logs.map(log => {
-        return <li key={log.id}><LogCards key={log.id} log={log} userId={props.user.id}/></li>
+        const logUser = props.users.find(user => {
+           return user.attributes.id === log.user_id
+        })
+        return <ul key={`${logUser.attributes.username}-${log.id}`}>
+                    <li key={logUser.attributes.username}>{logUser.attributes.username}</li>
+                    <LogCards key={log.id} log={log} currentUserId={props.user.id}/>
+                </ul>
         }) : <p>No Challenge</p>
 
     return (
@@ -60,7 +66,8 @@ const ChallengeShow = (props) => {
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        challenges: state.challenges
+        challenges: state.challenges,
+        users: state.users
     }
 }
 
