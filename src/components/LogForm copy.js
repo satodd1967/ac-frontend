@@ -1,8 +1,9 @@
 import React from 'react'
 import { updateLogForm } from '../actions/createLogForm'
+import { sendLog } from '../actions/logs'
 import { connect } from 'react-redux'
 
-const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) => {
+const CreateLog = ({ logFormData, updateLogForm, sendLog, history, user}) => {
 
     const handleChange = event => {
         const target = event.target;
@@ -15,12 +16,15 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) =
         updateLogForm(updatedFormInfo)
     }
 
+    const handleSubmit = event => {
+        event.preventDefault()
+        sendLog(logFormData, history, user)
+    }
+
     return (
-        <form onSubmit={event => {
-            event.preventDefault()
-            handleSubmit(logFormData, user)
-            }}>
-            Log Date:
+        <form onSubmit={handleSubmit}>
+            <h1>Create a New Log</h1>
+            Log Date
             <input
                 value={logFormData.logDate}
                 name="logDate"
@@ -38,31 +42,27 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) =
                 name="trackedFood"
                 type="checkbox"
                 onChange={handleChange}/>
-            Weight:
              <input placeholder="weight"
                 value={logFormData.weight}
                 name="weight"
                 type="text"
                 onChange={handleChange}/>
-            Body Fat%:
             <input placeholder="body fat %"
                 value={logFormData.bodyFat}
                 name="bodyFat"
                 type="text"
                 onChange={handleChange}/>
-            Active Calories:
             <input placeholder="active calories"
                 value={logFormData.activeCalories}
                 name="activeCalories"
                 type="text"
                 onChange={handleChange}/>
-            Calories:
             <input placeholder="calories"
                 value={logFormData.calories}
                 name="calories"
                 type="text"
                 onChange={handleChange}/>
-            <input type="submit" value={ editMode ? "Update Log" : "Create Log" }/>
+            <input type="submit" value="Create Log"/>
         </form>
     )
 }
@@ -74,4 +74,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateLogForm } )(LogForm)
+export default connect(mapStateToProps, { updateLogForm, sendLog } )(CreateLog)
