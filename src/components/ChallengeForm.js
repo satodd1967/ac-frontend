@@ -2,7 +2,7 @@ import React from 'react';
 import { updateChallengeForm } from '../actions/challengeForm';
 import { connect } from 'react-redux';
 
-const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, user }) => {
+const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, user, editMode }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -84,7 +84,7 @@ const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, u
                 name="pointsMetActiveCalorieGoal"
                 type="text"
                 onChange={handleChange}/>  
-            <input type="submit" value="Create Challenge"/>
+            <input type="submit" value={ editMode ? "Update Challenge" : "Create Challenge" }/>
         </form>
     )
 }

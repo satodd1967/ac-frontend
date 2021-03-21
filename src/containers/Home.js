@@ -38,7 +38,11 @@ class Home extends React.Component {
                         <Route exact path='/challenges' component={Challenges}/>
                         <Route exact path='/challenges/new' component={ChallengeCreateForm}/>
                         <Route exact path='/challenges/:id' render={props => <ChallengeShow challengeId={props.match.params.id}/> }/>
-                        <Route exact path='/challenges/:id/edit' component={ChallengeEditForm}/>
+                        <Route exact path='/challenges/:id/edit' render={props => {
+                            const challenge = this.props.challenges.find(challenge => challenge.id === props.match.params.id)
+                            return <ChallengeEditForm challenge={challenge} {...props}/>
+                            }
+                        }/>
                         <Route exact path='/goals/:id' component={GoalShow}/>
                         <Route exact path='/challenges/:id/challenge_goals/new' component={JoinChallenge}/>
                         <Route exact path='/logs/new' component={CreateLog}/>
@@ -61,7 +65,8 @@ class Home extends React.Component {
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        loggedIn: !!state.currentUser
+        loggedIn: !!state.currentUser,
+        challenges: state.challenges
     }
   }
   

@@ -12,7 +12,6 @@ export const resetChallengeForm = () => {
 }
 
 export const setEditChallengeForm = challenge => {
-  console.log("Action Challenge", challenge)
   const formData = {
     name: challenge.attributes.name,
     description: challenge.attributes.description,
@@ -27,7 +26,6 @@ export const setEditChallengeForm = challenge => {
     pointsMetActiveCalorieGoal: challenge.attributes.points_met_active_calorie_goal,
   }
   return {
-    
     type: "SET_EDIT_CHALLENGE_FORM",
     formData
   }
