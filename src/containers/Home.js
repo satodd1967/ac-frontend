@@ -8,7 +8,7 @@ import GoalShow from './GoalShow';
 import ChallengeCreateForm from './ChallengeCreateForm';
 import ChallengeEditForm from './ChallengeEditForm';
 import JoinChallenge from '../components/JoinChallengeForm'
-import CreateLog from '../components/CreateLogForm';
+import LogCreateForm from './LogCreateForm';
 import { setChallenges } from '../actions/challenges';
 import { setLogs } from '../actions/logs';
 import { setUsers } from '../actions/users';
@@ -45,7 +45,7 @@ class Home extends React.Component {
                         }/>
                         <Route exact path='/goals/:id' component={GoalShow}/>
                         <Route exact path='/challenges/:id/challenge_goals/new' component={JoinChallenge}/>
-                        <Route exact path='/logs/new' component={CreateLog}/>
+                        <Route exact path='/logs/new' component={LogCreateForm}/>
                     </Switch>
                     </div>
                     <div className="bottom-element-column2">
