@@ -72,6 +72,7 @@ export const login = (credentials, history) => {
               } else {
                   console.log("signup", response.data.attributes)
                   dispatch(getCurrentUser(history))
+                  dispatch(setUsers())
                   dispatch(resetSignupForm())
                   history.push('/')
               }
