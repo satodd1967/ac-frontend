@@ -14,6 +14,8 @@ const logForm = (state=initialState, action) => {
             return action.formData
         case "RESET_LOG_FORM":
             return initialState
+        case "SET_EDIT_LOG_FORM":
+            return action.formData
         default:
             return state
     }

@@ -7,7 +7,7 @@ import logs from './reducers/logs';
 import users from './reducers/users';
 import challengeForm from './reducers/challengeForm';
 import joinChallengeForm from './reducers/joinChallengeForm';
-import logForm from './reducers/createLogForm';
+import logForm from './reducers/logForm';
 import thunk from 'redux-thunk';
 
 const reducer = combineReducers({

@@ -1,4 +1,4 @@
-import { resetLogForm } from './createLogForm';
+import { resetLogForm } from './logForm';
 import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
 

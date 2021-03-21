@@ -1,5 +1,5 @@
 import React from 'react'
-import { updateLogForm } from '../actions/createLogForm'
+import { updateLogForm } from '../actions/logForm'
 import { connect } from 'react-redux'
 
 const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) => {
