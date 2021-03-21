@@ -7,11 +7,7 @@ const deleteButton = ({ deleteChallengeGoal, deleteChallenge, history, deleteId,
 
     const handleSubmit = event => {
         event.preventDefault()
-        const exp = type
-        console.log("EXP or TYPE", exp)
-        console.log("DeleteId", deleteId)
-        console.log("History", history)
-        switch (exp) {
+        switch (type) {
             case "CHALLENGE_GOAL":
                 deleteChallengeGoal(deleteId, history)
                 break;

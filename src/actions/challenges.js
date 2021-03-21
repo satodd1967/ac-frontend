@@ -143,7 +143,7 @@ export const deleteChallenge = (challengeId, history) => {
           alert(response.error)
         } else {
           dispatch(setChallenges())
-          history.push('/challenges')
+          history.push('/')
         }
       })
       .catch(console.log)
