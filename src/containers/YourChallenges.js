@@ -17,7 +17,10 @@ const YourChallenges = (props) => {
     const challenges = yourChallenges.map(challenge => {
         const currentUserChallengeGoal = challenge.attributes.challenge_goals.find(challengeGoal => {
             return challengeGoal.user_id === props.user.id
-        }) 
+        })  
+        const editButton = challenge && challenge.attributes.user_id === props.user.id ? 
+        <ChallengeEditButton challengeId={challenge.id}/> : ""
+
         return challenge ? <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
             <li>
             <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/>
@@ -26,7 +29,7 @@ const YourChallenges = (props) => {
             <DeleteButton type={"Quit Challenge"} deleteId={currentUserChallengeGoal.id} history={props.history}/>
             </li>
             <li>
-            <ChallengeEditButton challengeId={challenge.id}/>
+            {editButton}
             </li>
             <br/>
             <h4>Ranking</h4>
