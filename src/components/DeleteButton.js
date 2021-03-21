@@ -8,10 +8,10 @@ const deleteButton = ({ deleteChallengeGoal, deleteChallenge, history, deleteId,
     const handleSubmit = event => {
         event.preventDefault()
         switch (type) {
-            case "CHALLENGE_GOAL":
+            case "Quit Challenge":
                 deleteChallengeGoal(deleteId, history)
                 break;
-            case "CHALLENGE":
+            case "Delete Challenge":
                 deleteChallenge(deleteId, history)
                 break;
             default:
@@ -22,7 +22,7 @@ const deleteButton = ({ deleteChallengeGoal, deleteChallenge, history, deleteId,
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="submit" value="Quit Challenge"/>
+            <input type="submit" value={type}/>
         </form>
     )
 }

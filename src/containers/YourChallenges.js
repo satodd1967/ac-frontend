@@ -23,7 +23,7 @@ const YourChallenges = (props) => {
             <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/>
             </li>
             <li>
-            <DeleteButton type={"CHALLENGE_GOAL"} deleteId={currentUserChallengeGoal.id} history={props.history}/>
+            <DeleteButton type={"Quit Challenge"} deleteId={currentUserChallengeGoal.id} history={props.history}/>
             </li>
             <li>
             <ChallengeEditButton challengeId={challenge.id}/>

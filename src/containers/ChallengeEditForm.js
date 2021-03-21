@@ -28,9 +28,7 @@ class EditChallenge extends React.Component {
     return  <>
             {console.log(challengeId)}
                 <ChallengeForm editMode handleSubmit={this.handleSubmit} />
-                <br/>
-                <DeleteButton type={"CHALLENGE"} deleteId={challengeId} history={history}/>
-                <button onClick={()=>this.props.deleteChallenge(challengeId, this.props.history)}>Delete Challenge</button>
+                <DeleteButton type={"Delete Challenge"} deleteId={challengeId} history={history}/>
             </>
   }
 };
