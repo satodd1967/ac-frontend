@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) => {
 
     const handleChange = event => {
-        const target = event.target;
+        const target = event.currentTarget;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
         const updatedFormInfo = {
@@ -28,17 +28,17 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) =
                 onChange={handleChange}/>
             Worked Out?
             <input id="workedOut"
-                value={logFormData.workedOut}
+                // value={logFormData.workedOut}
                 name="workedOut"
                 type="checkbox"
-                checked={logFormData.workedOut === true ? "checked" : ""}
+                checked={logFormData.workedOut}
                 onChange={handleChange}/>
             Tracked Food?
             <input id="trackedFood"
-                value={logFormData.trackedFood}
+                // value={logFormData.trackedFood}
                 name="trackedFood"
                 type="checkbox"
-                checked={logFormData.trackedFood === true ? "checked" : ""}
+                checked={logFormData.trackedFood}
                 onChange={handleChange}/>
             Weight:
              <input placeholder="weight"

@@ -1,7 +1,7 @@
 const initialState = {
     logDate: "",
-    workedOut: false,
-    trackedFood: false,
+    workedOut: "",
+    trackedFood: "",
     weight: "",
     bodyFat: "",
     activeCalories: "",
@@ -15,7 +15,6 @@ const logForm = (state=initialState, action) => {
         case "RESET_LOG_FORM":
             return initialState
         case "SET_EDIT_LOG_FORM":
-            console.log("BooleanCheck", action.formData)
             return action.formData
         default:
             return state

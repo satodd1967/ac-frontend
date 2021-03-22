@@ -19,7 +19,7 @@ export const setEditLogForm = log => {
     weight: log.attributes.weight,
     bodyFat: log.attributes.body_fat,
     activeCalories: log.attributes.active_calories,
-    calories: log.calories
+    calories: log.attributes.calories
   }
   return {
     type: "SET_EDIT_LOG_FORM",

@@ -26,7 +26,6 @@ class EditChallenge extends React.Component {
     const challengeId = this.props.challenge ? this.props.challenge.id : null
     const history = this.props.history ? this.props.history : null
     return  <>
-            {console.log(challengeId)}
                 <ChallengeForm editMode handleSubmit={this.handleSubmit}/>
                 <DeleteButton type={"Delete Challenge"} deleteId={challengeId} history={history}/>
             </>
