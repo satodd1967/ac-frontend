@@ -96,7 +96,7 @@ export const sendLog = (logData, history, user) => {
       }
       return fetch(`http://localhost:3001/api/logs/${logId}`, {
         credentials: "include",
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json"
         },
