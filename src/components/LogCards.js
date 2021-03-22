@@ -5,9 +5,9 @@ const LogCards = (props) => {
 
     const fixBoolean = input => {
         if (input) {
-            return input.toString()
+            return "Yes" 
         } else {
-            return null
+            return "No"
         }
     };
 
