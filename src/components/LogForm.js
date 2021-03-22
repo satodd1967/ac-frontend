@@ -31,12 +31,14 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) =
                 value={logFormData.workedOut}
                 name="workedOut"
                 type="checkbox"
+                checked={logFormData.workedOut === true ? "checked" : ""}
                 onChange={handleChange}/>
             Tracked Food?
             <input id="trackedFood"
                 value={logFormData.trackedFood}
                 name="trackedFood"
                 type="checkbox"
+                checked={logFormData.trackedFood === true ? "checked" : ""}
                 onChange={handleChange}/>
             Weight:
              <input placeholder="weight"
