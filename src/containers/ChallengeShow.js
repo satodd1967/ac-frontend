@@ -67,7 +67,8 @@ const mapStateToProps = state => {
     return {
         user: state.currentUser,
         challenges: state.challenges,
-        users: state.users
+        users: state.users,
+        logs: state.logs
     }
 }
 

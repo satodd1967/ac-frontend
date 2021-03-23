@@ -8,8 +8,12 @@ const YourLogs = (props) => {
     const logs = props.logs.map(log => {
         const editButton = log && log.user_id === props.user.id ? 
             <LogEditButton logId={log.id}/> : ""
+        const challengeScores = log.log_scores.map(ls => {
+            return <p>{ls.challenge} - {ls.total_points}</p>
+        })
         return <ul key={`${log.user_id}-${log.id}`}>
                     <li key={log.id}><LogCards key={log.id} log={log} currentUserId={props.user.id}/></li>
+                    {challengeScores}
                     {editButton}
                 </ul>
             })
