@@ -4,7 +4,7 @@ import { deleteChallenge } from "../actions/challenges";
 import { deleteChallengeGoal } from "../actions/challengeGoals";
 import { deleteLog } from '../actions/logs';
 
-const deleteButton = ({ deleteChallengeGoal, deleteChallenge, deleteLog, history, deleteId, type }) => {
+const DeleteButton = ({ deleteChallengeGoal, deleteChallenge, deleteLog, history, deleteId, type }) => {
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -22,7 +22,7 @@ const deleteButton = ({ deleteChallengeGoal, deleteChallenge, deleteLog, history
                 history.push('/')
                 break;
         }
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -31,4 +31,4 @@ const deleteButton = ({ deleteChallengeGoal, deleteChallenge, deleteLog, history
     )
 }
 
-export default connect(null, { deleteChallengeGoal, deleteChallenge, deleteLog } )(deleteButton)
+export default connect(null, { deleteChallengeGoal, deleteChallenge, deleteLog } )(DeleteButton)
