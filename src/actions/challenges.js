@@ -78,8 +78,8 @@ export const sendChallenge = (challengeData, history, user, challengeId) => {
         .then(resp => resp.json())
         .then(response => {
           if (response.error) {
-            let userErrorInfo = response.error
-            dispatch(setErrors(userErrorInfo))
+            let challengeErrorInfo = response.error
+            dispatch(setErrors(challengeErrorInfo))
           } else {
             dispatch(setChallenges())
             dispatch(resetChallengeForm())
@@ -119,7 +119,8 @@ export const updateChallenge = (challengeData, history, user, challengeId) => {
       .then(resp => resp.json())
       .then(response => {
         if (response.error) {
-          alert(response.error)
+          let challengeErrorInfo = response.error
+          dispatch(setErrors(challengeErrorInfo))
         } else {
           dispatch(setChallenges())
           history.push(`/challenges/${response.id}`)
