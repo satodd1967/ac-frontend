@@ -1,6 +1,7 @@
 import { resetJoinChallengeForm } from './joinChallengeForm';
 import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
+import { setErrors } from './errors';
 
 //synchronous actions
 // export const getChallengeGoals = challengeGoals => {
@@ -66,7 +67,8 @@ export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
         .then(resp => resp.json())
         .then(response => {
           if (response.error) {
-            alert(response.error)
+            let challengeErrorInfo = response.error
+            dispatch(setErrors(challengeErrorInfo))
           } else {
             console.log("New ChallengeGoal Post", response)
             dispatch(getCurrentUser(history))
