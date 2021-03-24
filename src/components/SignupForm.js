@@ -1,9 +1,11 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { updateSignupForm } from "../actions/signupForm"
-import { signup } from "../actions/currentUser"
+import React from 'react';
+import ErrorCard from './ErrorCard';
+import { connect } from 'react-redux';
+import { updateSignupForm } from "../actions/signupForm";
+import { signup } from "../actions/currentUser";
+import { clearErrors } from '../actions/errors';
 
-const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
+const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, clearErrors }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -11,6 +13,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
             ...signupFormData,
             [name]: value
         }
+        clearErrors()
         updateSignupForm(updatedFormInfo)
     }
 
@@ -18,6 +21,10 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
         event.preventDefault()
         signup(signupFormData, history)
     }
+
+    const formErrors = errors.map(error => {
+        return <ErrorCard key={error} error={error}/>
+    }) 
 
     return (
         <form onSubmit={handleSubmit}>
@@ -37,14 +44,19 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history }) => {
                 type="text"
                 onChange={handleChange}/>
             <input type="submit" value="Signup"/>
+            <br/>
+            <ul>
+                {formErrors}
+            </ul>
         </form>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        signupFormData: state.signupForm
+        signupFormData: state.signupForm,
+        errors: state.errors
     }
 }
 
-export default connect(mapStateToProps, { updateSignupForm, signup } )(Signup)
+export default connect(mapStateToProps, { updateSignupForm, signup, clearErrors } )(Signup)

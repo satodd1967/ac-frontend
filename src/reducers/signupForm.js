@@ -1,7 +1,7 @@
 const initialState = {
     email: "",
     username: "",
-    password: ""
+    password: "",
 }
 
 const signupForm = (state=initialState, action) => {

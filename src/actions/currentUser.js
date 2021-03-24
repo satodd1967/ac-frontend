@@ -4,6 +4,7 @@ import { clearChallenges } from './challenges';
 import { clearLogs } from './logs';
 import { clearUsers } from './users';
 import { setUsers } from './users';
+import { setErrors } from './errors';
 
 //synchronous action creators
 export const setCurrentUser = user => {
@@ -47,7 +48,6 @@ export const login = (credentials, history) => {
   }
 
   export const signup = (credentials, history) => {
-      console.log(credentials.email)
       return dispatch => {
           const userInfo = {
               user: {
@@ -68,9 +68,9 @@ export const login = (credentials, history) => {
           .then(resp => resp.json())
           .then(response => {
               if (response.error) {
-                  alert(response.error)
+                  let userErrorInfo = response.error
+                  dispatch(setErrors(userErrorInfo))
               } else {
-                  console.log("signup", response.data.attributes)
                   dispatch(getCurrentUser(history))
                   dispatch(setUsers())
                   dispatch(resetSignupForm())
@@ -106,7 +106,6 @@ export const login = (credentials, history) => {
         .then(resp => resp.json())
         .then(response => {
             if (response.error) {
-                console.log("No User")
             } else {
                 dispatch(setCurrentUser(response.data.attributes))
                 history.push('/')
