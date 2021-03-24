@@ -1,10 +1,12 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { updateLoginForm } from "../actions/loginForm.js"
-import { login } from "../actions/currentUser.js"
-import { Link } from 'react-router-dom'
+import React from 'react';
+import ErrorCard from './ErrorCard';
+import { connect } from 'react-redux';
+import { updateLoginForm } from "../actions/loginForm.js";
+import { login } from "../actions/currentUser.js";
+import { Link } from 'react-router-dom';
+import { clearErrors } from '../actions/errors';
 
-const Login = ({ loginFormData, updateLoginForm, login, history }) => {
+const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearErrors }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -12,6 +14,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
             ...loginFormData,
             [name]: value
         }
+        clearErrors()
         updateLoginForm(updatedFormInfo)
     }
 
@@ -19,6 +22,10 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
         event.preventDefault()
         login(loginFormData, history)
     }
+
+    const formErrors = errors.map(error => {
+        return <ErrorCard key={error} error={error}/>
+    })
 
     return (
         <div className="firstpage">
@@ -40,6 +47,9 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
                 <input type="submit" value="Log In"/>
                 <span><br/><br/></span>
                 <Link to="/signup">Sign Up Here!</Link>
+                <br/>
+                <br/>
+                {formErrors}
             </form>
         </div>
     )
@@ -47,8 +57,9 @@ const Login = ({ loginFormData, updateLoginForm, login, history }) => {
 
 const mapStateToProps = state => {
     return {
-        loginFormData: state.loginForm
+        loginFormData: state.loginForm,
+        errors: state.errors
     }
 }
 
-export default connect(mapStateToProps, { updateLoginForm, login } )(Login)
+export default connect(mapStateToProps, { updateLoginForm, login, clearErrors } )(Login)

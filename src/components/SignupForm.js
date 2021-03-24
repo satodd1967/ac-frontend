@@ -23,7 +23,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, cle
     }
 
     const formErrors = errors.map(error => {
-        return <ErrorCard key={error} error={error}/>
+        return <li><ErrorCard key={error} error={error}/></li>
     }) 
 
     return (
@@ -44,6 +44,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, cle
                 type="text"
                 onChange={handleChange}/>
             <input type="submit" value="Signup"/>
+            <br/>
             <br/>
             <ul>
                 {formErrors}

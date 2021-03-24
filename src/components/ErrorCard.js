@@ -4,7 +4,7 @@ const ErrorCard = (props) => {
 
     return (
         <div className="error-card">
-            <li>{props.error}</li>
+            {props.error}
             <br/>
         </div>
     )

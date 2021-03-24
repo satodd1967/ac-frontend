@@ -34,7 +34,8 @@ export const login = (credentials, history) => {
         .then(resp => resp.json())
         .then(response => {
             if (response.error) {
-                alert(response.error)
+                let userErrorInfo = response.error
+                dispatch(setErrors(userErrorInfo))
             } else {
                 console.log("login", response.data.attributes)
                 dispatch(getCurrentUser(history))
