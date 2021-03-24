@@ -1,4 +1,5 @@
 import { resetChallengeForm } from './challengeForm';
+import { setErrors } from './errors';
 
 //synchronous actions
 export const getChallenges = challenges => {
@@ -77,7 +78,8 @@ export const sendChallenge = (challengeData, history, user, challengeId) => {
         .then(resp => resp.json())
         .then(response => {
           if (response.error) {
-            alert(response.error)
+            let userErrorInfo = response.error
+            dispatch(setErrors(userErrorInfo))
           } else {
             dispatch(setChallenges())
             dispatch(resetChallengeForm())

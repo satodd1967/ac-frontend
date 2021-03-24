@@ -37,7 +37,6 @@ export const login = (credentials, history) => {
                 let userErrorInfo = response.error
                 dispatch(setErrors(userErrorInfo))
             } else {
-                console.log("login", response.data.attributes)
                 dispatch(getCurrentUser(history))
                 dispatch(setUsers())
                 dispatch(resetLoginForm())
