@@ -1,8 +1,10 @@
 import React from 'react';
+import ErrorCard from './ErrorCard';
 import { updateChallengeForm } from '../actions/challengeForm';
 import { connect } from 'react-redux';
+import { clearErrors } from '../actions/errors';
 
-const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, user, editMode }) => {
+const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, user, editMode, errors, clearErrors }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -10,14 +12,22 @@ const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, u
             ...challengeFormData,
             [name]: value
         }
+        clearErrors()
         updateChallengeForm(updatedFormInfo)
     }
+
+    const formErrors = errors.map(error => {
+        return <li><ErrorCard key={error} error={error}/></li>
+    }) 
 
     return (
         <form onSubmit={event => {
             event.preventDefault()
             handleSubmit(challengeFormData, user)
             }}>
+            <ul>
+                {formErrors}
+            </ul>
             Name:
             <input placeholder="name"
                 value={challengeFormData.name}
@@ -92,8 +102,9 @@ const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, u
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        challengeFormData: state.challengeForm
+        challengeFormData: state.challengeForm,
+        errors: state.errors
     }
 }
 
-export default connect(mapStateToProps, { updateChallengeForm } )(ChallengeForm)
+export default connect(mapStateToProps, { updateChallengeForm, clearErrors } )(ChallengeForm)
