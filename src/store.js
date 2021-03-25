@@ -6,7 +6,7 @@ import challenges from './reducers/challenges';
 import logs from './reducers/logs';
 import users from './reducers/users';
 import challengeForm from './reducers/challengeForm';
-import joinChallengeForm from './reducers/joinChallengeForm';
+import challengeGoalForm from './reducers/challengeGoalForm';
 import logForm from './reducers/logForm';
 import errors from './reducers/errors';
 import thunk from 'redux-thunk';
@@ -17,7 +17,7 @@ const reducer = combineReducers({
     signupForm,
     challenges,
     challengeForm,
-    joinChallengeForm,
+    challengeGoalForm,
     logs,
     logForm,
     users,

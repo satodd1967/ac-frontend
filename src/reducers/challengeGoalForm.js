@@ -4,15 +4,15 @@ const initialState = {
     startCalorieGoal: ""
 }
 
-const joinChallengeForm = (state=initialState, action) => {
+const challengeGoalForm = (state=initialState, action) => {
     switch (action.type) {
-        case "UPDATE_JOIN_CHALLENGE_FORM":
+        case "UPDATE_CHALLENGE_GOAL_FORM":
             return action.formData
-        case "RESET_JOIN_CHALLENGE_FORM":
+        case "RESET_CHALLENGE_GOAL_FORM":
             return initialState
         default:
             return state
     }
 }
 
-export default joinChallengeForm
+export default challengeGoalForm

@@ -1,4 +1,4 @@
-import { resetJoinChallengeForm } from './joinChallengeForm';
+import { resetChallengeGoalForm } from './challengeGoalForm';
 import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
 import { setErrors } from './errors';
@@ -73,7 +73,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
             console.log("New ChallengeGoal Post", response)
             dispatch(getCurrentUser(history))
             dispatch(setChallenges())
-            dispatch(resetJoinChallengeForm())
+            dispatch(resetChallengeGoalForm())
           }
         })
         .catch(console.log)

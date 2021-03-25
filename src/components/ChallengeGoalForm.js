@@ -1,25 +1,20 @@
 import React from 'react';
 import ErrorCard from './ErrorCard';
 import { connect } from 'react-redux';
-import { updateJoinChallengeForm } from "../actions/joinChallengeForm";
+import { updateChallengeGoalForm } from "../actions/challengeGoalForm";
 import { sendChallengeGoal } from "../actions/challengeGoals";
 import { clearErrors } from '../actions/errors';
 
-const JoinChallenge = ({ joinChallengeFormData, updateJoinChallengeForm, sendChallengeGoal, history, match, user, lastChallenge, errors, clearErrors }) => {
+const CreateChallengeGoal = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, lastChallenge, errors, clearErrors }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
         const updatedFormInfo = {
-            ...joinChallengeFormData,
+            ...challengeGoalFormData,
             [name]: value
         }
         clearErrors()
-        updateJoinChallengeForm(updatedFormInfo)
-    }
-
-    const handleSubmit = event => {
-        event.preventDefault()
-        sendChallengeGoal(joinChallengeFormData, history, user, match)
+        updateChallengeGoalForm(updatedFormInfo)
     }
 
     const fixChallengeName = input => {
@@ -35,24 +30,27 @@ const JoinChallenge = ({ joinChallengeFormData, updateJoinChallengeForm, sendCha
     }) 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={event => {
+            event.preventDefault()
+            handleSubmit(challengeGoalFormData, user)
+            }}>
             <h2>Join This Challenge</h2>
             <ul>
                 {formErrors}
             </ul>
             <h3>{user.username} Setup Your Challenge Goals for {fixChallengeName(lastChallenge)} </h3>
             <input placeholder="start body fat"
-                value={joinChallengeFormData.startBodyFat}
+                value={challengeGoalFormData.startBodyFat}
                 name="startBodyFat"
                 type="text"
                 onChange={handleChange}/>
             <input placeholder="start calorie goal"
-                value={joinChallengeFormData.startCalorieGoal}
+                value={challengeGoalFormData.startCalorieGoal}
                 name="startCalorieGoal"
                 type="text"
                 onChange={handleChange}/>
             <input placeholder="start weight"
-                value={joinChallengeFormData.startWeight}
+                value={challengeGoalFormData.startWeight}
                 name="startWeight"
                 type="text"
                 onChange={handleChange}/>
@@ -65,10 +63,10 @@ const JoinChallenge = ({ joinChallengeFormData, updateJoinChallengeForm, sendCha
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        joinChallengeFormData: state.joinChallengeForm,
+        challengeGoalFormData: state.challengeGoalForm,
         lastChallenge: state.challenges[state.challenges.length -1],
         errors: state.errors
     }
 }
 
-export default connect(mapStateToProps, { updateJoinChallengeForm, sendChallengeGoal, clearErrors } )(JoinChallenge)
+export default connect(mapStateToProps, { updateChallengeGoalForm, sendChallengeGoal, clearErrors } )(CreateChallengeGoal)
