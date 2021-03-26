@@ -1,7 +1,6 @@
 import React from 'react';
 import ChallengeGoalForm from '../components/ChallengeGoalForm';
-import DeleteButton from '../components/DeleteButton';
-import { updateChallengeGoal, deleteChallengeGoal } from '../actions/challengeGoals';
+import { updateChallengeGoal } from '../actions/challengeGoals';
 import { setEditChallengeGoalForm, resetChallengeGoalForm } from '../actions/challengeGoalForm';
 import { connect } from 'react-redux';
 
@@ -24,12 +23,10 @@ class EditChallengeGoal extends React.Component {
 
   render() {
     const challengeId = this.props.challengeGoal ? this.props.challengeGoal.challenge_id : null
-    const challengeGoalId = this.props.challengeGoal ? this.props.challengeGoal.id : null
-    const history = this.props.history ? this.props.history : null
     return  <>
                 <ChallengeGoalForm editMode challengeId={challengeId} handleSubmit={this.handleSubmit}/>
             </>
   }
 };
 
-export default connect(null, { updateChallengeGoal, setEditChallengeGoalForm, resetChallengeGoalForm, deleteChallengeGoal })(EditChallengeGoal);
+export default connect(null, { updateChallengeGoal, setEditChallengeGoalForm, resetChallengeGoalForm })(EditChallengeGoal);
