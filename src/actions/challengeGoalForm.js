@@ -10,3 +10,15 @@ export const updateChallengeGoalForm = formData => {
       type: "RESET_CHALLNGE_GOAL_FORM"
     }
   }
+
+  export const setEditChallengeGoalForm = challengeGoal => {
+    const formData = {
+      startWeight: challengeGoal.attributes.start_weight,
+      startBodyFat: challengeGoal.attributes.start_body_fat,
+      startCalorieGoal: challengeGoal.attributes.start_calorie_goal,
+    }
+    return {
+      type: "SET_EDIT_CHALLENGE_GOAL_FORM",
+      formData
+    }
+  }

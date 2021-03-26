@@ -8,7 +8,8 @@ import GoalShow from './GoalShow';
 import ChallengeCreateForm from './ChallengeCreateForm';
 import ChallengeEditForm from './ChallengeEditForm';
 import LogEditForm from './LogEditForm';
-import ChallengeGoalCreateForm from './ChallengeGoalCreateForm'
+import ChallengeGoalCreateForm from './ChallengeGoalCreateForm';
+import ChallengeGoalEditForm from './ChallengeGoalEditForm';
 import LogCreateForm from './LogCreateForm';
 import { setChallenges } from '../actions/challenges';
 import { setLogs } from '../actions/logs';
@@ -46,6 +47,11 @@ class Home extends React.Component {
                         }/>
                         <Route exact path='/goals/:id' component={GoalShow}/>
                         <Route exact path='/challenges/:id/challenge_goals/new' component={ChallengeGoalCreateForm}/>
+                        <Route exact path='/challenge_goals/:id/edit' render={props => {
+                            const challengeGoal = this.props.user.challenge_goals.find(challengeGoal => challengeGoal.id === props.match.params.id)
+                            return <ChallengeGoalEditForm challengeGoal={challengeGoal} history={props.history}/>
+                            }
+                        }/>
                         <Route exact path='/logs/new' component={LogCreateForm}/>
                         <Route exact path='/logs/:id/edit' render={props => {
                             const log = this.props.logs.find(log => log.id === props.match.params.id)

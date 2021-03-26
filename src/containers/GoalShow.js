@@ -1,5 +1,6 @@
 import React from 'react';
 import GoalCard from '../components/GoalCard';
+import GoalsEditButton from '../components/GoalsEditButton';
 import { connect } from 'react-redux';
 
 const GoalShow = (props) => {
@@ -16,6 +17,14 @@ const GoalShow = (props) => {
          }
     })
 
+    const editButton = props.user.challenge_goals.map(challengeGoal => {
+        if (challengeGoal.id === props.location.challengeGoalId) {
+            return <GoalsEditButton challengeGoalId={challengeGoal.id}/>
+        } else {
+            return ""
+        }
+    })
+
     return (
         <div className="goal-show">
             <div className="goal-show-header">
@@ -23,6 +32,7 @@ const GoalShow = (props) => {
                 <h4>Start Date: {challenge ? challenge.attributes.start_date : `No Goal`} End Date: {challenge ? challenge.attributes.end_date : `No Goal`} </h4>
                 <h3>Duration {challenge ? `${challenge.attributes.duration} weeks` : `No Goal`}</h3>
                 {challengeGoals}
+                {editButton}
             </div>
         </div>
     )

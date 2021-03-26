@@ -50,7 +50,7 @@ export const setChallenges = () => {
     }
 }
 
-export const sendChallenge = (challengeData, history, user, challengeId) => {
+export const sendChallenge = (challengeData, history, user) => {
     return dispatch => {
       const newChallengeData = {
         name: challengeData.name,

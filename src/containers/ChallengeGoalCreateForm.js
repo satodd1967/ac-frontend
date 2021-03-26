@@ -5,8 +5,10 @@ import { connect } from 'react-redux'
 
 const CreateChallengeGoal = ({ sendChallengeGoal, history, match }) => {
 
+    const challengeId = match.params.id
+
     const handleSubmit = (challengeGoalFormData, user) => {
-        sendChallengeGoal(challengeGoalFormData, history, user, match)
+        sendChallengeGoal(challengeGoalFormData, history, user, challengeId)
     }
     return  <div>
                 <h1>Start a new Challenge</h1>

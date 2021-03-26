@@ -47,14 +47,14 @@ import { setErrors } from './errors';
 //     }
 // }
 
-export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
+export const sendChallengeGoal = (challengeGoalData, history, user, challengeId) => {
     return dispatch => {
       const newChallengeGoalData = {
         start_weight: challengeGoalData.startWeight,
         start_body_fat: challengeGoalData.startBodyFat,
         start_calorie_goal: challengeGoalData.startCalorieGoal,
         user_id: user.id,
-        challenge_id: match.params.id
+        challenge_id: challengeId
       }
       return fetch("http://localhost:3001/api/challenge_goals", {
         credentials: "include",
@@ -74,6 +74,41 @@ export const sendChallengeGoal = (challengeGoalData, history, user, match) => {
             dispatch(getCurrentUser(history))
             dispatch(setChallenges())
             dispatch(resetChallengeGoalForm())
+          }
+        })
+        .catch(console.log)
+  
+    }
+  }
+
+  export const updateChallengeGoal = (challengeGoalData, history, user, challengeId, challengeGoalId) => {
+    return dispatch => {
+      const updateChallengeGoalData = {
+        start_weight: challengeGoalData.startWeight,
+        start_body_fat: challengeGoalData.startBodyFat,
+        start_calorie_goal: challengeGoalData.startCalorieGoal,
+        user_id: user.id,
+        challenge_id: challengeId
+      }
+      return fetch(`http://localhost:3001/api/challenge_goals/${challengeGoalId}`, {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updateChallengeGoalData)
+      })
+        .then(resp => resp.json())
+        .then(response => {
+          if (response.error) {
+            let challengeErrorInfo = response.error
+            dispatch(setErrors(challengeErrorInfo))
+          } else {
+            console.log("Update ChallengeGoal Post", response)
+            dispatch(getCurrentUser(history))
+            dispatch(setChallenges())
+            dispatch(resetChallengeGoalForm())
+            history.push(`/challenge_goals/${response.id}`)
           }
         })
         .catch(console.log)

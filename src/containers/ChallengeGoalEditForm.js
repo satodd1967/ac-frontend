@@ -1,35 +1,35 @@
 import React from 'react';
-import ChallengeForm from '../components/ChallengeForm';
+import ChallengeGoalForm from '../components/ChallengeGoalForm';
 import DeleteButton from '../components/DeleteButton';
-import { updateChallenge, deleteChallenge } from '../actions/challenges';
-import { setEditChallengeForm, resetChallengeForm } from '../actions/challengeForm';
+import { updateChallengeGoal, deleteChallengeGoal } from '../actions/challengeGoals';
+import { setEditChallengeGoalForm, resetChallengeGoalForm } from '../actions/challengeGoalForm';
 import { connect } from 'react-redux';
 
-class EditChallenge extends React.Component {
+class EditChallengeGoal extends React.Component {
     componentDidMount(){
-        this.props.challenge && this.props.setEditChallengeForm(this.props.challenge)
+        this.props.challengeGoal && this.props.setEditChallengeGoalForm(this.props.challengeGoal)
     }
 
     componentDidUpdate(prevProps) {
-        this.props.challenge && !prevProps.challenge && this.props.setEditChallengeForm(this.props.challenge)
+        this.props.challengeGoal && !prevProps.challengeGoal && this.props.setEditChallengeGoalForm(this.props.challengeGoal)
     }
 
     componentWillUnmount() {
-        this.props.resetChallengeForm()
+        this.props.resetChallengeGoalForm()
     }
 
-    handleSubmit = (challengeFormData, user) => {
-        this.props.updateChallenge(challengeFormData, this.props.history, user, this.props.challenge.id)
+    handleSubmit = (challengeGoalFormData, user) => {
+        this.props.updateChallengeGoal(challengeGoalFormData, this.props.history, user, this.props.challengeGoal.id)
     }
 
   render() {
-    const challengeId = this.props.challenge ? this.props.challenge.id : null
+    const challengeGoalId = this.props.challengeGoal ? this.props.challengeGoal.id : null
     const history = this.props.history ? this.props.history : null
     return  <>
-                <ChallengeForm editMode handleSubmit={this.handleSubmit}/>
-                <DeleteButton type={"Delete Challenge"} deleteId={challengeId} history={history}/>
+                <ChallengeGoalForm editMode handleSubmit={this.handleSubmit}/>
+                <DeleteButton type={"Delete ChallengeGoal"} deleteId={challengeGoalId} history={history}/>
             </>
   }
 };
 
-export default connect(null, { updateChallenge, setEditChallengeForm, resetChallengeForm, deleteChallenge })(EditChallenge);
+export default connect(null, { updateChallengeGoal, setEditChallengeGoalForm, resetChallengeGoalForm, deleteChallengeGoal })(EditChallengeGoal);
