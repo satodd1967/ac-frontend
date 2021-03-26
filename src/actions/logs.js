@@ -1,6 +1,7 @@
 import { resetLogForm } from './logForm';
 import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
+import { setErrors } from './errors';
 
 //synchronous actions
 export const getLogs = logs => {
@@ -36,7 +37,8 @@ export const setLogs = () => {
         .then(resp => resp.json())
         .then(response => {
             if (response.error) {
-                alert(response.error)
+              let logErrorInfo = response.error
+              dispatch(setErrors(logErrorInfo))
             } else {
                 dispatch(getLogs(response.data))
             }
@@ -68,7 +70,8 @@ export const sendLog = (logData, history, user) => {
         .then(resp => resp.json())
         .then(response => {
           if (response.error) {
-            alert(response.error)
+            let logErrorInfo = response.error
+            dispatch(setErrors(logErrorInfo))
           } else {
             console.log("New Log Post", response)
             dispatch(setLogs())
@@ -105,7 +108,8 @@ export const sendLog = (logData, history, user) => {
         .then(resp => resp.json())
         .then(response => {
           if (response.error) {
-            alert(response.error)
+            let logErrorInfo = response.error
+            dispatch(setErrors(logErrorInfo))
           } else {
             console.log("New Log Post", response)
             dispatch(setLogs())
