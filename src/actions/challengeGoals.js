@@ -81,18 +81,18 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
     }
   }
 
-  export const updateChallengeGoal = (challengeGoalData, history, user, challengeId, challengeGoalId) => {
+  export const updateChallengeGoal = (challengeGoalData, history, user, challengeGoalId) => {
     return dispatch => {
       const updateChallengeGoalData = {
         start_weight: challengeGoalData.startWeight,
         start_body_fat: challengeGoalData.startBodyFat,
         start_calorie_goal: challengeGoalData.startCalorieGoal,
         user_id: user.id,
-        challenge_id: challengeId
+        challenge_id: challengeGoalData.challenge_id
       }
       return fetch(`http://localhost:3001/api/challenge_goals/${challengeGoalId}`, {
         credentials: "include",
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json"
         },
