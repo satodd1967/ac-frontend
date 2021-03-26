@@ -15,7 +15,7 @@ const ChallengeRanking = (props) => {
             })
         })
         return {
-            user_id: user.id,
+            user_id: user ? user.id : "",
             total_points: ls.total_points
         }
     });
