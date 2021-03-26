@@ -70,7 +70,6 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
             let challengeErrorInfo = response.error
             dispatch(setErrors(challengeErrorInfo))
           } else {
-            console.log("New ChallengeGoal Post", response)
             dispatch(getCurrentUser(history))
             dispatch(setChallenges())
             dispatch(resetChallengeGoalForm())
@@ -104,7 +103,6 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
             let challengeErrorInfo = response.error
             dispatch(setErrors(challengeErrorInfo))
           } else {
-            console.log("Update ChallengeGoal Post", response)
             dispatch(getCurrentUser(history))
             dispatch(setChallenges())
             dispatch(resetChallengeGoalForm())

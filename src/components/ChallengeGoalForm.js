@@ -5,7 +5,11 @@ import { updateChallengeGoalForm } from "../actions/challengeGoalForm";
 import { sendChallengeGoal } from "../actions/challengeGoals";
 import { clearErrors } from '../actions/errors';
 
-const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, lastChallenge, errors, clearErrors, editMode }) => {
+const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, challenges, challengeId, errors, clearErrors, editMode }) => {
+
+    const challenge = challenges.find(challenge => {
+        return challenge.id === challengeId
+    })
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -16,14 +20,6 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
         clearErrors()
         updateChallengeGoalForm(updatedFormInfo)
     }
-
-    const fixChallengeName = input => {
-        if (input) {
-            return input.name
-        } else {
-            return null
-        }
-    };
 
     const formErrors = Array.isArray(errors) ? errors.map(error => {
         return <li><ErrorCard key={error} error={error}/></li>
@@ -37,7 +33,7 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
             <ul>
                 {formErrors}
             </ul>
-            <h3>{user.username} Setup Your Challenge Goals for {fixChallengeName(lastChallenge)} </h3>
+            <h3>{user.username} Setup Your Challenge Goals for {challenge.attributes.name} </h3>
             <input placeholder="start body fat"
                 value={challengeGoalFormData.startBodyFat}
                 name="startBodyFat"
@@ -63,7 +59,7 @@ const mapStateToProps = state => {
     return {
         user: state.currentUser,
         challengeGoalFormData: state.challengeGoalForm,
-        lastChallenge: state.challenges[state.challenges.length -1],
+        challenges: state.challenges,
         errors: state.errors
     }
 }

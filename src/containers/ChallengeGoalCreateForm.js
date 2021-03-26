@@ -12,7 +12,7 @@ const CreateChallengeGoal = ({ sendChallengeGoal, history, match }) => {
     }
     return  <div>
                 <h2>Join This Challenge</h2>
-                <ChallengeGoalForm history={history} handleSubmit={handleSubmit} />
+                <ChallengeGoalForm challengeId={challengeId} history={history} handleSubmit={handleSubmit} />
             </div>
 }
 
