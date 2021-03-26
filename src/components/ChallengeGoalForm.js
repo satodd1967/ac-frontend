@@ -5,7 +5,7 @@ import { updateChallengeGoalForm } from "../actions/challengeGoalForm";
 import { sendChallengeGoal } from "../actions/challengeGoals";
 import { clearErrors } from '../actions/errors';
 
-const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, lastChallenge, errors, clearErrors }) => {
+const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, lastChallenge, errors, clearErrors, editMode }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -25,9 +25,9 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
         }
     };
 
-    const formErrors = errors.map(error => {
+    const formErrors = Array.isArray(errors) ? errors.map(error => {
         return <li><ErrorCard key={error} error={error}/></li>
-    }) 
+    }) : <ErrorCard key={errors} error={errors}/>
 
     return (
         <form onSubmit={event => {
@@ -54,7 +54,7 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
                 type="text"
                 onChange={handleChange}/>
               
-            <input type="submit" value="Join Challenge"/>
+            <input type="submit" value={ editMode ? "Update Goals" : "Join Challenge" }/>
         </form>
     )
 }
