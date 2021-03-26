@@ -1,8 +1,10 @@
 import React from 'react'
+import ErrorCard from './ErrorCard';
 import { updateLogForm } from '../actions/logForm'
 import { connect } from 'react-redux'
+import { clearErrors } from '../actions/errors';
 
-const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) => {
+const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode, clearErrors, errors }) => {
 
     const handleChange = event => {
         const target = event.currentTarget;
@@ -12,14 +14,22 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) =
             ...logFormData,
             [name]: value
         }
+        clearErrors()
         updateLogForm(updatedFormInfo)
     }
+
+    const formErrors = Array.isArray(errors) ? errors.map(error => {
+        return <li><ErrorCard key={error} error={error}/></li>
+    }) : <ErrorCard key={errors} error={errors}/>
 
     return (
         <form onSubmit={event => {
             event.preventDefault()
             handleSubmit(logFormData, user)
             }}>
+            <ul>
+                {formErrors}
+            </ul>
             Log Date:
             <input
                 value={logFormData.logDate}
@@ -72,8 +82,9 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode }) =
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        logFormData: state.logForm
+        logFormData: state.logForm,
+        errors: state.errors
     }
 }
 
-export default connect(mapStateToProps, { updateLogForm } )(LogForm)
+export default connect(mapStateToProps, { updateLogForm, clearErrors } )(LogForm)
