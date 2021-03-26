@@ -8,7 +8,7 @@ import { clearErrors } from '../actions/errors';
 const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, challenges, challengeId, errors, clearErrors, editMode }) => {
 
     const challenge = challenges.find(challenge => {
-        return challenge.id === challengeId
+        return challenge.id === challengeId.toString()
     })
 
     const handleChange = event => {
@@ -33,7 +33,8 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
             <ul>
                 {formErrors}
             </ul>
-            <h3>{user.username} Setup Your Challenge Goals for {challenge.attributes.name} </h3>
+            {console.log(challenge)}
+            <h3>{user.username} Setup Your Challenge Goals for {challenge ? challenge.attributes.name : ""} </h3>
             <input placeholder="start body fat"
                 value={challengeGoalFormData.startBodyFat}
                 name="startBodyFat"

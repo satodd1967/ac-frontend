@@ -23,11 +23,11 @@ class EditChallengeGoal extends React.Component {
     }
 
   render() {
+    const challengeId = this.props.challengeGoal ? this.props.challengeGoal.challenge_id : null
     const challengeGoalId = this.props.challengeGoal ? this.props.challengeGoal.id : null
     const history = this.props.history ? this.props.history : null
     return  <>
-                <ChallengeGoalForm editMode handleSubmit={this.handleSubmit}/>
-                <DeleteButton type={"Delete ChallengeGoal"} deleteId={challengeGoalId} history={history}/>
+                <ChallengeGoalForm editMode challengeId={challengeId} handleSubmit={this.handleSubmit}/>
             </>
   }
 };
