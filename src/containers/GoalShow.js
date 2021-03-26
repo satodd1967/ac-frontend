@@ -19,7 +19,7 @@ const GoalShow = (props) => {
 
     const editButton = props.user.challenge_goals.map(challengeGoal => {
         if (challengeGoal.id === props.location.challengeGoalId) {
-            return <GoalsEditButton challengeGoalId={challengeGoal.id}/>
+            return <GoalsEditButton key={challengeGoal.id} challengeGoalId={challengeGoal.id}/>
         } else {
             return ""
         }

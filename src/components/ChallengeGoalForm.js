@@ -5,7 +5,7 @@ import { updateChallengeGoalForm } from "../actions/challengeGoalForm";
 import { sendChallengeGoal } from "../actions/challengeGoals";
 import { clearErrors } from '../actions/errors';
 
-const CreateChallengeGoal = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, lastChallenge, errors, clearErrors }) => {
+const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, lastChallenge, errors, clearErrors }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -34,7 +34,6 @@ const CreateChallengeGoal = ({ challengeGoalFormData, updateChallengeGoalForm, h
             event.preventDefault()
             handleSubmit(challengeGoalFormData, user)
             }}>
-            <h2>Join This Challenge</h2>
             <ul>
                 {formErrors}
             </ul>
@@ -69,4 +68,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateChallengeGoalForm, sendChallengeGoal, clearErrors } )(CreateChallengeGoal)
+export default connect(mapStateToProps, { updateChallengeGoalForm, sendChallengeGoal, clearErrors } )(ChallengeGoalForm)

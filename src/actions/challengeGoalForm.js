@@ -13,9 +13,9 @@ export const updateChallengeGoalForm = formData => {
 
   export const setEditChallengeGoalForm = challengeGoal => {
     const formData = {
-      startWeight: challengeGoal.attributes.start_weight,
-      startBodyFat: challengeGoal.attributes.start_body_fat,
-      startCalorieGoal: challengeGoal.attributes.start_calorie_goal,
+      startWeight: challengeGoal.start_weight,
+      startBodyFat: challengeGoal.start_body_fat,
+      startCalorieGoal: challengeGoal.start_calorie_goal,
     }
     return {
       type: "SET_EDIT_CHALLENGE_GOAL_FORM",

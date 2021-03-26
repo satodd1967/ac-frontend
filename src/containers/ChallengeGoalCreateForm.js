@@ -11,7 +11,7 @@ const CreateChallengeGoal = ({ sendChallengeGoal, history, match }) => {
         sendChallengeGoal(challengeGoalFormData, history, user, challengeId)
     }
     return  <div>
-                <h1>Start a new Challenge</h1>
+                <h2>Join This Challenge</h2>
                 <ChallengeGoalForm history={history} handleSubmit={handleSubmit} />
             </div>
 }
