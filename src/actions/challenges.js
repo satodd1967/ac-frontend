@@ -1,6 +1,6 @@
 import { resetChallengeForm } from './challengeForm';
 import { setErrors } from './errors';
-import { apiGet, apiPost} from './api';
+import { apiGet, apiPatch, apiPost} from './services/api';
 
 //synchronous actions
 export const getChallenges = challenges => {
@@ -94,16 +94,7 @@ export const updateChallenge = (challengeData, history, user, challengeId) => {
       points_met_active_calorie_goal: challengeData.pointsMetActiveCalorieGoal,
       user_id: user.id
     }
-    
-      return fetch(`http://localhost:3001/api/challenges/${challengeId}`, {
-      credentials: "include",
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(updateChallengeData)
-    })
-      .then(resp => resp.json())
+    apiPatch("challenges", updateChallengeData, challengeId)
       .then(response => {
         if (response.error) {
           let challengeErrorInfo = response.error
