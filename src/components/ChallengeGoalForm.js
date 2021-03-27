@@ -22,7 +22,7 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
     }
 
     const formErrors = Array.isArray(errors) ? errors.map(error => {
-        return <li><ErrorCard key={error} error={error}/></li>
+        return <li key={error}><ErrorCard error={error}/></li>
     }) : <ErrorCard key={errors} error={errors}/>
 
     return (
@@ -52,7 +52,7 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
                 onChange={handleChange}/>
               
             <input type="submit" value={ editMode ? "Update Goals" : "Join Challenge" }/>
-            
+
         </form>
     )
 }
