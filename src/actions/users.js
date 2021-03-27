@@ -1,3 +1,5 @@
+import { apiGet } from "./services/api"
+
 //synchronous actions
 export const getUsers = users => {
     return {
@@ -15,14 +17,7 @@ export const clearUsers = () => {
 //asycchronous actions
 export const setUsers = () => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/users", {
-            credentials: "include",
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        })
-        .then(resp => resp.json())
+        apiGet("users")
         .then(response => {
             if (response.error) {
                 alert(response.error)

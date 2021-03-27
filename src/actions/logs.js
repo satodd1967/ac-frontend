@@ -2,20 +2,21 @@ import { resetLogForm } from './logForm';
 import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
 import { setErrors } from './errors';
+import { apiDelete, apiGet, apiPatch, apiPost} from './services/api';
 
 //synchronous actions
 export const getLogs = logs => {
-    return {
-        type: "GET_LOGS",
-        logs
-    }
+  return {
+    type: "GET_LOGS",
+    logs
+  }
 }
 
 export const clearLogs = () => {
-    return {
-      type: "CLEAR_LOGS"
-    }
+  return {
+    type: "CLEAR_LOGS"
   }
+}
 
 // export const createLog = log => {
 //     return {
@@ -26,64 +27,48 @@ export const clearLogs = () => {
 
 //asycchronous actions
 export const setLogs = () => {
-    return dispatch => {
-        return fetch("http://localhost:3001/api/logs", {
-            credentials: "include",
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        })
-        .then(resp => resp.json())
-        .then(response => {
-            if (response.error) {
-              let logErrorInfo = response.error
-              dispatch(setErrors(logErrorInfo))
-            } else {
-                dispatch(getLogs(response.data))
-            }
-        })
-        .catch(console.log)
-    }
+  return dispatch => {
+    apiGet("logs")
+    .then(response => {
+      if (response.error) {
+        let logErrorInfo = response.error
+          dispatch(setErrors(logErrorInfo))
+        } else {
+          dispatch(getLogs(response.data))
+      }
+    })
+    .catch(console.log)
+  }
 }
 
 export const sendLog = (logData, history, user) => {
-    return dispatch => {
-      const newLogData = {
-        log_date: logData.logDate,
-        worked_out: logData.workedOut,
-        tracked_food: logData.trackedFood,
-        weight: logData.weight,
-        body_fat: logData.bodyFat,
-        active_calories: logData.activeCalories,
-        calories: logData.calories,
-        user_id: user.id,
-      }
-      return fetch("http://localhost:3001/api/logs", {
-        credentials: "include",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newLogData)
-      })
-        .then(resp => resp.json())
-        .then(response => {
-          if (response.error) {
-            let logErrorInfo = response.error
-            dispatch(setErrors(logErrorInfo))
-          } else {
-            console.log("New Log Post", response)
-            dispatch(setLogs())
-            dispatch(setChallenges())
-            dispatch(getCurrentUser(history))
-            dispatch(resetLogForm())
-          }
-        })
-        .catch(console.log)
-  
+  return dispatch => {
+    const newLogData = {
+      log_date: logData.logDate,
+      worked_out: logData.workedOut,
+      tracked_food: logData.trackedFood,
+      weight: logData.weight,
+      body_fat: logData.bodyFat,
+      active_calories: logData.activeCalories,
+      calories: logData.calories,
+      user_id: user.id,
     }
+    apiPost("logs", newLogData)
+    .then(response => {
+      if (response.error) {
+        let logErrorInfo = response.error
+        dispatch(setErrors(logErrorInfo))
+      } else {
+        console.log("New Log Post", response)
+        dispatch(setLogs())
+        dispatch(setChallenges())
+        dispatch(getCurrentUser(history))
+        dispatch(resetLogForm())
+      }
+    })
+    .catch(console.log)
   }
+}
 
   export const updateLog = (logData, history, user, logId) => {
     return dispatch => {
@@ -97,53 +82,35 @@ export const sendLog = (logData, history, user) => {
         calories: logData.calories,
         user_id: user.id,
       }
-      return fetch(`http://localhost:3001/api/logs/${logId}`, {
-        credentials: "include",
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(updateLogData)
+      apiPatch("logs", updateLogData, logId)
+      .then(response => {
+        if (response.error) {
+          let logErrorInfo = response.error
+          dispatch(setErrors(logErrorInfo))
+        } else {
+          console.log("New Log Post", response)
+          dispatch(setLogs())
+          dispatch(setChallenges())
+          dispatch(getCurrentUser(history))
+        }
       })
-        .then(resp => resp.json())
-        .then(response => {
-          if (response.error) {
-            let logErrorInfo = response.error
-            dispatch(setErrors(logErrorInfo))
-          } else {
-            console.log("New Log Post", response)
-            dispatch(setLogs())
-            dispatch(setChallenges())
-            dispatch(getCurrentUser(history))
-          }
-        })
-        .catch(console.log)
-  
+      .catch(console.log)
     }
   }
 
   export const deleteLog = (logId, history) => {
     return dispatch => {
-      return fetch(`http://localhost:3001/api/logs/${logId}`, {
-        credentials: "include",
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
+      apiDelete("url", logId)
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          dispatch(setLogs())
+          dispatch(setChallenges())
+          dispatch(getCurrentUser(history))
+          history.push('/')
         }
       })
-        .then(resp => resp.json())
-        .then(response => {
-          if (response.error) {
-            alert(response.error)
-          } else {
-            dispatch(setLogs())
-            dispatch(setChallenges())
-            dispatch(getCurrentUser(history))
-            history.push('/')
-          }
-        })
-        .catch(console.log)
-  
+      .catch(console.log)
     }
-  
   }
