@@ -1,5 +1,6 @@
 import { resetChallengeForm } from './challengeForm';
 import { setErrors } from './errors';
+import { apiGet} from './api';
 
 //synchronous actions
 export const getChallenges = challenges => {
@@ -29,25 +30,20 @@ export const deleteChallengeSuccess = tripId => {
 // }
 
 //asycchronous actions
+
 export const setChallenges = () => {
-    return dispatch => {
-        return fetch("http://localhost:3001/api/challenges", {
-            credentials: "include",
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        })
-        .then(resp => resp.json())
-        .then(response => {
-            if (response.error) {
-                alert(response.error)
-            } else {
-                dispatch(getChallenges(response.data))
-            }
-        })
-        .catch(console.log)
-    }
+  return dispatch => {
+    apiGet("challenges")
+    .then(response => {
+      if (response.error) {
+          alert(response.error)
+      } else {
+          dispatch(getChallenges(response.data))
+      }
+    })
+    .catch(console.log)
+  }
+
 }
 
 export const sendChallenge = (challengeData, history, user) => {
