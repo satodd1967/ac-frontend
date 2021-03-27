@@ -1,9 +1,12 @@
 import React from 'react';
+import { resetChallengeGoalForm } from '../actions/challengeGoalForm';
+import { connect } from 'react-redux';
 
-const DontJoinButton = ({ history }) => {
+const DontJoinButton = ({ history, resetChallengeGoalForm }) => {
 
     const handleSubmit = event => {
         event.preventDefault()
+        resetChallengeGoalForm()
         history.push('/')
     };
 
@@ -14,4 +17,4 @@ const DontJoinButton = ({ history }) => {
     )
 }
 
-export default DontJoinButton
+export default connect(null, { resetChallengeGoalForm })(DontJoinButton)

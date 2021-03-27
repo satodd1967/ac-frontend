@@ -33,7 +33,6 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
             <ul>
                 {formErrors}
             </ul>
-            {console.log(challenge)}
             <h3>{user.username} Setup Your Challenge Goals for {challenge ? challenge.attributes.name : ""} </h3>
             <input placeholder="start body fat"
                 value={challengeGoalFormData.startBodyFat}

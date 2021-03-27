@@ -7,7 +7,7 @@ export const updateChallengeGoalForm = formData => {
   
   export const resetChallengeGoalForm = () => {
     return {
-      type: "RESET_CHALLNGE_GOAL_FORM"
+      type: "RESET_CHALLENGE_GOAL_FORM"
     }
   }
 
