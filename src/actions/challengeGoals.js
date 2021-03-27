@@ -2,6 +2,7 @@ import { resetChallengeGoalForm } from './challengeGoalForm';
 import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
 import { setErrors } from './errors';
+import { apiDelete, apiGet, apiPatch, apiPost} from './services/api';
 
 //synchronous actions
 // export const getChallengeGoals = challengeGoals => {
@@ -56,15 +57,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
         user_id: user.id,
         challenge_id: challengeId
       }
-      return fetch("http://localhost:3001/api/challenge_goals", {
-        credentials: "include",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newChallengeGoalData)
-      })
-        .then(resp => resp.json())
+      apiPost("challenge_goals", newChallengeGoalData)
         .then(response => {
           if (response.error) {
             let challengeErrorInfo = response.error
@@ -89,15 +82,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
         user_id: user.id,
         challenge_id: challengeGoalData.challenge_id
       }
-      return fetch(`http://localhost:3001/api/challenge_goals/${challengeGoalId}`, {
-        credentials: "include",
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(updateChallengeGoalData)
-      })
-        .then(resp => resp.json())
+      apiPatch("challenge_goals", updateChallengeGoalData, challengeGoalId)
         .then(response => {
           if (response.error) {
             let challengeErrorInfo = response.error
@@ -116,14 +101,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
 
   export const deleteChallengeGoal = (challengeGoalId, history) => {
     return dispatch => {
-      return fetch(`http://localhost:3001/api/challenge_goals/${challengeGoalId}`, {
-        credentials: "include",
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-        .then(resp => resp.json())
+      apiDelete("challenge_goals", challengeGoalId)
         .then(response => {
           if (response.error) {
             alert(response.error)
