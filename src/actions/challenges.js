@@ -1,6 +1,6 @@
 import { resetChallengeForm } from './challengeForm';
 import { setErrors } from './errors';
-import { apiGet} from './api';
+import { apiGet, apiPost} from './api';
 
 //synchronous actions
 export const getChallenges = challenges => {
@@ -62,16 +62,7 @@ export const sendChallenge = (challengeData, history, user) => {
         points_met_active_calorie_goal: challengeData.pointsMetActiveCalorieGoal,
         user_id: user.id
       }
-      console.log(newChallengeData)
-      return fetch("http://localhost:3001/api/challenges", {
-        credentials: "include",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newChallengeData)
-      })
-        .then(resp => resp.json())
+      apiPost("challenges", newChallengeData)
         .then(response => {
           if (response.error) {
             let challengeErrorInfo = response.error

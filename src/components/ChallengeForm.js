@@ -16,9 +16,9 @@ const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, u
         updateChallengeForm(updatedFormInfo)
     }
 
-    const formErrors = errors.map(error => {
-        return <li><ErrorCard key={error} error={error}/></li>
-    }) 
+    const formErrors = Array.isArray(errors) ? errors.map(error => {
+        return <li key={error}><ErrorCard error={error}/></li>
+    }) : <ErrorCard key={errors} error={errors}/>
 
     return (
         <form onSubmit={event => {
