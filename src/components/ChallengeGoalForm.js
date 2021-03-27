@@ -34,16 +34,19 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
                 {formErrors}
             </ul>
             <h3>{user.username} Setup Your Challenge Goals for {challenge ? challenge.attributes.name : ""} </h3>
+            Start Body Fat:
             <input placeholder="start body fat"
                 value={challengeGoalFormData.startBodyFat}
                 name="startBodyFat"
                 type="text"
                 onChange={handleChange}/>
+            Start Calorie Goal:
             <input placeholder="start calorie goal"
                 value={challengeGoalFormData.startCalorieGoal}
                 name="startCalorieGoal"
                 type="text"
                 onChange={handleChange}/>
+            Start Weight:
             <input placeholder="start weight"
                 value={challengeGoalFormData.startWeight}
                 name="startWeight"
