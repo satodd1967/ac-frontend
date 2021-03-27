@@ -1,6 +1,6 @@
 import { resetChallengeForm } from './challengeForm';
 import { setErrors } from './errors';
-import { apiGet, apiPatch, apiPost} from './services/api';
+import { apiDelete, apiGet, apiPatch, apiPost} from './services/api';
 
 //synchronous actions
 export const getChallenges = challenges => {
@@ -111,14 +111,7 @@ export const updateChallenge = (challengeData, history, user, challengeId) => {
 
 export const deleteChallenge = (challengeId, history) => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/challenges/${challengeId}`, {
-      credentials: "include",
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(resp => resp.json())
+    apiDelete("challenges", challengeId)
       .then(response => {
         if (response.error) {
           alert(response.error)

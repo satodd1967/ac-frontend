@@ -34,3 +34,14 @@ export const apiPatch = (url, object, id) => {
   })
   .then(resp => resp.json())
 }
+
+export const apiDelete = (url, id) => {
+  return fetch(`${baseUrl}/${url}/${id}`, {
+    credentials: "include",
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(resp => resp.json())
+}
