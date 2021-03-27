@@ -2,6 +2,7 @@ import React from 'react'
 import ChallengeGoalForm from '../components/ChallengeGoalForm';
 import { sendChallengeGoal } from '../actions/challengeGoals'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 const CreateChallengeGoal = ({ sendChallengeGoal, history, match }) => {
 
@@ -13,6 +14,13 @@ const CreateChallengeGoal = ({ sendChallengeGoal, history, match }) => {
     return  <div>
                 <h2>Join This Challenge</h2>
                 <ChallengeGoalForm challengeId={challengeId} history={history} handleSubmit={handleSubmit} />
+                <Link to={{ 
+                    pathname: "/", 
+                }}>
+                    <button type="button">
+                        Don't Join
+                    </button>
+                </Link>
             </div>
 }
 

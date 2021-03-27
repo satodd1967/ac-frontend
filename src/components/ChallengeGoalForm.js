@@ -52,6 +52,7 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
                 onChange={handleChange}/>
               
             <input type="submit" value={ editMode ? "Update Goals" : "Join Challenge" }/>
+            
         </form>
     )
 }

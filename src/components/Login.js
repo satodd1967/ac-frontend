@@ -1,12 +1,12 @@
 import React from 'react';
 import ErrorCard from './ErrorCard';
-import { connect, useStore } from 'react-redux';
+import { connect } from 'react-redux';
 import { updateLoginForm } from "../actions/loginForm.js";
 import { login } from "../actions/currentUser.js";
 import { Link } from 'react-router-dom';
 import { clearErrors } from '../actions/errors';
 
-const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearErrors, users }) => {
+const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearErrors }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -19,28 +19,8 @@ const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearEr
     }
 
     const handleSubmit = event => {
-        const { name, value } = event.target
-        const updatedFormInfo = {
-            ...loginFormData,
-            [name]: value
-        }
         event.preventDefault()
-        const errors = validate(updatedFormInfo)
-        console.log(errors)
         login(loginFormData, history)
-    }
-
-    const validate = (values) => {
-        let errors = {};
-
-        if (!values.email) {
-            errors.email = "Cannot be Blank";
-        } else {
-            
-        }
-
-        return errors
-
     }
 
     const formErrors = errors.map(error => {
@@ -78,8 +58,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearEr
 const mapStateToProps = state => {
     return {
         loginFormData: state.loginForm,
-        errors: state.errors,
-        users: state.users
+        errors: state.errors
     }
 }
 
