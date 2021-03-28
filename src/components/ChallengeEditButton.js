@@ -5,14 +5,16 @@ const editChallenge = (props) => {
 
     return (
         <div>
-            <Link to={{ 
-                pathname: `/challenges/${props.challengeId}/edit`, 
-                challengeId: props.challengeId, 
-            }}>
-            <button type="button">
-                Edit Challenge
-            </button>
-            </Link>
+            <li>
+                <Link to={{ 
+                    pathname: `/challenges/${props.challengeId}/edit`, 
+                    challengeId: props.challengeId, 
+                }}>
+                <button type="button">
+                    Edit Challenge
+                </button>
+                </Link>
+            </li>
         </div>
     )
 }

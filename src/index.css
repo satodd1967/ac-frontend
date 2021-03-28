@@ -12,35 +12,34 @@ code {
     monospace;
 }
 
-/* body {
-  font-family: 'Open Sans', sans-serif;
-  color: #333;
-  font-size: 16px;
-  line-height: 135%;
-} */
-
 h1 {
-  margin-top: 0px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-size: 35px;
   line-height: 40px;
   font-weight: 600;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 h2 {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 20px;
   font-size: 27px;
   line-height: 135%;
   font-weight: 600;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 h3 {
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 20px;
   font-size: 21px;
   line-height: 30px;
   font-weight: 600;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 h4 {
@@ -49,6 +48,8 @@ h4 {
   font-size: 18px;
   line-height: 22px;
   font-weight: 600;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 h5 {
@@ -65,43 +66,14 @@ a {
 }
 
 ul {
-  margin-top: 0px;
-  margin-bottom: 20px;
-  padding-left: 40px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+  padding-left: 30px;
 }
 
 li {
   font-weight: 300;
 }
-
-.left-nav {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  width: 30%;
-  height: 100%;
-  padding: 50px 40px;
-  background-color: #333;
-  color: #9b9b9b;
-}
-
-/* .logo-text {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-family: 'Open Sans', sans-serif;
-  color: #f0f0f0;
-  font-size: 28px;
-  line-height: 120%;
-  font-weight: 600;
-} */
-
-/* .content {
-  width: 75%;
-  margin-left: 25%;
-  margin-top: 2%;
-  padding: 2px;
-} */
 
 .firstpage {
   display: block;
@@ -151,12 +123,6 @@ padding-bottom: .05em;
 color: #757575;
 }
 
-/* .changedate {
-  width: 20%;
-  margin-left: 0%;
-  padding: 0px;
-} */
-
 .message {
 color: red;
 text-align: center;
@@ -170,47 +136,55 @@ margin-top: 2%;
 padding: 10px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 html {
   height: 100%;
   background-color: white
 }
 
+.header {
+  display: flex;
+  min-height: 75px;
+}
+
+.header-image {
+  flex: 1;
+  color: #9b9b9b;
+  background-color: #333;
+  text-align: center;
+}
+
+.header-title {
+  flex: 3;
+  color: #9b9b9b;
+  background-color: #333;
+  text-align: center;
+}
+
+.home {
+  display: flex;
+}
+
 .column-1 {
-  float: left;
-  padding: 10px;
-  height: 100%;
-  width: 30%;
-  background-color: white;
+  flex: 1;
+  background-color: #333;
+}
+
+.left-nav {
+  padding: 20px;
+  background-color: #333;
+  color: #9b9b9b;
+  text-align: center;
 }
 
 .column-2 {
-  float: left;
-  padding: 10px;
-  height: 100%;
-  width: 50%;
-  background-color: white;
+  flex: 3;
+  background-color: white
 }
 
-.column-3 {
-  float: left;
-  padding: 10px;
-  height: 100%;
-  width: 20%;
-  background-color: white;
+.your-challenges {
+  display: flex;
+  flex-direction: column;
 }
-
-
-/* .column-4 {
-  float: left;
-  padding: 10px;
-  height: 100%;
-  width: 40%;
-  background-color: #bbb;
-} */
 
 /* .weights {
 background-image: url('/images/gym1main.jpg');

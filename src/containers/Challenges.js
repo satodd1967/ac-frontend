@@ -19,6 +19,7 @@ const Challenges = (props) => {
             <h4>Ranking</h4>
             <ChallengeRanking challenge={challenge} type={"full"}/>
             {joinChallenge}
+            <br/>
             </ul>
         })
     

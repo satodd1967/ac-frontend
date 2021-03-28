@@ -28,19 +28,18 @@ const YourChallenges = (props) => {
             <li>
             <DeleteButton type={"Quit Challenge"} deleteId={currentUserChallengeGoal.id} history={props.history}/>
             </li>
-            <li>
             {editButton}
-            </li>
             <br/>
-            <h4>Ranking</h4>
             <ChallengeRanking challenge={challenge} type={"single"}/></ul> : <p>No Challenge</p>
     })
 
     return (
         <div className="your-challenges">
-            <h1>Welcome {props.user.username}</h1>
-            <h3>Your Challenges</h3>
-            <ul>
+            <div classname="your-challenges-header">
+                <h1>Welcome {props.user.username}</h1>
+                <h2>Your Challenges</h2>
+            </div>
+            <ul classname="your-challenges-ul">
             {challenges}
             </ul>
         </div>

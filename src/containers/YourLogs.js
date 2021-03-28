@@ -17,12 +17,10 @@ const YourLogs = (props) => {
                     {editButton}
                 </ul>
             })
-
-    
-    
+            
     return (
         <div className="your-logs">
-            <h3>Your Logs</h3>
+            <h2>Your Logs</h2>
             <ul>
             {logs}
             </ul>
