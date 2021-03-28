@@ -2,7 +2,7 @@ import { resetChallengeGoalForm } from './challengeGoalForm';
 import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
 import { setErrors } from './errors';
-import { apiDelete, apiGet, apiPatch, apiPost} from './services/api';
+import { apiDelete, apiPatch, apiPost} from './services/api';
 
 //synchronous actions
 // export const getChallengeGoals = challengeGoals => {
