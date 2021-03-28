@@ -78,7 +78,7 @@ li {
 }
 
 .login-form {
-  flex: .1;
+  flex-basis: 10%;
   display: block;
   border-radius: 25px;
   margin-left: 2%;
@@ -96,10 +96,23 @@ li {
   align-items: center;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="password"], input[type="email"] {
   display: block;
   /* margin: auto auto; */
-  width: 45%;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: .5em 0;
+  padding-left: 5px;
+  border: none;
+  border-bottom: 1.5px solid #eaeaea;
+  padding-bottom: 1.25em;
+  color: #757575;
+}
+
+input[type="text"] {
+  display: block;
+  /* margin: auto auto; */
+  width: 80%;
   margin-bottom: 1em;
   padding: .5em 0;
   padding-left: 5px;

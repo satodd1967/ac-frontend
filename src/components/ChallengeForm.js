@@ -21,7 +21,7 @@ const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, u
     }) : <ErrorCard key={errors} error={errors}/>
 
     return (
-        <form onSubmit={event => {
+        <form className="challenge-form" onSubmit={event => {
             event.preventDefault()
             handleSubmit(challengeFormData, user)
             }}>

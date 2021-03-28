@@ -37,12 +37,12 @@ const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearEr
                 <input className="login-email" placeholder="email"
                     value={loginFormData.email}
                     name="email"
-                    type="text"
+                    type="email"
                     onChange={handleChange}/>
                 <input className="login-password" placeholder="password"
                     value={loginFormData.password}
                     name="password"
-                    type="text"
+                    type="password"
                     onChange={handleChange}/>
                 <input type="submit" value="Log In"/>
                 <span><br/><br/></span>
