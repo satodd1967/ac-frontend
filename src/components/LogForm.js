@@ -27,9 +27,11 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode, cle
             event.preventDefault()
             handleSubmit(logFormData, user)
             }}>
+            <br/>
             <ul>
                 {formErrors}
             </ul>
+
             Log Date:
             <input
                 value={logFormData.logDate}
