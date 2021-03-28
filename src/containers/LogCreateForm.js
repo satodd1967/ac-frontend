@@ -8,7 +8,7 @@ const CreateLog = ({ sendLog, history }) => {
     const handleSubmit = (logFormData, user) => {
         sendLog(logFormData, history, user)
     }
-    return  <div>
+    return  <div className="create-log-form">
                 <h1>Create a new Log</h1>
                 <LogForm history={history} handleSubmit={handleSubmit} />
             </div>

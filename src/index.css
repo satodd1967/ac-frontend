@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.body {
+  height: 100%;
+}
+
 h1 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -167,6 +171,7 @@ html {
 .column-1 {
   flex: 1;
   background-color: #333;
+  min-height: 100vh;
 }
 
 .left-nav {
@@ -178,13 +183,15 @@ html {
 
 .column-2 {
   flex: 3;
-  background-color: white
+  background-color: white;
+  min-height: 100vh;
 }
 
 .your-challenges {
   display: flex;
   flex-direction: column;
 }
+
 
 /* .weights {
 background-image: url('/images/gym1main.jpg');

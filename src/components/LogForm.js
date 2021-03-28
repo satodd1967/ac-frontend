@@ -23,7 +23,7 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode, cle
     }) : <ErrorCard key={errors} error={errors}/>
 
     return (
-        <form onSubmit={event => {
+        <form className="log-form" onSubmit={event => {
             event.preventDefault()
             handleSubmit(logFormData, user)
             }}>
