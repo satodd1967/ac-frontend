@@ -23,12 +23,10 @@ const YourChallenges = (props) => {
 
         return challenge ? <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
             <li>
-            <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/>
-            </li>
-            <li>
             <DeleteButton type={"Quit Challenge"} deleteId={currentUserChallengeGoal.id} history={props.history}/>
-            </li>
+            <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/>
             {editButton}
+            </li>
             <br/>
             <ChallengeRanking challenge={challenge} type={"single"}/></ul> : <p>No Challenge</p>
     })

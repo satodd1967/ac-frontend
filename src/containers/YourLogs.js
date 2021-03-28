@@ -15,6 +15,8 @@ const YourLogs = (props) => {
                     <li key={log.id}><LogCards key={log.id} log={log} currentUserId={props.user.id}/></li>
                     {challengeScores}
                     {editButton}
+                    <br/>
+                    <br/>
                 </ul>
             })
             

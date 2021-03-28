@@ -25,7 +25,7 @@ const DeleteButton = ({ deleteChallengeGoal, deleteChallenge, deleteLog, history
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="delete-button" onSubmit={handleSubmit}>
             <input type="submit" value={type}/>
         </form>
     )
