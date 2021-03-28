@@ -12,7 +12,6 @@ import ChallengeGoalCreateForm from './ChallengeGoalCreateForm';
 import ChallengeGoalEditForm from './ChallengeGoalEditForm';
 import LogCreateForm from './LogCreateForm';
 import { setChallenges } from '../actions/challenges';
-// import { setChallengesTest } from '../actions/challenges';
 import { setLogs } from '../actions/logs';
 import { setUsers } from '../actions/users';
 import { connect } from 'react-redux';
