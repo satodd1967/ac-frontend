@@ -25,6 +25,7 @@ class EditChallengeGoal extends React.Component {
     const challengeId = this.props.challengeGoal ? this.props.challengeGoal.challenge_id : null
     return  <>
                 <ChallengeGoalForm editMode challengeId={challengeId} handleSubmit={this.handleSubmit}/>
+                <br/>
             </>
   }
 };

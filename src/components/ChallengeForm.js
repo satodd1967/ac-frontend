@@ -28,6 +28,7 @@ const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, u
             <ul>
                 {formErrors}
             </ul>
+            <br/>
             Name:
             <input placeholder="name"
                 value={challengeFormData.name}
