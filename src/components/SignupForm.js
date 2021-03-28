@@ -33,11 +33,11 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, cle
                 <h1 style={{textAlign: 'center'}}>Accountability Challenge</h1>
                 <h2>Sign Up!</h2>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form className="signup-form-body" onSubmit={handleSubmit}>
                 <input placeholder="email"
                     value={signupFormData.email}
                     name="email"
-                    type="text"
+                    type="email"
                     onChange={handleChange}/>
                 <input className="signup-username" placeholder="username"
                     value={signupFormData.username}
@@ -47,7 +47,7 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, cle
                 <input placeholder="password"
                     value={signupFormData.password}
                     name="password"
-                    type="text"
+                    type="password"
                     onChange={handleChange}/>
                 <input type="submit" value="Signup"/>
                 <br/>
