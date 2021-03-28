@@ -179,7 +179,7 @@ html {
 }
 
 .header-image {
-  flex: 1;
+  flex: .8;
   color: #9b9b9b;
   background-color: #333;
   text-align: center;
@@ -197,7 +197,7 @@ html {
 }
 
 .column-1 {
-  flex: 1;
+  flex: .8;
   background-color: #333;
   min-height: 100vh;
 }
@@ -207,6 +207,7 @@ html {
   background-color: #333;
   color: #9b9b9b;
   text-align: left;
+  margin-top: 20px;
 }
 
 .column-2 {
