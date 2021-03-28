@@ -27,29 +27,35 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, cle
     }) 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input placeholder="email"
-                value={signupFormData.email}
-                name="email"
-                type="text"
-                onChange={handleChange}/>
-            <input placeholder="username"
-                value={signupFormData.username}
-                name="username"
-                type="text"
-                onChange={handleChange}/>
-            <input placeholder="password"
-                value={signupFormData.password}
-                name="password"
-                type="text"
-                onChange={handleChange}/>
-            <input type="submit" value="Signup"/>
-            <br/>
-            <br/>
-            <ul>
-                {formErrors}
-            </ul>
-        </form>
+        <div className="signup-form">
+            <div className="logo-text">
+                <h1 style={{textAlign: 'center'}}>Accountability Challenge</h1>
+                <h2>Sign Up!</h2>
+            </div>
+            <form onSubmit={handleSubmit}>
+                <input placeholder="email"
+                    value={signupFormData.email}
+                    name="email"
+                    type="text"
+                    onChange={handleChange}/>
+                <input className="signup-username" placeholder="username"
+                    value={signupFormData.username}
+                    name="username"
+                    type="text"
+                    onChange={handleChange}/>
+                <input placeholder="password"
+                    value={signupFormData.password}
+                    name="password"
+                    type="text"
+                    onChange={handleChange}/>
+                <input type="submit" value="Signup"/>
+                <br/>
+                <br/>
+                <ul>
+                    {formErrors}
+                </ul>
+            </form>
+        </div>
     )
 }
 

@@ -90,6 +90,18 @@ li {
   
 }
 
+.signup-form {
+  flex-basis: 10%;
+  display: block;
+  border-radius: 25px;
+  margin-right: 20%;
+  margin-bottom: 10%;
+  padding: 40px;
+  background-color: #333;
+  color: #9b9b9b;
+  text-align: center;
+}
+
 .welcome {
   background-image: url("./images/welcomeBackground.jpeg");
   background-repeat: no-repeat;
@@ -101,9 +113,20 @@ li {
   align-items: center;
 }
 
+/* input.signup-username[type=text] {
+  display: block;
+  width: 80%;
+  margin-bottom: 1em;
+  padding: .5em 0;
+  padding-left: 5px;
+  border: none;
+  border-bottom: 1.5px solid #eaeaea;
+  padding-bottom: 1.25em;
+  color: #757575;
+} */
+
 input[type="password"], input[type="email"] {
   display: block;
-  /* margin: auto auto; */
   width: 100%;
   margin-bottom: 1em;
   padding: .5em 0;
@@ -116,7 +139,6 @@ input[type="password"], input[type="email"] {
 
 input[type="text"] {
   display: block;
-  /* margin: auto auto; */
   width: 80%;
   margin-bottom: 1em;
   padding: .5em 0;
