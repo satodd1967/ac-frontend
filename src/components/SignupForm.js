@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { updateSignupForm } from "../actions/signupForm";
 import { signup } from "../actions/currentUser";
 import { clearErrors } from '../actions/errors';
+import { Link } from 'react-router-dom';
 
 const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, clearErrors }) => {
 
@@ -49,6 +50,9 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, cle
                     type="text"
                     onChange={handleChange}/>
                 <input type="submit" value="Signup"/>
+                <br/>
+                <br/>
+                <Link to="/">Cancel Signup</Link>
                 <br/>
                 <br/>
                 <ul>
