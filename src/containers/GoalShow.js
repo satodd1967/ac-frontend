@@ -32,6 +32,7 @@ const GoalShow = (props) => {
                 <h4>Start Date: {challenge ? challenge.attributes.start_date : `No Goal`} End Date: {challenge ? challenge.attributes.end_date : `No Goal`} </h4>
                 <h3>Duration {challenge ? `${challenge.attributes.duration} weeks` : `No Goal`}</h3>
                 {challengeGoals}
+                <br/>
                 {editButton}
             </div>
         </div>

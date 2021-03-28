@@ -10,7 +10,7 @@ const editGoals = (props) => {
                 challengeGoalId: props.challengeGoalId, 
             }}>
             <button type="button">
-                Edit Challenge Goal
+                Edit Goal
             </button>
             </Link>
         </div>
