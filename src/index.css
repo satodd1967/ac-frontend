@@ -77,15 +77,23 @@ li {
   font-weight: 300;
 }
 
-.firstpage {
+.login-form {
+  flex: .1;
   display: block;
   border-radius: 25px;
   margin-left: 2%;
   margin-top: 6%;
-  width: 30%;
   padding: 50px;
   background-color: #333;
   color: #9b9b9b;
+  text-align: center;
+}
+
+.welcome {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
@@ -180,7 +188,7 @@ html {
   padding: 20px;
   background-color: #333;
   color: #9b9b9b;
-  text-align: center;
+  text-align: left;
 }
 
 .column-2 {

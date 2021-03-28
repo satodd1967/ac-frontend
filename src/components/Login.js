@@ -28,18 +28,18 @@ const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearEr
     })
 
     return (
-        <div className="firstpage">
+        <div className="login-form">
             <div className="logo-text">
                 <h1 style={{textAlign: 'center'}}>Accountability Challenge</h1>
                 <h2>Sign in</h2>
             </div>
             <form onSubmit={handleSubmit}>
-                <input placeholder="email"
+                <input className="login-email" placeholder="email"
                     value={loginFormData.email}
                     name="email"
                     type="text"
                     onChange={handleChange}/>
-                <input placeholder="password"
+                <input className="login-password" placeholder="password"
                     value={loginFormData.password}
                     name="password"
                     type="text"
