@@ -200,6 +200,13 @@ button {
   padding-bottom: 0px;
 }
 
+button {
+  display: flex;
+  height:20px;
+  width:105px;
+  justify-content:center;
+  align-items:center;
+}
 
 
 /* .weights {
