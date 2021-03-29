@@ -5,7 +5,6 @@ import Home from './containers/Home';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
 import { Route, Switch } from 'react-router-dom';
-import { withRouter } from 'react-router';
 
 class App extends React.Component {
 
@@ -35,4 +34,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
+export default connect(mapStateToProps, { getCurrentUser })(App);
