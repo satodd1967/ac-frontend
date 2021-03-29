@@ -25,6 +25,7 @@ class Home extends React.Component {
         this.props.setChallenges()
         this.props.setLogs()
         this.props.setUsers()
+        console.log(this.props.users)
       }
 
     render() {
@@ -86,7 +87,8 @@ const mapStateToProps = state => {
         user: state.currentUser,
         loggedIn: !!state.currentUser,
         challenges: state.challenges,
-        logs: state.logs
+        logs: state.logs,
+        users: state.users
     }
   }
   

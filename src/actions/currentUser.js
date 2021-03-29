@@ -3,7 +3,6 @@ import { resetSignupForm } from './signupForm';
 import { clearChallenges } from './challenges';
 import { clearLogs } from './logs';
 import { clearUsers } from './users';
-import { setUsers } from './users';
 import { setErrors } from './errors';
 
 //synchronous action creators
@@ -38,7 +37,6 @@ export const login = (credentials, history) => {
                 dispatch(setErrors(userErrorInfo))
             } else {
                 dispatch(getCurrentUser(history))
-                dispatch(setUsers())
                 dispatch(resetLoginForm())
                 history.push('/')
             }
@@ -72,7 +70,6 @@ export const login = (credentials, history) => {
                   dispatch(setErrors(userErrorInfo))
               } else {
                   dispatch(getCurrentUser(history))
-                  dispatch(setUsers())
                   dispatch(resetSignupForm())
                   history.push('/')
               }
