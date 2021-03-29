@@ -71,7 +71,7 @@ export const login = (credentials, history) => {
               } else {
                   dispatch(getCurrentUser(history))
                   dispatch(resetSignupForm())
-                  history.push('/')
+                  history.push('/home')
               }
           })
           .catch(console.log)
@@ -105,7 +105,6 @@ export const login = (credentials, history) => {
             if (response.error) {
             } else {
                 dispatch(setCurrentUser(response.data.attributes))
-                // history.push('/')
             }
         })
         .catch(console.log)
