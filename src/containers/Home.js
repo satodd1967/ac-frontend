@@ -18,7 +18,6 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router';
 
-
 class Home extends React.Component {
 
     componentDidMount() {
@@ -46,23 +45,23 @@ class Home extends React.Component {
                         <div className="top-element-column-2">
                         <Switch>
                             <Route exact path='/home' component={YourChallenges}/>
-                            <Route exact path='/home/challenges' component={Challenges}/>
-                            <Route exact path='/home/challenges/new' component={ChallengeCreateForm}/>
-                            <Route exact path='/home/challenges/:id' render={props => <ChallengeShow challengeId={props.match.params.id}/> }/>
-                            <Route exact path='/home/challenges/:id/edit' render={props => {
+                            <Route exact path='/challenges' component={Challenges}/>
+                            <Route exact path='/challenges/new' component={ChallengeCreateForm}/>
+                            <Route exact path='/challenges/:id' render={props => <ChallengeShow challengeId={props.match.params.id}/> }/>
+                            <Route exact path='/challenges/:id/edit' render={props => {
                                 const challenge = this.props.challenges.find(challenge => challenge.id === props.match.params.id)
                                 return <ChallengeEditForm challenge={challenge} history={props.history}/>
                                 }
                             }/>
-                            <Route exact path='/home/goals/:id' component={GoalShow}/>
-                            <Route exact path='/home/challenges/:id/challenge_goals/new' component={ChallengeGoalCreateForm}/>
-                            <Route exact path='/home/challenge_goals/:id/edit' render={props => {
+                            <Route exact path='/goals/:id' component={GoalShow}/>
+                            <Route exact path='/challenges/:id/challenge_goals/new' component={ChallengeGoalCreateForm}/>
+                            <Route exact path='/challenge_goals/:id/edit' render={props => {
                                 const challengeGoal = this.props.user.challenge_goals.find(challengeGoal => challengeGoal.id === props.location.challengeGoalId)
                                 return <ChallengeGoalEditForm challengeGoal={challengeGoal} history={props.history}/>
                                 }
                             }/>
-                            <Route exact path='/home/logs/new' component={LogCreateForm}/>
-                            <Route exact path='/home/logs/:id/edit' render={props => {
+                            <Route exact path='/logs/new' component={LogCreateForm}/>
+                            <Route exact path='/logs/:id/edit' render={props => {
                                 const log = this.props.logs.find(log => log.id === props.match.params.id)
                                 return <LogEditForm log={log} history={props.history}/>
                                 }
@@ -84,7 +83,6 @@ class Home extends React.Component {
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        loggedIn: !!state.currentUser,
         challenges: state.challenges,
         logs: state.logs,
         users: state.users

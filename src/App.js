@@ -15,16 +15,27 @@ class App extends React.Component {
   render()  {
     return (
       <div className="App">
-        <Switch>
+        {/* <Switch>
           {
             this.props.loggedIn ?
-            <Redirect exact from='/' to='/home' />
-            :
-            <Redirect exact from='/' to='/welcome' />
+            <Route path='/' render={(props) => <Home history={props.history}/> }/>
+             :
+            <Route path='/' render={(props) => <Welcome history={props.history}/> }/>
           }
-          <Route path='/home'> <Home /> </Route>
-          <Route path='/welcome'> <Welcome /> </Route>
-        </Switch>
+          
+        </Switch> */}
+        
+        {
+          this.props.loggedIn ?
+          <Route path='/'>
+            <Redirect to='/home'/><Home/>
+          </Route> :
+          <Route path='/'>
+            <Redirect to='/welcome'/><Welcome/>
+          </Route>
+        }
+
+        
       </div>
     );
   }
