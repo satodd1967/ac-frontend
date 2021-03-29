@@ -25,7 +25,6 @@ class Home extends React.Component {
         this.props.setChallenges()
         this.props.setLogs()
         this.props.setUsers()
-        console.log(this.props.users)
       }
 
     render() {
