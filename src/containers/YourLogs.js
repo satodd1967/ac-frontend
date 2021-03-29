@@ -2,6 +2,7 @@ import React from 'react';
 import LogCards from '../components/LogCards'
 import LogEditButton from '../components/LogEditButton';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const YourLogs = (props) => {
 
@@ -18,13 +19,21 @@ const YourLogs = (props) => {
                     <br/>
                     <br/>
                 </ul>
-            })
+    })
+
+    const noLogs = logs.length > 0 ? 
+        "" :<div className="no-logs"> 
+                <ul>
+                    <Link to="/logs/new">Create your first log!</Link>
+                </ul>
+            </div>
             
     return (
         <div className="your-logs">
             <h2>Your Logs</h2>
             <ul>
             {logs}
+            {noLogs}
             </ul>
         </div>
     )

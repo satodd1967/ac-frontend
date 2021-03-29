@@ -5,6 +5,7 @@ import ChallengeEditButton from '../components/ChallengeEditButton';
 import GoalsViewButton from '../components/GoalsViewButton';
 import ChallengeRanking from './ChallengeRanking';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const YourChallenges = (props) => {
 
@@ -20,7 +21,6 @@ const YourChallenges = (props) => {
         })  
         const editButton = challenge && challenge.attributes.user_id === props.user.id ? 
         <ChallengeEditButton challengeId={challenge.id}/> : ""
-
         return challenge ? <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
             <li>
             <DeleteButton type={"Quit Challenge"} deleteId={currentUserChallengeGoal.id} history={props.history}/>
@@ -28,17 +28,28 @@ const YourChallenges = (props) => {
             {editButton}
             </li>
             <br/>
-            <ChallengeRanking challenge={challenge} type={"single"}/></ul> : <p>No Challenge</p>
+            <ChallengeRanking challenge={challenge} type={"single"}/></ul> : ""
     })
+
+    const noChallenge = yourChallenges.length > 0 ? 
+        "" :<div className="no-challenges"> 
+                <ul>
+                    <Link to="/challenges">View Challenges</Link>
+                    <br/>
+                    <br/>
+                    <Link to="/challenges/new">Create Your Own!</Link>
+                </ul>
+            </div>
 
     return (
         <div className="your-challenges">
-            <div classname="your-challenges-header">
+            <div className="your-challenges-header">
                 <h1>Welcome {props.user.username}</h1>
                 <h2>Your Challenges</h2>
             </div>
-            <ul classname="your-challenges-ul">
+            <ul className="your-challenges-ul">
             {challenges}
+            {noChallenge}
             </ul>
         </div>
     )
