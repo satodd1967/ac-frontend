@@ -47,8 +47,8 @@ const ChallengeRanking = (props) => {
         }) : 
             rankingWithName.map((place, index) => {
                  if(place.username === props.user.username) {
-                    return <><h4>Ranking</h4> 
-                    <ChallengeRankingCard key={place.username} index={index} place={place}/></>
+                    return <div key={index}><h4>Ranking</h4> 
+                    <ChallengeRankingCard key={place.username} index={index} place={place}/></div>
                 } else {
                     return ""
                 }
