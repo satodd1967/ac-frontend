@@ -108,7 +108,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
           } else {
             dispatch(getCurrentUser(history))
             dispatch(setChallenges())
-            history.push(`/`)
+            history.push(`/home`)
           }
         })
         .catch(console.log)
