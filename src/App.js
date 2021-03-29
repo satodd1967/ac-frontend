@@ -4,7 +4,6 @@ import Welcome from './containers/Welcome';
 import Home from './containers/Home';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
-import { setUsers } from './actions/users';
 import { Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
@@ -12,7 +11,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.getCurrentUser(this.props.history)
-    this.props.setUsers()
   }
 
   render()  {
@@ -37,4 +35,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getCurrentUser, setUsers })(App));
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
