@@ -62,9 +62,8 @@ export const sendLog = (logData, history, user) => {
         console.log("New Log Post", response)
         dispatch(setLogs())
         dispatch(setChallenges())
-        // dispatch(getCurrentUser(history))
+        dispatch(getCurrentUser(history))
         dispatch(resetLogForm())
-        history.push('/')
       }
     })
     .catch(console.log)
@@ -92,8 +91,7 @@ export const sendLog = (logData, history, user) => {
           console.log("New Log Post", response)
           dispatch(setLogs())
           dispatch(setChallenges())
-          // dispatch(getCurrentUser(history))
-          history.push('/')
+          dispatch(getCurrentUser(history))
         }
       })
       .catch(console.log)
@@ -110,7 +108,6 @@ export const sendLog = (logData, history, user) => {
           dispatch(setLogs())
           dispatch(setChallenges())
           dispatch(getCurrentUser(history))
-          history.push('/')
         }
       })
       .catch(console.log)
