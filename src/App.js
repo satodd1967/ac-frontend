@@ -22,6 +22,7 @@ class App extends React.Component {
              :
             <Route path='/' render={(props) => <Welcome history={props.history}/> }/>
           }
+          <Route exact path='/home' component={Home}/>
         </Switch>
       </div>
     );
