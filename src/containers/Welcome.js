@@ -8,7 +8,7 @@ const Welcome = () => {
     return (
         <div className="welcome">
             <Switch> 
-                <Route exact path='/' component={Login}/>
+                <Route exact path='/welcome' component={Login}/>
                 <Route exact path='/signup' component={SignupForm}/>
             </Switch>
         </div>

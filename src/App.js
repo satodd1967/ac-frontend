@@ -4,7 +4,7 @@ import Welcome from './containers/Welcome';
 import Home from './containers/Home';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -18,11 +18,12 @@ class App extends React.Component {
         <Switch>
           {
             this.props.loggedIn ?
-            <Route path='/' render={(props) => <Home history={props.history}/> }/>
-             :
-            <Route path='/' render={(props) => <Welcome history={props.history}/> }/>
+            <Redirect exact from='/' to='/home' />
+            :
+            <Redirect exact from='/' to='/welcome' />
           }
-          <Route exact path='/home' component={Home}/>
+          <Route path='/home'> <Home /> </Route>
+          <Route path='/welcome'> <Welcome /> </Route>
         </Switch>
       </div>
     );
