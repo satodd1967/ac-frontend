@@ -66,6 +66,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
             dispatch(getCurrentUser(history))
             dispatch(setChallenges())
             dispatch(resetChallengeGoalForm())
+            history.push('/home')
           }
         })
         .catch(console.log)
