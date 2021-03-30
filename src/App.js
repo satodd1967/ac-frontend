@@ -4,7 +4,7 @@ import Welcome from './containers/Welcome';
 import Home from './containers/Home';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 class App extends React.Component {
 
