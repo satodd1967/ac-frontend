@@ -6,7 +6,7 @@ const viewGoals = (props) => {
     return (
         <div>
             <Link to={{ 
-                pathname: `/goals/${props.currentUserCGId}`, 
+                pathname: `/challenge_goals/${props.currentUserCGId}`, 
                 challengeId: props.challengeId,
                 challengeGoalId: props.currentUserCGId 
             }}>

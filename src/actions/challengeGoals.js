@@ -92,7 +92,11 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
             dispatch(getCurrentUser(history))
             dispatch(setChallenges())
             dispatch(resetChallengeGoalForm())
-            history.push(`/challenge_goals/${response.id}`)
+            history.push({
+              pathname: `/challenge_goals/${response.id}`,
+              challengeId: response.challenge_id,
+              challengeGoalId: response.id
+            })
           }
         })
         .catch(console.log)

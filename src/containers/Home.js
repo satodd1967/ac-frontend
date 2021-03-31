@@ -53,7 +53,7 @@ class Home extends React.Component {
                                 return <ChallengeEditForm challenge={challenge} history={props.history}/>
                                 }
                             }/>
-                            <Route exact path='/goals/:id' component={GoalShow}/>
+                            <Route exact path='/challenge_goals/:id' component={GoalShow}/>
                             <Route exact path='/challenges/:id/challenge_goals/new' component={ChallengeGoalCreateForm}/>
                             <Route exact path='/challenge_goals/:id/edit' render={props => {
                                 const challengeGoal = this.props.user.challenge_goals.find(challengeGoal => challengeGoal.id === props.location.challengeGoalId)
