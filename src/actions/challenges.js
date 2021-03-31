@@ -1,6 +1,6 @@
 import { resetChallengeForm } from './challengeForm';
 import { setErrors } from './errors';
-import { apiDelete, apiGet, apiPatch, apiPost} from './services/api';
+import { apiDelete, apiPatch, apiPost} from './services/api';
 import { updateMainState } from './mainState';
 
 //asycchronous actions
