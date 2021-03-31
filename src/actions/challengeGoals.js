@@ -64,8 +64,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
             let challengeErrorInfo = response.error
             dispatch(setErrors(challengeErrorInfo))
           } else {
-            dispatch(getCurrentUser(history))
-            dispatch(setChallenges())
+            dispatch(updateMainState(response.main_state))
             dispatch(resetChallengeGoalForm())
             history.push('/home')
           }
@@ -90,13 +89,12 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
             let challengeErrorInfo = response.error
             dispatch(setErrors(challengeErrorInfo))
           } else {
-            dispatch(getCurrentUser(history))
-            dispatch(setChallenges())
+            dispatch(updateMainState(response.main_state))
             dispatch(resetChallengeGoalForm())
             history.push({
-              pathname: `/challenge_goals/${response.id}`,
-              challengeId: response.challenge_id,
-              challengeGoalId: response.id
+              pathname: `/challenge_goals/${response.challenge_goal.id}`,
+              challengeId: response.challenge_goal.challenge_id,
+              challengeGoalId: response.challenge_goal.id
             })
           }
         })
@@ -112,8 +110,6 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
           if (response.error) {
             alert(response.error)
           } else {
-            // dispatch(getCurrentUser(history))
-            // dispatch(setChallenges())
             dispatch(updateMainState(response.main_state))
             history.push(`/home`)
           }
