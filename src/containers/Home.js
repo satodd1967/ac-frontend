@@ -22,9 +22,9 @@ import { withRouter } from 'react-router';
 class Home extends React.Component {
 
     componentDidMount() {
-        this.props.setChallenges()
-        this.props.setLogs()
-        this.props.setUsers()
+        // this.props.setChallenges()
+        // this.props.setLogs()
+        // this.props.setUsers()
         this.props.setMainState()
       }
 
