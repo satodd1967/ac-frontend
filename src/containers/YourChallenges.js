@@ -18,17 +18,21 @@ const YourChallenges = (props) => {
     const challenges = yourChallenges.map(challenge => {
         const currentUserChallengeGoal = challenge.attributes.challenge_goals.find(challengeGoal => {
             return challengeGoal.user_id === props.user.id
-        })  
+        })
+
         const editButton = challenge && challenge.attributes.user_id === props.user.id ? 
         <ChallengeEditButton challengeId={challenge.id}/> : ""
-        return challenge ? <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
-            <li>
-            <DeleteButton type={"Quit Challenge"} deleteId={currentUserChallengeGoal.id} history={props.history}/>
-            <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/>
-            {editButton}
-            </li>
-            <br/>
-            <ChallengeRanking challenge={challenge} type={"single"}/></ul> : ""
+
+        return challenge ? 
+            <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
+                <li>
+                    <DeleteButton type={"Quit Challenge"} deleteId={currentUserChallengeGoal.id} history={props.history}/>
+                    <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/>
+                    {editButton}
+                </li>
+                <br/>
+                <ChallengeRanking challenge={challenge} type={"single"}/>
+            </ul> : ""
     })
 
     const noChallenge = yourChallenges.length > 0 ? 
@@ -48,8 +52,8 @@ const YourChallenges = (props) => {
                 <h2>Your Challenges</h2>
             </div>
             <ul className="your-challenges-ul">
-            {challenges}
-            {noChallenge}
+                {challenges}
+                {noChallenge}
             </ul>
         </div>
     )
