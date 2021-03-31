@@ -12,7 +12,6 @@ export const resetLogForm = () => {
 }
 
 export const setEditLogForm = log => {
-  console.log("Log", log)
   const formData = {
     logDate: log.attributes.log_date,
     workedOut: log.attributes.worked_out,

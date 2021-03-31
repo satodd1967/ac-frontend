@@ -15,7 +15,6 @@ const logForm = (state=initialState, action) => {
         case "RESET_LOG_FORM":
             return initialState
         case "SET_EDIT_LOG_FORM":
-            console.log("LogReducer", action)
             return action.formData
         default:
             return state

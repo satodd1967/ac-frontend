@@ -26,7 +26,6 @@ class EditLog extends React.Component {
     const logId = this.props.log ? this.props.log.id : null
     const history = this.props.history ? this.props.history : null
     return  <>
-            {console.log(logId)}
                 <LogForm editMode handleSubmit={this.handleSubmit}/>
                 <DeleteButton type={"Delete Log"} deleteId={logId} history={history}/>
             </>
