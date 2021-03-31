@@ -6,8 +6,6 @@ const challenges = (state = initialState, action) => {
             return action.challenges
         case "CLEAR_CHALLENGES":
             return initialState
-        case "CREATE_CHALLENGE":
-            return state.concat(action.challenge)
         default:
             return state
     }

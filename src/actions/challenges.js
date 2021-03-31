@@ -17,19 +17,6 @@ export const clearChallenges = () => {
     }
   }
 
-export const deleteChallengeSuccess = tripId => {
-  return {
-    type: "DELETE_TRIP",
-    tripId
-  }
-}
-// export const createChallenge = challenge => {
-//     return {
-//         type: "CREATE_CHALLENGE",
-//         challenge
-//     }
-// }
-
 //asycchronous actions
 
 export const setChallenges = () => {
