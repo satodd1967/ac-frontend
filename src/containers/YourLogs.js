@@ -1,6 +1,6 @@
 import React from 'react';
 import LogCards from '../components/LogCards'
-import LogEditButton from '../components/LogEditButton';
+import EditButton from '../components/EditButton';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ const YourLogs = (props) => {
 
     const logs = props.logs ? props.logs.map(log => {
         const editButton = log && log.user_id === props.user.id ? 
-            <LogEditButton logId={log.id}/> : ""
+            <EditButton value="Edit Log" url="logs"editId={log.id}/> : ""
         const challengeScores = log.log_scores.map(ls => {
             return <p key={ls.id}>{ls.challenge} - {ls.total_points}</p>
         })
