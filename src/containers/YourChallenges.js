@@ -58,7 +58,8 @@ const YourChallenges = (props) => {
 const mapStateToProps = state => {
     return {
         user: state.currentUser,
-        challenges: state.challenges
+        challenges: state.challenges,
+        mChallenges: state.mainState
     }
 }
 

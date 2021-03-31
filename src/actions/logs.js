@@ -3,6 +3,7 @@ import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
 import { setErrors } from './errors';
 import { apiDelete, apiGet, apiPatch, apiPost} from './services/api';
+import { updateMainState } from './mainState';
 
 //synchronous actions
 export const getLogs = logs => {
@@ -59,10 +60,11 @@ export const sendLog = (logData, history, user) => {
         let logErrorInfo = response.error
         dispatch(setErrors(logErrorInfo))
       } else {
-        dispatch(setLogs())
-        dispatch(setChallenges())
-        dispatch(getCurrentUser(history))
-        dispatch(resetLogForm())
+        // dispatch(setLogs())
+        // dispatch(setChallenges())
+        // dispatch(getCurrentUser(history))
+        // dispatch(resetLogForm())
+        dispatch(updateMainState(response.main_state))
         history.push('/home')
       }
     })

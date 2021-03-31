@@ -11,6 +11,7 @@ import LogEditForm from './LogEditForm';
 import ChallengeGoalCreateForm from './ChallengeGoalCreateForm';
 import ChallengeGoalEditForm from './ChallengeGoalEditForm';
 import LogCreateForm from './LogCreateForm';
+import { setMainState } from '../actions/mainState';
 import { setChallenges } from '../actions/challenges';
 import { setLogs } from '../actions/logs';
 import { setUsers } from '../actions/users';
@@ -24,6 +25,7 @@ class Home extends React.Component {
         this.props.setChallenges()
         this.props.setLogs()
         this.props.setUsers()
+        this.props.setMainState()
       }
 
     render() {
@@ -89,4 +91,4 @@ const mapStateToProps = state => {
     }
   }
   
-  export default withRouter(connect(mapStateToProps, { setChallenges, setLogs, setUsers })(Home));
+  export default withRouter(connect(mapStateToProps, { setChallenges, setLogs, setUsers, setMainState })(Home));
