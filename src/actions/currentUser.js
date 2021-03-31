@@ -1,8 +1,5 @@
 import { resetLoginForm } from './loginForm';
 import { resetSignupForm } from './signupForm';
-import { clearChallenges } from './challenges';
-import { clearLogs } from './logs';
-import { clearUsers } from './users';
 import { setErrors } from './errors';
 import { clearMainState } from './mainState';
 
