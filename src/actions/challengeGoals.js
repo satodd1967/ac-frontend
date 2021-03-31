@@ -3,50 +3,7 @@ import { setErrors } from './errors';
 import { apiDelete, apiPatch, apiPost} from './services/api';
 import { updateMainState } from '../actions/mainState'
 
-//synchronous actions
-// export const getChallengeGoals = challengeGoals => {
-//     return {
-//         type: "GET_CHALLENGE_GOALS",
-//         challengeGoals
-//     }
-// }
-
-// export const clearChallengeGoals = () => {
-//     return {
-//       type: "CLEAR_CHALLENGES_GOALS"
-//     }
-//   }
-
-// export const createChallengeGoal = challengeGoal => {
-//     return {
-//         type: "CREATE_CHALLENGE_GOAL",
-//         challengeGoal
-//     }
-// }
-
-//asycchronous actions
-// export const setChallengeGoals = () => {
-//     return dispatch => {
-//         return fetch("http://localhost:3001/api/challenge_goals", {
-//             credentials: "include",
-//             method: "GET",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//         })
-//         .then(resp => resp.json())
-//         .then(response => {
-//             if (response.error) {
-//                 alert(response.error)
-//             } else {
-//                 console.log("Get Challenge Goals Response", response.data)
-//                 dispatch(getChallengeGoals(response.data))
-//             }
-//         })
-//         .catch(console.log)
-//     }
-// }
-
+//asynchronus actions
 export const sendChallengeGoal = (challengeGoalData, history, user, challengeId) => {
     return dispatch => {
       const newChallengeGoalData = {
