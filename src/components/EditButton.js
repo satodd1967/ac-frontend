@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const editChallenge = (props) => {
+const EditButton = (props) => {
 
     return (
         <>
                 <Link to={{ 
-                    pathname: `/challenges/${props.challengeId}/edit`, 
-                    challengeId: props.challengeId, 
+                    pathname: `/${props.url}/${props.editId}/edit`, 
+                    editId: props.editId, 
                 }}>
                 <button type="button">
-                    Edit Challenge
+                    {props.value}
                 </button>
                 </Link>
         </>
     )
 }
 
-export default editChallenge
+export default EditButton

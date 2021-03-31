@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ChallengeCard from '../components/ChallengeCard';
 import ChallengeOwner from '../components/ChallengeOwners';
-import ChallengeEditButton from '../components/ChallengeEditButton';
+import ChallengeEditButton from '../components/EditButton';
 import GoalsViewButton from '../components/GoalsViewButton';
 import ChallengeRanking from './ChallengeRanking';
 import LogCards from '../components/LogCards'
@@ -18,7 +18,7 @@ const ChallengeShow = (props) => {
     }) : "null"
 
     const editButton = challenge && challenge.attributes.user_id === props.user.id ? 
-        <ChallengeEditButton challengeId={challenge.id}/> : ""
+        <ChallengeEditButton value="Edit Challenge" url="challenges" editId={challenge.id}/> : ""
     
     const viewGoals = challenge && challenge.attributes.user_id === props.user.id ?
         <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/> : ""

@@ -1,7 +1,7 @@
 import React from 'react';
 import ChallengeCards from '../components/ChallengeCards';
 import DeleteButton from '../components/DeleteButton';
-import ChallengeEditButton from '../components/ChallengeEditButton';
+import ChallengeEditButton from '../components/EditButton';
 import GoalsViewButton from '../components/GoalsViewButton';
 import ChallengeRanking from './ChallengeRanking';
 import { connect } from 'react-redux';
@@ -21,7 +21,7 @@ const YourChallenges = (props) => {
         })
 
         const editButton = challenge && challenge.attributes.user_id === props.user.id ? 
-        <ChallengeEditButton challengeId={challenge.id}/> : ""
+        <ChallengeEditButton value="Edit Challenge" url="challenges" editId={challenge.id}/> : ""
 
         return challenge ? 
             <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
