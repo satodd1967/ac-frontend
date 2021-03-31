@@ -8,6 +8,12 @@ export const updateMainState = mainState => {
     }
 }
 
+export const clearChallenges = () => {
+    return {
+      type: "CLEAR_MAIN_STATE"
+    }
+  }
+
 export const getMainState = mainState => {
     return {
       type: "GET_MAIN_STATE",

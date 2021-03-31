@@ -23,6 +23,8 @@ const mainState = (state = initialState, action) => {
                 user: action.mainState.user.data.attributes
             }
             return updateMainState
+        case "CLEAR_MAIN_STATE":
+            return initialState
         default:
             return state
     }
