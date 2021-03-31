@@ -7,7 +7,7 @@ const DontJoinButton = ({ history, resetChallengeGoalForm }) => {
     const handleSubmit = event => {
         event.preventDefault()
         resetChallengeGoalForm()
-        history.push('/')
+        history.push('/home')
     };
 
     return (
