@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const YourLogs = (props) => {
 
-    const logs = props.logs.map(log => {
+    const logs = props.logs ? props.logs.map(log => {
         const editButton = log && log.user_id === props.user.id ? 
             <LogEditButton logId={log.id}/> : ""
         const challengeScores = log.log_scores.map(ls => {
@@ -19,7 +19,7 @@ const YourLogs = (props) => {
                     <br/>
                     <br/>
                 </ul>
-    })
+    }) : ""
 
     const noLogs = logs.length > 0 ? 
         "" :<div className="no-logs"> 
@@ -41,8 +41,8 @@ const YourLogs = (props) => {
 
 const mapStateToProps = state => {
     return {
-        user: state.currentUser,
-        logs: state.currentUser.logs
+        user: state.mainState.user,
+        logs: state.mainState.user.logs
     }
 }
 

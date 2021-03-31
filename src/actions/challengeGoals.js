@@ -1,6 +1,4 @@
 import { resetChallengeGoalForm } from './challengeGoalForm';
-import { getCurrentUser } from './currentUser';
-import { setChallenges } from './challenges';
 import { setErrors } from './errors';
 import { apiDelete, apiPatch, apiPost} from './services/api';
 import { updateMainState } from '../actions/mainState'

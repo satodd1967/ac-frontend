@@ -11,7 +11,7 @@ class EditLog extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        this.props.log && !prevProps.log && this.props.setEditChallengeForm(this.props.log)
+        this.props.log && !prevProps.log && this.props.setEditLogForm(this.props.log)
     }
 
     componentWillUnmount() {

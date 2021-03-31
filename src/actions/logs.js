@@ -1,6 +1,4 @@
 import { resetLogForm } from './logForm';
-import { getCurrentUser } from './currentUser';
-import { setChallenges } from './challenges';
 import { setErrors } from './errors';
 import { apiDelete, apiGet, apiPatch, apiPost} from './services/api';
 import { updateMainState } from './mainState';
@@ -18,13 +16,6 @@ export const clearLogs = () => {
     type: "CLEAR_LOGS"
   }
 }
-
-// export const createLog = log => {
-//     return {
-//         type: "CREATE_LOG",
-//         log
-//     }
-// }
 
 //asycchronous actions
 export const setLogs = () => {
@@ -60,11 +51,8 @@ export const sendLog = (logData, history, user) => {
         let logErrorInfo = response.error
         dispatch(setErrors(logErrorInfo))
       } else {
-        // dispatch(setLogs())
-        // dispatch(setChallenges())
-        // dispatch(getCurrentUser(history))
-        dispatch(resetLogForm())
         dispatch(updateMainState(response.main_state))
+        dispatch(resetLogForm())
         history.push('/home')
       }
     })
@@ -90,9 +78,8 @@ export const sendLog = (logData, history, user) => {
           let logErrorInfo = response.error
           dispatch(setErrors(logErrorInfo))
         } else {
-          dispatch(setLogs())
-          dispatch(setChallenges())
-          dispatch(getCurrentUser(history))
+          dispatch(resetLogForm())
+          dispatch(updateMainState(response.main_state))
           history.push('/home')
         }
       })
@@ -107,9 +94,7 @@ export const sendLog = (logData, history, user) => {
         if (response.error) {
           alert(response.error)
         } else {
-          dispatch(setLogs())
-          dispatch(setChallenges())
-          dispatch(getCurrentUser(history))
+          dispatch(updateMainState(response.main_state))
           history.push('/home')
         }
       })
