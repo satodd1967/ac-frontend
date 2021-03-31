@@ -4,6 +4,7 @@ import { clearChallenges } from './challenges';
 import { clearLogs } from './logs';
 import { clearUsers } from './users';
 import { setErrors } from './errors';
+import { clearMainState } from './mainState';
 
 //synchronous action creators
 export const setCurrentUser = user => {
@@ -81,9 +82,7 @@ export const login = (credentials, history) => {
   export const logout = () => {
       return (dispatch) => {
             dispatch(clearCurrentUser())
-            dispatch(clearChallenges())
-            dispatch(clearLogs())
-            dispatch(clearUsers())
+            dispatch(clearMainState())
             return fetch('http://localhost:3001/logout', {
                 credentials: "include",
                 method: "DELETE"

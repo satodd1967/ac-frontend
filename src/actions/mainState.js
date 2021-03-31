@@ -8,7 +8,7 @@ export const updateMainState = mainState => {
     }
 }
 
-export const clearChallenges = () => {
+export const clearMainState = () => {
     return {
       type: "CLEAR_MAIN_STATE"
     }
