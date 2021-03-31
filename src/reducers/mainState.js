@@ -12,7 +12,7 @@ const mainState = (state = initialState, action) => {
                 challenges: action.mainState.challenges.data,
                 logs: action.mainState.logs.data,
                 users: action.mainState.users.data,
-                user: action.mainState.user.data
+                user: action.mainState.user.data.attributes
             }
             return getMainState
         case "UPDATE_MAIN_STATE":
@@ -20,7 +20,7 @@ const mainState = (state = initialState, action) => {
                 challenges: action.mainState.challenges.data,
                 logs: action.mainState.logs.data,
                 users: action.mainState.users.data,
-                user: action.mainState.user.data
+                user: action.mainState.user.data.attributes
             }
             return updateMainState
         default:
