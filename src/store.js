@@ -2,9 +2,6 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import currentUser from './reducers/currentUser';
 import loginForm from './reducers/loginForm';
 import signupForm from './reducers/signupForm';
-import challenges from './reducers/challenges';
-import logs from './reducers/logs';
-import users from './reducers/users';
 import challengeForm from './reducers/challengeForm';
 import challengeGoalForm from './reducers/challengeGoalForm';
 import logForm from './reducers/logForm';
@@ -16,12 +13,9 @@ const reducer = combineReducers({
     currentUser,
     loginForm,
     signupForm,
-    challenges,
     challengeForm,
     challengeGoalForm,
-    logs,
     logForm,
-    users,
     errors,
     mainState
   });
