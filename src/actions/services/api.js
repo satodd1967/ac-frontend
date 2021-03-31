@@ -8,7 +8,7 @@ export const apiGet = (url) => {
       "Content-Type": "application/json"
     },
   })
-  .then(resp => resp.json())
+    .then(resp => resp.json())
 }
 
 export const apiPost = (url, object) => {

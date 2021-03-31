@@ -60,10 +60,11 @@ const YourChallenges = (props) => {
 }
 
 const mapStateToProps = state => {
+    const mChallenges = state.mainState.challenges ? state.mainState.challenges.data : state.mainState
     return {
         user: state.currentUser,
         challenges: state.challenges,
-        mChallenges: state.mainState
+        mChallenges: mChallenges
     }
 }
 

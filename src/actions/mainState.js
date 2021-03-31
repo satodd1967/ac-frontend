@@ -2,10 +2,9 @@ import { apiGet } from './services/api';
 import { setErrors } from './errors';
 
 export const updateMainState = mainState => {
-    console.log("First", mainState)
     return {
         type: "UPDATE_MAIN_STATE",
-        mainState
+        mainState,
     }
 }
 

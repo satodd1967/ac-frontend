@@ -1,6 +1,7 @@
 import { resetChallengeForm } from './challengeForm';
 import { setErrors } from './errors';
 import { apiDelete, apiGet, apiPatch, apiPost} from './services/api';
+import { updateMainState } from './mainState';
 
 //synchronous actions
 export const getChallenges = challenges => {
@@ -68,6 +69,7 @@ export const sendChallenge = (challengeData, history, user) => {
             let challengeErrorInfo = response.error
             dispatch(setErrors(challengeErrorInfo))
           } else {
+            dispatch(updateMainState())
             dispatch(setChallenges())
             dispatch(resetChallengeForm())
             history.push(`/challenges/${response.id}/challenge_goals/new`)

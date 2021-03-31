@@ -63,7 +63,7 @@ export const sendLog = (logData, history, user) => {
         // dispatch(setLogs())
         // dispatch(setChallenges())
         // dispatch(getCurrentUser(history))
-        // dispatch(resetLogForm())
+        dispatch(resetLogForm())
         dispatch(updateMainState(response.main_state))
         history.push('/home')
       }

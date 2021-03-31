@@ -15,16 +15,6 @@ class App extends React.Component {
   render()  {
     return (
       <div className="App">
-        {/* <Switch>
-          {
-            this.props.loggedIn ?
-            <Route path='/' render={(props) => <Home history={props.history}/> }/>
-             :
-            <Route path='/' render={(props) => <Welcome history={props.history}/> }/>
-          }
-          
-        </Switch> */}
-        
         {
           this.props.loggedIn ?
           <Route path='/'>
@@ -34,8 +24,6 @@ class App extends React.Component {
             <Redirect to='/welcome'/><Welcome/>
           </Route>
         }
-
-        
       </div>
     );
   }
