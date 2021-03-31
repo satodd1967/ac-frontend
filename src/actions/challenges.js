@@ -69,10 +69,9 @@ export const sendChallenge = (challengeData, history, user) => {
             let challengeErrorInfo = response.error
             dispatch(setErrors(challengeErrorInfo))
           } else {
-            dispatch(updateMainState())
-            dispatch(setChallenges())
+            dispatch(updateMainState(response.main_state))
             dispatch(resetChallengeForm())
-            history.push(`/challenges/${response.id}/challenge_goals/new`)
+            history.push(`/challenges/${response.challenge.id}/challenge_goals/new`)
           }
         })
         .catch(console.log)
@@ -102,8 +101,9 @@ export const updateChallenge = (challengeData, history, user, challengeId) => {
           let challengeErrorInfo = response.error
           dispatch(setErrors(challengeErrorInfo))
         } else {
-          dispatch(setChallenges())
-          history.push(`/challenges/${response.id}`)
+          dispatch(updateMainState(response.main_state))
+          dispatch(resetChallengeForm())
+          history.push(`/challenges/${response.challenge.id}`)
         }
       })
       .catch(console.log)
@@ -119,7 +119,7 @@ export const deleteChallenge = (challengeId, history) => {
           alert(response.error)
         } else {
           dispatch(updateMainState(response.main_state))
-          history.push('/')
+          history.push('/home')
         }
       })
       .catch(console.log)
