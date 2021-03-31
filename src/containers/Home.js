@@ -12,7 +12,6 @@ import ChallengeGoalCreateForm from './ChallengeGoalCreateForm';
 import ChallengeGoalEditForm from './ChallengeGoalEditForm';
 import LogCreateForm from './LogCreateForm';
 import { setMainState } from '../actions/mainState';
-import { setChallenges } from '../actions/challenges';
 import { setLogs } from '../actions/logs';
 import { setUsers } from '../actions/users';
 import { connect } from 'react-redux';
@@ -22,7 +21,6 @@ import { withRouter } from 'react-router';
 class Home extends React.Component {
 
     componentDidMount() {
-        // this.props.setChallenges()
         // this.props.setLogs()
         // this.props.setUsers()
         this.props.setMainState()
@@ -91,4 +89,4 @@ const mapStateToProps = state => {
     }
   }
   
-  export default withRouter(connect(mapStateToProps, { setChallenges, setLogs, setUsers, setMainState })(Home));
+  export default withRouter(connect(mapStateToProps, { setLogs, setUsers, setMainState })(Home));

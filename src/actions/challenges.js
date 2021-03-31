@@ -3,36 +3,7 @@ import { setErrors } from './errors';
 import { apiDelete, apiGet, apiPatch, apiPost} from './services/api';
 import { updateMainState } from './mainState';
 
-//synchronous actions
-export const getChallenges = challenges => {
-    return {
-        type: "GET_CHALLENGES",
-        challenges
-    }
-}
-
-export const clearChallenges = () => {
-    return {
-      type: "CLEAR_CHALLENGES"
-    }
-  }
-
 //asycchronous actions
-
-export const setChallenges = () => {
-  return dispatch => {
-    apiGet("challenges")
-    .then(response => {
-      if (response.error) {
-          alert(response.error)
-      } else {
-          dispatch(getChallenges(response.data))
-      }
-    })
-    .catch(console.log)
-  }
-
-}
 
 export const sendChallenge = (challengeData, history, user) => {
     return dispatch => {
