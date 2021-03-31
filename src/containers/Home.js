@@ -84,10 +84,10 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.currentUser,
-        challenges: state.challenges,
-        logs: state.logs,
-        users: state.users
+        user: state.mainState.user,
+        challenges: state.mainState.challenges,
+        logs: state.mainState.challenges,
+        users: state.mainState.users
     }
   }
   

@@ -65,10 +65,10 @@ const ChallengeShow = (props) => {
 
 const mapStateToProps = state => {
     return {
-        user: state.currentUser,
-        challenges: state.challenges,
-        users: state.users,
-        logs: state.logs
+        user: state.mainState.user,
+        challenges: state.mainState.challenges,
+        users: state.mainState.users,
+        logs: state.mainState.logs
     }
 }
 

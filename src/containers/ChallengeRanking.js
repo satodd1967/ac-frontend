@@ -66,8 +66,8 @@ const ChallengeRanking = (props) => {
 
 const mapStateToProps = state => {
     return {
-        users: state.users,
-        user: state.currentUser
+        users: state.mainState.users,
+        user: state.mainState.user
     }
 }
 

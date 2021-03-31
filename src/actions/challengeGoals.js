@@ -3,6 +3,7 @@ import { getCurrentUser } from './currentUser';
 import { setChallenges } from './challenges';
 import { setErrors } from './errors';
 import { apiDelete, apiPatch, apiPost} from './services/api';
+import { updateMainState } from '../actions/mainState'
 
 //synchronous actions
 // export const getChallengeGoals = challengeGoals => {
@@ -111,8 +112,9 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
           if (response.error) {
             alert(response.error)
           } else {
-            dispatch(getCurrentUser(history))
-            dispatch(setChallenges())
+            // dispatch(getCurrentUser(history))
+            // dispatch(setChallenges())
+            dispatch(updateMainState(response.main_state))
             history.push(`/home`)
           }
         })

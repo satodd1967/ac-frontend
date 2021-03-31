@@ -118,8 +118,8 @@ export const deleteChallenge = (challengeId, history) => {
         if (response.error) {
           alert(response.error)
         } else {
-          dispatch(setChallenges())
-          history.push('/home')
+          dispatch(updateMainState(response.main_state))
+          history.push('/')
         }
       })
       .catch(console.log)
