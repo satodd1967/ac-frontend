@@ -61,9 +61,9 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
 
 const mapStateToProps = state => {
     return {
-        user: state.currentUser,
+        user: state.mainState.user,
         challengeGoalFormData: state.challengeGoalForm,
-        challenges: state.challenges,
+        challenges: state.mainState.challenges,
         errors: state.errors
     }
 }

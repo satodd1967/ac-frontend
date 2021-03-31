@@ -102,7 +102,7 @@ const ChallengeForm = ({ challengeFormData, updateChallengeForm, handleSubmit, u
 
 const mapStateToProps = state => {
     return {
-        user: state.currentUser,
+        user: state.mainState.user,
         challengeFormData: state.challengeForm,
         errors: state.errors
     }
