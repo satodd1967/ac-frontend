@@ -86,7 +86,7 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode, cle
 
 const mapStateToProps = state => {
     return {
-        user: state.currentUser,
+        user: state.mainState.user,
         logFormData: state.logForm,
         errors: state.errors
     }
