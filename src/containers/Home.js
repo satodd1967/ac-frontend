@@ -66,7 +66,7 @@ class Home extends React.Component {
                         </div>
                         <div className="bottom-element-column2">
                         <Switch>
-                            <Route exact path='/home' component={YourLogs}/>
+                            <Route exact path='/' component={YourLogs}/>
                         </Switch>
                         </div>
                     </div>

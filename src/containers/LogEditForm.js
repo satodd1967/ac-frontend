@@ -10,6 +10,10 @@ class EditLog extends React.Component {
         this.props.log && this.props.setEditLogForm(this.props.log)
     }
 
+    componentDidUpdate(prevProps) {
+        this.props.log && !prevProps.log && this.props.setEditLogForm(this.props.log)
+    }
+
     componentWillUnmount() {
         this.props.resetLogForm()
     }
