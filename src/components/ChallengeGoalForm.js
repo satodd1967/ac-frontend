@@ -8,7 +8,7 @@ import { clearErrors } from '../actions/errors';
 const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, challenges, challengeId, errors, clearErrors, editMode }) => {
 
     const challenge = challenges.find(challenge => {
-        return challenge.id === challengeId.toString()
+        return challenge.id === challengeId
     })
 
     const handleChange = event => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import GoalCard from '../components/GoalCard';
-import GoalsEditButton from '../components/GoalsEditButton';
+import EditButton from '../components/EditButton';
 import { connect } from 'react-redux';
 
 const GoalShow = (props) => {
@@ -19,7 +19,7 @@ const GoalShow = (props) => {
 
     const editButton = props.user.challenge_goals.map(challengeGoal => {
         if (challengeGoal.id === props.location.challengeGoalId) {
-            return <GoalsEditButton key={challengeGoal.id} challengeGoalId={challengeGoal.id}/>
+            return <EditButton key="challengeGoal.id" value="Edit Goal" url="challenge_goals" editId={props.location.challengeGoalId}/>
         } else {
             return ""
         }
