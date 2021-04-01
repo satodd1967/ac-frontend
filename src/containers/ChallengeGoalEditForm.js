@@ -8,11 +8,7 @@ class EditChallengeGoal extends React.Component {
     componentDidMount(){
         this.props.challengeGoal && this.props.setEditChallengeGoalForm(this.props.challengeGoal)
     }
-
-    componentDidUpdate(prevProps) {
-        this.props.challengeGoal && !prevProps.challengeGoal && this.props.setEditChallengeGoalForm(this.props.challengeGoal)
-    }
-
+    
     componentWillUnmount() {
         this.props.resetChallengeGoalForm()
     }

@@ -10,10 +10,6 @@ class EditChallenge extends React.Component {
         this.props.challenge && this.props.setEditChallengeForm(this.props.challenge)
     }
 
-    componentDidUpdate(prevProps) {
-        this.props.challenge && !prevProps.challenge && this.props.setEditChallengeForm(this.props.challenge)
-    }
-
     componentWillUnmount() {
         this.props.resetChallengeForm()
     }
