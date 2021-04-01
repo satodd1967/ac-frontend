@@ -4,11 +4,12 @@ import Welcome from './containers/Welcome';
 import Home from './containers/Home';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
 class App extends React.Component {
 
   componentDidMount() {
+    console.log(this.props.match)
     this.props.getCurrentUser()
   }
 
@@ -18,12 +19,21 @@ class App extends React.Component {
         {
           this.props.loggedIn ?
           <Route path='/'>
+            <Home/>
+          </Route> :
+          <Route path='/'>
+            <Welcome/>
+          </Route>
+        }
+        {/* {
+          this.props.loggedIn ?
+          <Route path='/'>
             <Redirect to='/home'/><Home/>
           </Route> :
           <Route path='/'>
             <Redirect to='/welcome'/><Welcome/>
           </Route>
-        }
+        } */}
       </div>
     );
   }
@@ -35,4 +45,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));

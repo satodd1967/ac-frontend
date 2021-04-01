@@ -40,7 +40,7 @@ class Home extends React.Component {
                     <div className="column-2">
                         <div className="top-element-column-2">
                         <Switch>
-                            <Route exact path='/home' component={YourChallenges}/>
+                            <Route exact path='/' component={YourChallenges}/>
                             <Route exact path='/challenges' component={Challenges}/>
                             <Route exact path='/challenges/new' component={ChallengeCreateForm}/>
                             <Route exact path='/challenges/:id' render={props => <ChallengeShow challengeId={props.match.params.id}/> }/>

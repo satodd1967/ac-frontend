@@ -17,7 +17,7 @@ const reducer = combineReducers({
     challengeGoalForm,
     logForm,
     errors,
-    mainState
+    mainState,
   });
   
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
