@@ -34,7 +34,7 @@ export const login = (credentials, history) => {
                 let userErrorInfo = response.error
                 dispatch(setErrors(userErrorInfo))
             } else {
-                dispatch(getCurrentUser(history))
+                dispatch(getCurrentUser())
                 dispatch(resetLoginForm())
                 history.push('/home')
             }
@@ -87,7 +87,7 @@ export const login = (credentials, history) => {
         }
   }
 
-  export const getCurrentUser = (history) => {
+  export const getCurrentUser = () => {
     return dispatch => {
       return fetch("http://localhost:3001/get_current_user", {
         credentials: "include",

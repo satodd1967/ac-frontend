@@ -9,7 +9,7 @@ import { Route, Redirect } from 'react-router-dom';
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.getCurrentUser(this.props.history)
+    this.props.getCurrentUser()
   }
 
   render()  {
