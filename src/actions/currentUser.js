@@ -36,7 +36,7 @@ export const login = (credentials, history) => {
             } else {
                 dispatch(getCurrentUser())
                 dispatch(resetLoginForm())
-                history.push('/home')
+                history.push('/')
             }
         })
         .catch(console.log)
@@ -69,7 +69,7 @@ export const login = (credentials, history) => {
               } else {
                   dispatch(getCurrentUser(history))
                   dispatch(resetSignupForm())
-                  history.push('/home')
+                  history.push('/')
               }
           })
           .catch(console.log)

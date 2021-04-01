@@ -77,7 +77,7 @@ export const deleteChallenge = (challengeId, history) => {
           alert(response.error)
         } else {
           dispatch(updateMainState(response.main_state))
-          history.push('/home')
+          history.push('/')
         }
       })
       .catch(console.log)

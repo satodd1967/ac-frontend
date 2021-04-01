@@ -25,7 +25,7 @@ export const sendLog = (logData, history, user) => {
       } else {
         dispatch(updateMainState(response.main_state))
         dispatch(resetLogForm())
-        history.push('/home')
+        history.push('/')
       }
     })
     .catch(console.log)
@@ -52,7 +52,7 @@ export const sendLog = (logData, history, user) => {
         } else {
           dispatch(resetLogForm())
           dispatch(updateMainState(response.main_state))
-          history.push('/home')
+          history.push('/')
         }
       })
       .catch(console.log)
@@ -67,7 +67,7 @@ export const sendLog = (logData, history, user) => {
           alert(response.error)
         } else {
           dispatch(updateMainState(response.main_state))
-          history.push('/home')
+          history.push('/')
         }
       })
       .catch(console.log)

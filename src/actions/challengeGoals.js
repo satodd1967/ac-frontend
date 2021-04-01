@@ -21,7 +21,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
           } else {
             dispatch(updateMainState(response.main_state))
             dispatch(resetChallengeGoalForm())
-            history.push('/home')
+            history.push('/')
           }
         })
         .catch(console.log)
@@ -66,7 +66,7 @@ export const sendChallengeGoal = (challengeGoalData, history, user, challengeId)
             alert(response.error)
           } else {
             dispatch(updateMainState(response.main_state))
-            history.push(`/home`)
+            history.push(`/`)
           }
         })
         .catch(console.log)
