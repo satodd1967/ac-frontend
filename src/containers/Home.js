@@ -70,6 +70,9 @@ class Home extends React.Component {
                         </Switch>
                         </div>
                     </div>
+                    <div className="column-3">
+                    <Route exact path='/' component={YourLogs}/>  
+                    </div>
                 </div>
             </div>
         )

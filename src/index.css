@@ -192,7 +192,7 @@ html {
 }
 
 .header-image {
-  flex: .8;
+  flex: .5;
   color: #9b9b9b;
   background-color: #333;
   text-align: center;
@@ -210,7 +210,7 @@ html {
 }
 
 .column-1 {
-  flex: .8;
+  flex: 1;
   background-color: #333;
   min-height: 100vh;
 }
@@ -224,7 +224,7 @@ html {
 }
 
 .column-2 {
-  flex: 3;
+  flex: 2.5;
   background-color: white;
   min-height: 100vh;
   padding-left: 30px;
@@ -246,6 +246,14 @@ button {
   width:105px;
   justify-content:center;
   align-items:center;
+}
+
+.column-3 {
+  flex: 3;
+  background-color: white;
+  min-height: 100vh;
+  padding-left: 0px;
+  padding-top: 4.5%;
 }
 
 
