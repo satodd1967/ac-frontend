@@ -9,7 +9,7 @@ const CreateChallenge = ({ sendChallenge, history, match }) => {
         sendChallenge(challengeFormData, history, user)
     }
     return  <div>
-                <h1>Start a new Challenge</h1>
+                <h2>Start a new Challenge</h2>
                 <ChallengeForm history={history} handleSubmit={handleSubmit} />
                 <br/>
                 <br/>

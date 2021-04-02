@@ -24,15 +24,18 @@ const YourChallenges = (props) => {
         <ChallengeEditButton value="Edit Challenge" url="challenges" editId={challenge.id}/> : ""
 
         return challenge ? 
-            <ul key={challenge.id}><ChallengeCards challenge={challenge}/>
+            <div key={challenge.id}>
+            <ul className="your-challenges-challenge" key={challenge.id}><ChallengeCards challenge={challenge}/>
                 <li>
                     <DeleteButton type={"Quit Challenge"} deleteId={currentUserChallengeGoal.id} history={props.history}/>
                     <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/>
                     {editButton}
                 </li>
                 <br/>
+            </ul>
                 <ChallengeRanking challenge={challenge} type={"single"}/>
-            </ul> : ""
+            </div>
+             : ""
     })
 
     const noChallenge = yourChallenges.length > 0 ? 

@@ -32,7 +32,7 @@ h2 {
   font-size: 27px;
   line-height: 135%;
   font-weight: 600;
-  padding-left: 30px;
+  padding-left: 10px;
   padding-right: 30px;
 }
 
@@ -64,7 +64,6 @@ h5 {
 
 a {
   color: #828586;
-  text-decoration: underline;
 }
 
 ul {
@@ -192,6 +191,10 @@ html {
 }
 
 .header-image {
+  background-image: url("./images/AChallengeLogoV2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   flex: .5;
   color: #9b9b9b;
   background-color: #333;
@@ -256,7 +259,16 @@ button {
   padding-top: 4.5%;
 }
 
+/* .your-challenges-challenge {
+  background-color: beige;
+  border-radius: 25px;
+  padding-left: 35px;
+  padding-top: 10px;
+}
 
-/* .weights {
-background-image: url('/images/gym1main.jpg');
+.your-logs-log {
+  background-color: beige;
+  border-radius: 25px;
+  padding-left: 35px;
+  padding-top: 10px;
 } */

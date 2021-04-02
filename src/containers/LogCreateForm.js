@@ -9,7 +9,7 @@ const CreateLog = ({ sendLog, history }) => {
         sendLog(logFormData, history, user)
     }
     return  <div className="create-log-form">
-                <h1>Create a new Log</h1>
+                <h2>Create a new Log</h2>
                 <LogForm history={history} handleSubmit={handleSubmit} />
             </div>
 }
