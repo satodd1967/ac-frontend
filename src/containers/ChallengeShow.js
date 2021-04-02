@@ -42,7 +42,7 @@ const ChallengeShow = (props) => {
     return (
         <div className="challenge-show">
             <div className="challenge-show-header">
-                <h1>{challenge ? challenge.attributes.name : `No Challenge`}</h1>
+                <h2>{challenge ? challenge.attributes.name : `No Challenge`}</h2>
                 <h3>{challengeOwner}</h3>
                 {editButton}
                 {viewGoals}

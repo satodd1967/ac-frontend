@@ -7,10 +7,7 @@ import { Link } from 'react-router-dom';
 const YourLogs = (props) => {
 
     const logSort = props.logs ? props.logs.sort((a,b) => Date.parse(b.log_date) - Date.parse(a.log_date)) : null
-    console.log("LogSort", logSort)
-
     
-
     const logs = logSort ? logSort.map(log => {
         const editButton = log && log.user_id === props.user.id ? 
             <EditButton value="Edit Log" url="logs"editId={log.id}/> : ""

@@ -25,7 +25,7 @@ const Challenges = (props) => {
     
     return (
         <div className="all-challenges">
-            <h1>All Challenges</h1>
+            <h2>All Challenges</h2>
             {challenges}
         </div>
     )
