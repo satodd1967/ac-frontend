@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 
 const YourLogs = (props) => {
 
-    const logSort = props.log ? props.log.sort((a,b) => b.log_date - a.log_date) : null
+    const logSort = props.logs ? props.logs.sort((a,b) => Date.parse(b.log_date) - Date.parse(a.log_date)) : null
     console.log("LogSort", logSort)
 
-    // const ranking = totalPoints.filter(item => item).sort((a,b) => b.total_points - a.total_points)
+    
 
-    const logs = props.logs ? props.logs.map(log => {
+    const logs = logSort ? logSort.map(log => {
         const editButton = log && log.user_id === props.user.id ? 
             <EditButton value="Edit Log" url="logs"editId={log.id}/> : ""
         const challengeScores = log.log_scores.map(ls => {
