@@ -45,3 +45,12 @@ export const apiDelete = (url, id) => {
   })
   .then(resp => resp.json())
 }
+
+export const updatedFormData = (change, loginFormData) => {
+  const { name, value } = change.target
+  const updatedFormInfo = {
+      ...loginFormData,
+      [name]: value
+  }
+  return updatedFormInfo
+}

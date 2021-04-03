@@ -5,7 +5,7 @@ const ClientErrorCard = (props) => {
     console.log("Card", props)
 
     return (
-        <div className="error-card">
+        <div className="client-error-card">
             {props.error}
         </div>
     )

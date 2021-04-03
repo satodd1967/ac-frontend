@@ -1,6 +1,7 @@
 import React from 'react';
 import ErrorCard from './ErrorCard';
 import { connect } from 'react-redux';
+import { updatedFormData } from '../actions/services/updateFormData';
 import { updateLoginForm } from "../actions/loginForm";
 import { validateLogin } from '../actions/clientErrors';
 import { clearClientErrors } from '../actions/clientErrors';
@@ -10,13 +11,9 @@ import { Link } from 'react-router-dom';
 import { clearErrors } from '../actions/errors';
 
 const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearErrors, clearClientErrors, validateLogin, clientErrors }) => {
-
+    
     const handleChange = event => {
-        const { name, value } = event.target
-        const updatedFormInfo = {
-            ...loginFormData,
-            [name]: value
-        }
+        const updatedFormInfo = updatedFormData(event, loginFormData)
         clearErrors()
         clearClientErrors()
         updateLoginForm(updatedFormInfo)
@@ -24,11 +21,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearEr
 
     const handleSubmit = event => {
         event.preventDefault()
-        const { name, value } = event.target
-        const updatedFormInfo = {
-            ...loginFormData,
-            [name]: value
-        }
+        const updatedFormInfo = updatedFormData(event, loginFormData)
         validateLogin(updatedFormInfo)
         if (clientErrors.length === 0) {
         login(loginFormData, history)
@@ -77,4 +70,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateLoginForm, login, clearErrors, clearClientErrors, validateLogin } )(Login)
+export default connect(mapStateToProps, { updateLoginForm, login, clearErrors, clearClientErrors, validateLogin, updatedFormData } )(Login)
