@@ -8,7 +8,7 @@ const CreateChallenge = ({ sendChallenge, history, match }) => {
     const handleSubmit = (challengeFormData, user) => {
         sendChallenge(challengeFormData, history, user)
     }
-    return  <div>
+    return  <div className="start-new-challenge">
                 <h2>Start a new Challenge</h2>
                 <ChallengeForm history={history} handleSubmit={handleSubmit} />
                 <br/>

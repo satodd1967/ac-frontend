@@ -255,8 +255,12 @@ button {
   flex: 3;
   background-color: white;
   min-height: 100vh;
-  padding-left: 0px;
+  padding-left: 10px;
   padding-top: 4.5%;
+}
+
+.start-new-challenge {
+  padding-top: 3px;
 }
 
 /* .your-challenges-challenge {

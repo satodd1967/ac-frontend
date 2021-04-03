@@ -7,6 +7,7 @@ import challengeGoalForm from './reducers/challengeGoalForm';
 import logForm from './reducers/logForm';
 import errors from './reducers/errors';
 import mainState from './reducers/mainState';
+import clientErrors from './reducers/clientErrors';
 import thunk from 'redux-thunk';
 
 const reducer = combineReducers({
@@ -18,6 +19,7 @@ const reducer = combineReducers({
     logForm,
     errors,
     mainState,
+    clientErrors
   });
   
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
