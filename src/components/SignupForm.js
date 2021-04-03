@@ -2,29 +2,36 @@ import React from 'react';
 import ErrorCard from './ErrorCard';
 import { connect } from 'react-redux';
 import { updateSignupForm } from "../actions/signupForm";
+import { updatedFormData } from '../actions/services/updateFormData';
+import { validateLogin } from '../actions/clientErrors';
+import { clearClientErrors } from '../actions/clientErrors';
+import ClientErrorsCard from '../components/ClientErrorsCard';
 import { signup } from "../actions/currentUser";
 import { clearErrors } from '../actions/errors';
 import { Link } from 'react-router-dom';
 
-const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, clearErrors }) => {
+const Signup = ({ formData, updateSignupForm, signup, history, errors, clearErrors, clientErrors, validateLogin, clearClientErrors }) => {
 
     const handleChange = event => {
-        const { name, value } = event.target
-        const updatedFormInfo = {
-            ...signupFormData,
-            [name]: value
-        }
+        const updatedFormInfo = updatedFormData(event, formData)
         clearErrors()
+        clearClientErrors()
         updateSignupForm(updatedFormInfo)
-    }
+    };
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault()
-        signup(signupFormData, history)
-    }
+        const updatedFormInfo = updatedFormData(event, formData)
+        const isValid = await validateLogin(updatedFormInfo, "signup")
+        if (Object.keys(isValid.invalid).length === 0) {
+            signup(formData, history)
+        }
+    };
+
+
 
     const formErrors = errors.map(error => {
-        return <li><ErrorCard key={error} error={error}/></li>
+        return <li key={error}><ErrorCard error={error}/></li>
     }) 
 
     return (
@@ -35,20 +42,23 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, cle
             </div>
             <form className="signup-form-body" onSubmit={handleSubmit}>
                 <input placeholder="email"
-                    value={signupFormData.email}
+                    value={formData.email}
                     name="email"
                     type="email"
                     onChange={handleChange}/>
+                <ClientErrorsCard error={clientErrors.email}/> 
                 <input className="signup-username" placeholder="username"
-                    value={signupFormData.username}
+                    value={formData.username}
                     name="username"
                     type="text"
                     onChange={handleChange}/>
+                <ClientErrorsCard error={clientErrors.username}/>
                 <input placeholder="password"
-                    value={signupFormData.password}
+                    value={formData.password}
                     name="password"
                     type="password"
                     onChange={handleChange}/>
+                <ClientErrorsCard error={clientErrors.password}/>
                 <input type="submit" value="Signup"/>
                 <br/>
                 <br/>
@@ -65,9 +75,10 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history, errors, cle
 
 const mapStateToProps = state => {
     return {
-        signupFormData: state.signupForm,
-        errors: state.errors
+        formData: state.signupForm,
+        errors: state.errors,
+        clientErrors: state.clientErrors
     }
 }
 
-export default connect(mapStateToProps, { updateSignupForm, signup, clearErrors } )(Signup)
+export default connect(mapStateToProps, { updateSignupForm, signup, clearErrors, updatedFormData, clearClientErrors, validateLogin } )(Signup)

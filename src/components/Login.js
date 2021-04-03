@@ -10,21 +10,21 @@ import { login } from "../actions/currentUser";
 import { Link } from 'react-router-dom';
 import { clearErrors } from '../actions/errors';
 
-const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearErrors, clearClientErrors, validateLogin, clientErrors }) => {
+const Login = ({ formData, updateLoginForm, login, history, errors, clearErrors, clearClientErrors, validateLogin, clientErrors }) => {
     
     const handleChange = event => {
-        const updatedFormInfo = updatedFormData(event, loginFormData)
+        const updatedFormInfo = updatedFormData(event, formData)
         clearErrors()
         clearClientErrors()
         updateLoginForm(updatedFormInfo)
     };
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault()
-        const updatedFormInfo = updatedFormData(event, loginFormData)
-        validateLogin(updatedFormInfo, "login")
-        if (clientErrors.length === 0) {
-        login(loginFormData, history)
+        const updatedFormInfo = updatedFormData(event, formData)
+        const isValid = await validateLogin(updatedFormInfo, "login")
+        if (Object.keys(isValid.invalid).length === 0) {
+            login(formData, history)
         }
     };
 
@@ -40,13 +40,13 @@ const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearEr
             </div>
             <form onSubmit={handleSubmit}>
                 <input className="login-email" placeholder="email"
-                    value={loginFormData.email}
+                    value={formData.email}
                     name="email"
                     type="email"
                     onChange={handleChange}/>
                 <ClientErrorsCard error={clientErrors.email}/> 
                 <input className="login-password" placeholder="password"
-                    value={loginFormData.password}
+                    value={formData.password}
                     name="password"
                     type="password"
                     onChange={handleChange}/>
@@ -64,7 +64,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearEr
 
 const mapStateToProps = state => {
     return {
-        loginFormData: state.loginForm,
+        formData: state.loginForm,
         errors: state.errors,
         clientErrors: state.clientErrors
     }

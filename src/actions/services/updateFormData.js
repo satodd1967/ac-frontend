@@ -1,7 +1,7 @@
-export const updatedFormData = (change, loginFormData) => {
+export const updatedFormData = (change, formData) => {
     const { name, value } = change.target
     const updatedFormInfo = {
-        ...loginFormData,
+        ...formData,
         [name]: value
     }
     return updatedFormInfo
