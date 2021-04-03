@@ -22,7 +22,7 @@ const Login = ({ loginFormData, updateLoginForm, login, history, errors, clearEr
     const handleSubmit = event => {
         event.preventDefault()
         const updatedFormInfo = updatedFormData(event, loginFormData)
-        validateLogin(updatedFormInfo)
+        validateLogin(updatedFormInfo, "login")
         if (clientErrors.length === 0) {
         login(loginFormData, history)
         }

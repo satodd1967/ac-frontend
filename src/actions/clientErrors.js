@@ -1,4 +1,5 @@
-export const validateLogin = values => {
+export const validateLogin = (values, type) => {
+    console.log("type", type)
     let invalid = {};
     const regEmail = /[a-zA-Z0-9.!$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*/;
     const regPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
@@ -7,6 +8,10 @@ export const validateLogin = values => {
     } else if (!regEmail.test(values.email)) {
         invalid.email = "Invalid email format!"
     }
+
+    const username = type === "signup" && !values.username ? invalid.username = "Username cannot be blank!" : null
+
+    if (username) invalid.username = username
 
     if (!values.password) {
         invalid.password = "Password cannot be blank!"
