@@ -2,6 +2,7 @@ import React from 'react';
 import ChallengeGoalForm from '../components/ChallengeGoalForm';
 import { updateChallengeGoal } from '../actions/challengeGoals';
 import { setEditChallengeGoalForm, resetChallengeGoalForm } from '../actions/challengeGoalForm';
+import { validateChallengeGoal } from '../actions/clientErrors';
 import { connect } from 'react-redux';
 
 class EditChallengeGoal extends React.Component {
@@ -17,8 +18,11 @@ class EditChallengeGoal extends React.Component {
         this.props.resetChallengeGoalForm()
     }
 
-    handleSubmit = (challengeGoalFormData, user) => {
-        this.props.updateChallengeGoal(challengeGoalFormData, this.props.history, user, this.props.challengeGoal.id)
+    handleSubmit = async (challengeGoalFormData, user) => {
+        const isValid = await this.props.validateChallengeGoal(challengeGoalFormData)
+        if (Object.keys(isValid.invalid).length === 0) {
+            this.props.updateChallengeGoal(challengeGoalFormData, this.props.history, user, this.props.challengeGoal.id)
+        }
     }
 
   render() {
@@ -30,4 +34,4 @@ class EditChallengeGoal extends React.Component {
   }
 };
 
-export default connect(null, { updateChallengeGoal, setEditChallengeGoalForm, resetChallengeGoalForm })(EditChallengeGoal);
+export default connect(null, { updateChallengeGoal, setEditChallengeGoalForm, resetChallengeGoalForm, validateChallengeGoal })(EditChallengeGoal);
