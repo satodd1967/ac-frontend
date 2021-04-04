@@ -22,8 +22,8 @@ const GoalShow = ({ user, challenges, location, match, challengeGoals }) => {
     return (
         <div className="goal-show">
             <div className="goal-show-header">
-                <h1>Your goals for {challenge ? challenge.attributes.name : ``}</h1>
-                <h4>Start Date: {challenge ? challenge.attributes.start_date : ``} End Date: {challenge ? challenge.attributes.end_date : `No Goal`} </h4>
+                <h2>Your goals for<br/>{challenge ? challenge.attributes.name : ``}</h2>
+                <h4>Start Date: {challenge ? challenge.attributes.start_date : ``} End Date: {challenge ? challenge.attributes.end_date : ``} </h4>
                 <h3>Duration {challenge ? `${challenge.attributes.duration} weeks` : ``}</h3>
                 {userChallengeGoal}
                 <br/>
