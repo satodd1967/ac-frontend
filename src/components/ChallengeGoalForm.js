@@ -2,22 +2,22 @@ import React from 'react';
 import ErrorCard from './ErrorCard';
 import { connect } from 'react-redux';
 import { updateChallengeGoalForm } from "../actions/challengeGoalForm";
+import { updatedFormData } from '../actions/services/updateFormData';
+import { clearClientErrors } from '../actions/clientErrors';
+import ClientErrorsCard from '../components/ClientErrorsCard';
 import { sendChallengeGoal } from "../actions/challengeGoals";
 import { clearErrors } from '../actions/errors';
 
-const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, handleSubmit, user, challenges, challengeId, errors, clearErrors, editMode }) => {
+const ChallengeGoalForm = ({ formData, updateChallengeGoalForm, handleSubmit, user, challenges, challengeId, errors, clearErrors, editMode, clearClientErrors, clientErrors }) => {
 
     const challenge = challenges.find(challenge => {
         return challenge.id === challengeId
     })
 
     const handleChange = event => {
-        const { name, value } = event.target
-        const updatedFormInfo = {
-            ...challengeGoalFormData,
-            [name]: value
-        }
+        const updatedFormInfo = updatedFormData(event, formData)
         clearErrors()
+        clearClientErrors()
         updateChallengeGoalForm(updatedFormInfo)
     }
 
@@ -28,7 +28,7 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
     return (
         <form onSubmit={event => {
             event.preventDefault()
-            handleSubmit(challengeGoalFormData, user)
+            handleSubmit(formData, user)
             }}>
             <ul>
                 {formErrors}
@@ -36,23 +36,25 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
             <h3>{user.username} Setup Your Challenge Goals for {challenge ? challenge.attributes.name : ""} </h3>
             Start Body Fat:
             <input placeholder="start body fat"
-                value={challengeGoalFormData.startBodyFat}
+                value={formData.startBodyFat}
                 name="startBodyFat"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.startBodyFat}/> 
             Start Calorie Goal:
             <input placeholder="start calorie goal"
-                value={challengeGoalFormData.startCalorieGoal}
+                value={formData.startCalorieGoal}
                 name="startCalorieGoal"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.startCalorieGoal}/>
             Start Weight:
             <input placeholder="start weight"
-                value={challengeGoalFormData.startWeight}
+                value={formData.startWeight}
                 name="startWeight"
                 type="text"
                 onChange={handleChange}/>
-              
+            <ClientErrorsCard error={clientErrors.startWeight}/>
             <input type="submit" value={ editMode ? "Update Goals" : "Join Challenge" }/>
 
         </form>
@@ -62,10 +64,11 @@ const ChallengeGoalForm = ({ challengeGoalFormData, updateChallengeGoalForm, han
 const mapStateToProps = state => {
     return {
         user: state.mainState.user,
-        challengeGoalFormData: state.challengeGoalForm,
+        formData: state.challengeGoalForm,
         challenges: state.mainState.challenges,
-        errors: state.errors
+        errors: state.errors,
+        clientErrors: state.clientErrors
     }
 }
 
-export default connect(mapStateToProps, { updateChallengeGoalForm, sendChallengeGoal, clearErrors } )(ChallengeGoalForm)
+export default connect(mapStateToProps, { updateChallengeGoalForm, sendChallengeGoal, clearErrors, clearClientErrors, updatedFormData } )(ChallengeGoalForm)

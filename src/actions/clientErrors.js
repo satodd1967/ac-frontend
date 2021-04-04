@@ -81,6 +81,28 @@ export const validateChallenge = (values, type) => {
     }
 };
 
+export const validateChallengeGoal = (values) => {
+    let invalid = {};
+
+    if (!values.startBodyFat) {
+        invalid.startBodyFat = "Starting body fat cannot be blank!"
+    }
+
+    if (!values.startCalorieGoal) {
+        invalid.startCalorieGoal = "Starting calorie goal cannot be blank!"
+    }
+
+    if (!values.startWeight) {
+        invalid.startWeight = "Starting weight cannot be blank!"
+    } 
+
+    console.log("BeforeReducer", invalid)
+    return {
+        type: "SET_CLIENT_ERRORS",
+        invalid
+    }
+};
+
 export const clearClientErrors = () => {
     return {
         type: "CLEAR_CLIENT_ERRORS"

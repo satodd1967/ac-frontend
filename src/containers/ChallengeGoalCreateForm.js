@@ -1,15 +1,19 @@
 import React from 'react'
 import ChallengeGoalForm from '../components/ChallengeGoalForm';
 import DontJoinChallengeButton from '../components/DontJoinChallengeButton';
+import { validateChallengeGoal } from '../actions/clientErrors';
 import { sendChallengeGoal } from '../actions/challengeGoals'
 import { connect } from 'react-redux'
 
-const CreateChallengeGoal = ({ sendChallengeGoal, history, match }) => {
+const CreateChallengeGoal = ({ sendChallengeGoal, history, match, validateChallengeGoal }) => {
 
     const challengeId = match.params.id
 
-    const handleSubmit = (challengeGoalFormData, user) => {
-        sendChallengeGoal(challengeGoalFormData, history, user, challengeId)
+    const handleSubmit = async (challengeGoalFormData, user) => {
+        const isValid = await validateChallengeGoal(challengeGoalFormData)
+        if (Object.keys(isValid.invalid).length === 0) {
+            sendChallengeGoal(challengeGoalFormData, history, user, challengeId)
+        }
     }
 
     return  <div>
@@ -19,4 +23,4 @@ const CreateChallengeGoal = ({ sendChallengeGoal, history, match }) => {
             </div>
 }
 
-export default connect(null, { sendChallengeGoal } )(CreateChallengeGoal)
+export default connect(null, { sendChallengeGoal, validateChallengeGoal } )(CreateChallengeGoal)
