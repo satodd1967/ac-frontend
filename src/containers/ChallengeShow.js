@@ -47,7 +47,7 @@ const ChallengeShow = (props) => {
                 {editButton}
                 {viewGoals}
                 <h3>Ranking</h3>
-                <h3>{challengeRanking}</h3>
+                <h5>{challengeRanking}</h5>
             </div>
             <div className="challenge-show-details">
                 <h1>Details</h1>
