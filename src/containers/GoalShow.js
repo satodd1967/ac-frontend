@@ -1,37 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import GoalCard from '../components/GoalCard';
 import EditButton from '../components/EditButton';
 import { connect } from 'react-redux';
 
-const GoalShow = (props) => {
+const GoalShow = ({ user, challenges, location, match, challengeGoals }) => {
 
-    const challenge = props.challenges.find(challenge => {
-        return challenge.id === props.location.challengeId
+    const challengeGoal = challengeGoals.find(challengeGoal => {
+       return challengeGoal.id.toString() === match.params.id
     })
+    
+    const challenge = challengeGoal ? challenges.find(challenge => {
+        return challenge.id === challengeGoal.challenge_id.toString()
+    }) : ""
 
-    const challengeGoals = props.user.challenge_goals.map(challengeGoal => {
-        if (challengeGoal.id === props.location.challengeGoalId) {
-             return <GoalCard key={challengeGoal.id} challengeGoal={challengeGoal}/>
-         } else {
-             return ""
-         }
-    })
+    const userChallengeGoal = challengeGoal ? <GoalCard key={challengeGoal.id} challengeGoal={challengeGoal}/> : ""
 
-    const editButton = props.user.challenge_goals.map(challengeGoal => {
-        if (challengeGoal.id === props.location.challengeGoalId) {
-            return <EditButton key="challengeGoal.id" value="Edit Goal" url="challenge_goals" editId={props.location.challengeGoalId}/>
-        } else {
-            return ""
-        }
-    })
+
+    const editButton = challengeGoal ? <EditButton key={challengeGoal.id} value="Edit Goal" url="challenge_goals" editId={location.challengeGoalId}/> : ""
+
 
     return (
         <div className="goal-show">
             <div className="goal-show-header">
-                <h1>Your goals for {challenge ? challenge.attributes.name : `No Goal`}</h1>
-                <h4>Start Date: {challenge ? challenge.attributes.start_date : `No Goal`} End Date: {challenge ? challenge.attributes.end_date : `No Goal`} </h4>
-                <h3>Duration {challenge ? `${challenge.attributes.duration} weeks` : `No Goal`}</h3>
-                {challengeGoals}
+                <h1>Your goals for {challenge ? challenge.attributes.name : ``}</h1>
+                <h4>Start Date: {challenge ? challenge.attributes.start_date : ``} End Date: {challenge ? challenge.attributes.end_date : `No Goal`} </h4>
+                <h3>Duration {challenge ? `${challenge.attributes.duration} weeks` : ``}</h3>
+                {userChallengeGoal}
                 <br/>
                 {editButton}
             </div>
@@ -42,7 +36,8 @@ const GoalShow = (props) => {
 const mapStateToProps = state => {
     return {
         user: state.mainState.user,
-        challenges: state.mainState.challenges
+        challenges: state.mainState.challenges,
+        challengeGoals: state.mainState.userChallengeGoals
     }
 }
 
