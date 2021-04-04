@@ -3,6 +3,7 @@ import ChallengeForm from '../components/ChallengeForm';
 import DeleteButton from '../components/DeleteButton';
 import { updateChallenge, deleteChallenge } from '../actions/challenges';
 import { setEditChallengeForm, resetChallengeForm } from '../actions/challengeForm';
+import { validateChallenge } from '../actions/clientErrors';
 import { connect } from 'react-redux';
 
 class EditChallenge extends React.Component {
@@ -18,8 +19,11 @@ class EditChallenge extends React.Component {
         this.props.resetChallengeForm()
     }
 
-    handleSubmit = (challengeFormData, user) => {
-        this.props.updateChallenge(challengeFormData, this.props.history, user, this.props.challenge.id)
+    handleSubmit = async (challengeFormData, user) => {
+        const isValid = await this.props.validateChallenge(challengeFormData, "edit")
+            if (Object.keys(isValid.invalid).length === 0) {
+                this.props.updateChallenge(challengeFormData, this.props.history, user, this.props.challenge.id)
+            }
     }
 
   render() {
@@ -33,4 +37,4 @@ class EditChallenge extends React.Component {
   }
 };
 
-export default connect(null, { updateChallenge, setEditChallengeForm, resetChallengeForm, deleteChallenge })(EditChallenge);
+export default connect(null, { updateChallenge, setEditChallengeForm, resetChallengeForm, deleteChallenge, validateChallenge })(EditChallenge);

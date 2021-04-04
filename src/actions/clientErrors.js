@@ -25,7 +25,7 @@ export const validateLogin = (values, type) => {
     }   
 };
 
-export const validateChallenge = (values) => {
+export const validateChallenge = (values, type) => {
     let invalid = {};
 
     if (!values.name) {
@@ -38,7 +38,7 @@ export const validateChallenge = (values) => {
 
     if (!values.startDate) {
         invalid.startDate = "Start date cannot be blank!"
-    } else if (Date.parse(values.startDate) < new Date()) {
+    } else if (Date.parse(values.startDate) < new Date() && type === "create") {
         invalid.startDate = "Date cannot be in the past!"
     }
 
