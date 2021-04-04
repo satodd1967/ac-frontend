@@ -18,10 +18,34 @@ export const validateLogin = (values, type) => {
     } else if (!regPassword.test(values.password)) {
         invalid.password = "Must contain at least 6 characters, one lowercase, one upercase, one number and one symbol!"
     }
+    console.log("LoginBeforeReducer", invalid)
     return {
         type: "SET_CLIENT_ERRORS",
         invalid
     }   
+};
+
+export const validateChallenge = (values) => {
+    let invalid = {};
+
+    if (!values.name) {
+        invalid.name = "Name cannot be blank!"
+    }
+
+    if (!values.description) {
+        invalid.description = "Description cannot be blank!"
+    }
+
+    if (!values.startDate) {
+        invalid.startDate = "Start date cannot be blank!"
+    } else if (Date.parse(values.startDate) < new Date()) {
+        invalid.startDate = "Date cannot be in the past!"
+    }
+    console.log("BeforeReducer", invalid)
+    return {
+        type: "SET_CLIENT_ERRORS",
+        invalid
+    }
 };
 
 export const clearClientErrors = () => {
@@ -29,3 +53,4 @@ export const clearClientErrors = () => {
         type: "CLEAR_CLIENT_ERRORS"
     }
 }
+
