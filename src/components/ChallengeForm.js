@@ -49,55 +49,63 @@ const ChallengeForm = ({ formData, updateChallengeForm, handleSubmit, user, edit
                 name="startDate"
                 type="date"
                 onChange={handleChange}/>
-                <ClientErrorsCard error={clientErrors.startDate}/> 
+            <ClientErrorsCard error={clientErrors.startDate}/> 
             Duration:
              <input placeholder="duration in number of weeks"
                 value={formData.duration}
                 name="duration"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.duration}/>
             Active Calorie Goal:
             <input placeholder="active calorie goal"
                 value={formData.activeCalorieGoal}
                 name="activeCalorieGoal"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.activeCalorieGoal}/>
             Points Worked Out:
             <input placeholder="points worked out"
                 value={formData.pointsWorkedOut}
                 name="pointsWorkedOut"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.pointsWorkedOut}/>
             Points Tracked Food:
             <input placeholder="points tracked food"
                 value={formData.pointsTrackedFood}
                 name="pointsTrackedFood"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.pointsTrackedFood}/>
             Points Met Calorie Goal:
             <input placeholder="points met calorie goal"
                 value={formData.pointsMetCalorieGoal}
                 name="pointsMetCalorieGoal"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.pointsMetCalorieGoal}/>
             Points Maintain Weight:
             <input placeholder="points maintain weight"
                 value={formData.pointsMaintainWeight}
                 name="pointsMaintainWeight"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.pointsMaintainWeight}/>
             Points Maintain Body Fat:
             <input placeholder="points maintain body fat"
                 value={formData.pointsMaintainBodyFat}
                 name="pointsMaintainBodyFat"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.pointsMaintainBodyFat}/>
             Points Met Active Calorie Goal:
             <input placeholder="points met active calorie goal"
                 value={formData.pointsMetActiveCalorieGoal}
                 name="pointsMetActiveCalorieGoal"
                 type="text"
-                onChange={handleChange}/>  
+                onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.pointsMetActiveCalorieGoal}/>  
             <input type="submit" value={ editMode ? "Update Challenge" : "Create Challenge" }/>
         </form>
     )

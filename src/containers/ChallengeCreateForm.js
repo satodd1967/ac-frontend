@@ -8,7 +8,6 @@ const CreateChallenge = ({ sendChallenge, history, validateChallenge }) => {
 
     const handleSubmit = async (challengeFormData, user) => {
         const isValid = await validateChallenge(challengeFormData)
-        console.log("ChallengeIsValid", isValid)
         if (Object.keys(isValid.invalid).length === 0) {
             sendChallenge(challengeFormData, history, user)
         }

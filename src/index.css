@@ -263,6 +263,12 @@ button {
   padding-top: 3px;
 }
 
+.client-error-card {
+  color: red;
+  font-size: small;
+  padding-bottom: 2px;
+}
+
 /* .your-challenges-challenge {
   background-color: beige;
   border-radius: 25px;

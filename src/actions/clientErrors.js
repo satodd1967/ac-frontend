@@ -41,6 +41,39 @@ export const validateChallenge = (values) => {
     } else if (Date.parse(values.startDate) < new Date()) {
         invalid.startDate = "Date cannot be in the past!"
     }
+
+    if (!values.duration) {
+        invalid.duration = "Duration cannot be blank!"
+    }
+
+    if (!values.activeCalorieGoal) {
+        invalid.activeCalorieGoal = "Active calorie goal cannot be blank!"
+    }
+
+    if (!values.pointsWorkedOut) {
+        invalid.pointsWorkedOut = "Points worked out cannot be blank!"
+    }
+
+    if (!values.pointsTrackedFood) {
+        invalid.pointsTrackedFood = "Points tracked food cannot be blank!"
+    }
+
+    if (!values.pointsMetCalorieGoal) {
+        invalid.pointsMetCalorieGoal = "Points met calorie goal cannot be blank!"
+    }
+
+    if (!values.pointsMaintainWeight) {
+        invalid.pointsMaintainWeight = "Points maintained weight cannot be blank!"
+    }
+
+    if (!values.pointsMaintainBodyFat) {
+        invalid.pointsMaintainBodyFat = "Points maintained body fat cannot be blank!"
+    }
+
+    if (!values.pointsMetActiveCalorieGoal) {
+        invalid.pointsMetActiveCalorieGoal = "Points met active calorie goal cannot be blank!"
+    }
+
     console.log("BeforeReducer", invalid)
     return {
         type: "SET_CLIENT_ERRORS",
