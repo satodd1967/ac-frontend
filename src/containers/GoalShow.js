@@ -12,7 +12,7 @@ const GoalShow = ({ challenges, location, match, challengeGoals }) => {
         return challenge.id === challengeGoal.challenge_id.toString()
     }) : ""
 
-    const userChallengeGoal = challengeGoal ? <GoalCard key={challengeGoal.id} challengeGoal={challengeGoal}/> : ""
+    const userChallengeGoal = challengeGoal ? <GoalCard key={challengeGoal.id + 1} challengeGoal={challengeGoal}/> : ""
 
 
     const editButton = challengeGoal ? <EditButton key={challengeGoal.id} value="Edit Goal" url="challenge_goals" editId={location.challengeGoalId}/> : ""
