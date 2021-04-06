@@ -7,42 +7,42 @@ import GoalsViewButton from '../components/GoalsViewButton';
 import ChallengeRanking from './ChallengeRanking';
 import LogCards from '../components/LogCards'
 
-const ChallengeShow = (props) => {
+const ChallengeShow = ({ challenges, user, challengeId, users }) => {
 
-    const challenge = props.challenges.find(challenge => {
-        return challenge.id === props.challengeId
+    const challenge = challenges.find(challenge => {
+        return challenge.id === challengeId
     })
 
     const currentUserChallengeGoal = challenge ? challenge.attributes.challenge_goals.find(challengeGoal => {
-        return challengeGoal.user_id === props.user.id
+        return challengeGoal.user_id === user.id
     }) : "null"
 
-    const editButton = challenge && challenge.attributes.user_id === props.user.id ? 
+    const editButton = challenge && challenge.attributes.user_id === user.id ? 
         <ChallengeEditButton value="Edit Challenge" url="challenges" editId={challenge.id}/> : ""
     
-    const viewGoals = challenge && challenge.attributes.user_id === props.user.id ?
+    const viewGoals = challenge && challenge.attributes.user_id === user.id ?
         <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/> : ""
 
-    const challengeOwner = challenge ? <ChallengeOwner challenge={challenge}/> : <p>No Challenge</p>
+    const challengeOwner = challenge ? <ChallengeOwner challenge={challenge}/> : ""
 
-    const challengeCard = challenge ? <ChallengeCard challenge={challenge}/> : <p>No Challenge</p>
+    const challengeCard = challenge ? <ChallengeCard challenge={challenge}/> : ""
 
-    const challengeRanking = challenge ? <ChallengeRanking challenge={challenge} type={"full"}/> : <p>No Challenge</p>
+    const challengeRanking = challenge ? <ChallengeRanking challenge={challenge} type={"full"}/> : ""
 
     const logs = challenge ? challenge.attributes.logs.map(log => {
-        const logUser = props.users.find(user => {
+        const logUser = users.find(user => {
            return user.attributes.id === log.user_id
         })
         return <ul key={`${logUser.attributes.username}-${log.id}`}>
                     <li key={logUser.attributes.username}>{logUser.attributes.username}</li>
-                    <LogCards key={log.id} log={log} currentUserId={props.user.id}/>
+                    <LogCards key={log.id} log={log} currentUserId={user.id}/>
                 </ul>
-        }) : <p>No Challenge</p>
+        }) : ""
 
     return (
         <div className="challenge-show">
             <div className="challenge-show-header">
-                <h2>{challenge ? challenge.attributes.name : `No Challenge`}</h2>
+                <h2>{challenge ? challenge.attributes.name : ""}</h2>
                 <h3>{challengeOwner}</h3>
                 {editButton}
                 {viewGoals}
