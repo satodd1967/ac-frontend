@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ChallengeCard = ({ challenge }) => {
-
+    
     return (
         <div className="challenge-cards">
             <li>Start Date: {challenge.attributes.start_date}</li>
