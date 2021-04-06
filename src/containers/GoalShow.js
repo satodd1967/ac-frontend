@@ -3,7 +3,7 @@ import GoalCard from '../components/GoalCard';
 import EditButton from '../components/EditButton';
 import { connect } from 'react-redux';
 
-const GoalShow = ({ user, challenges, location, match, challengeGoals }) => {
+const GoalShow = ({ challenges, location, match, challengeGoals }) => {
 
     const challengeGoal = challengeGoals.find(challengeGoal => {
        return challengeGoal.id.toString() === match.params.id
