@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import GoalCard from '../components/GoalCard';
 import EditButton from '../components/EditButton';
 import { connect } from 'react-redux';
