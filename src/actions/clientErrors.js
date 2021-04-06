@@ -74,7 +74,6 @@ export const validateChallenge = (values, type) => {
         invalid.pointsMetActiveCalorieGoal = "Points met active calorie goal cannot be blank!"
     }
 
-    console.log("BeforeReducer", invalid)
     return {
         type: "SET_CLIENT_ERRORS",
         invalid
