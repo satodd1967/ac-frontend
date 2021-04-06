@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const LogCards = (props) => {
 
@@ -23,7 +22,5 @@ const LogCards = (props) => {
         </div>
     )
 }
-
-
 
 export default LogCards

@@ -2,11 +2,9 @@ import React from 'react';
 import ChallengeRankingCard from '../components/ChallengeRankingCard'
 import { connect } from 'react-redux';
 
-const ChallengeRanking = (props) => {
+const ChallengeRanking = ( {challenge, users, type, user }) => {
 
-    const logScores = props.challenge.attributes.log_scores
-
-    const users = props.users
+    const logScores = challenge.attributes.log_scores
 
     const pointsArray = logScores.map(ls => {
         const user = users.find(user => {
@@ -41,12 +39,12 @@ const ChallengeRanking = (props) => {
          }
      })
 
-     const rankingCard = props.challenge ? props.type === "full" ? 
+     const rankingCard = challenge ? type === "full" ? 
         rankingWithName.map((place, index) => {
             return <ChallengeRankingCard key={place.username} index={index} place={place}/>
         }) : 
             rankingWithName.map((place, index) => {
-                 if(place.username === props.user.username) {
+                 if(place.username === user.username) {
                     return <div key={index}><h4>Ranking</h4> 
                     <ChallengeRankingCard key={place.username} index={index} place={place}/></div>
                 } else {
