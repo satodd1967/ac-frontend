@@ -96,7 +96,6 @@ export const validateChallengeGoal = (values) => {
         invalid.startWeight = "Starting weight cannot be blank!"
     } 
 
-    console.log("BeforeReducer", invalid)
     return {
         type: "SET_CLIENT_ERRORS",
         invalid
