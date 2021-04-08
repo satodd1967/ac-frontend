@@ -3,7 +3,6 @@ import LogForm from '../components/LogForm';
 import { sendLog } from '../actions/logs'
 import { validateLog } from '../actions/clientErrors';
 import { connect } from 'react-redux'
-import { sendChallenge } from '../actions/challenges';
 
 const CreateLog = ({ sendLog, history, validateLog }) => {
 
