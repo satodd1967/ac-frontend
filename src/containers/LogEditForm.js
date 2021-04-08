@@ -3,6 +3,7 @@ import LogForm from '../components/LogForm';
 import DeleteButton from '../components/DeleteButton';
 import { updateLog, deleteLog } from '../actions/logs';
 import { setEditLogForm, resetLogForm } from '../actions/logForm';
+import { validateLog } from '../actions/clientErrors';
 import { connect } from 'react-redux';
 
 class EditLog extends React.Component {
@@ -18,8 +19,11 @@ class EditLog extends React.Component {
         this.props.resetLogForm()
     }
 
-    handleSubmit = (logFormData, user) => {
-        this.props.updateLog(logFormData, this.props.history, user, this.props.log.id)
+    handleSubmit = async (logFormData, user) => {
+        const isValid = await this.props.validateLog(logFormData, "edit")
+            if (Object.keys(isValid.invalid).length === 0) {
+                this.props.updateLog(logFormData, this.props.history, user, this.props.log.id)
+            }
     }
 
   render() {
@@ -32,4 +36,4 @@ class EditLog extends React.Component {
   }
 };
 
-export default connect(null, { updateLog, setEditLogForm, resetLogForm, deleteLog })(EditLog);
+export default connect(null, { updateLog, setEditLogForm, resetLogForm, deleteLog, validateLog })(EditLog);

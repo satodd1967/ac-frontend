@@ -1,10 +1,12 @@
 import React from 'react'
 import ErrorCard from './ErrorCard';
 import { updateLogForm } from '../actions/logForm'
+import { clearClientErrors } from '../actions/clientErrors';
+import ClientErrorsCard from '../components/ClientErrorsCard';
 import { connect } from 'react-redux'
 import { clearErrors } from '../actions/errors';
 
-const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode, clearErrors, errors }) => {
+const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode, clearErrors, clearClientErrors, clientErrors, errors }) => {
 
     const handleChange = event => {
         const target = event.currentTarget;
@@ -15,6 +17,7 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode, cle
             [name]: value
         }
         clearErrors()
+        clearClientErrors()
         updateLogForm(updatedFormInfo)
     }
 
@@ -38,6 +41,7 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode, cle
                 name="logDate"
                 type="date"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.logDate}/>
             Worked Out?
             <input id="workedOut"
                 // value={logFormData.workedOut}
@@ -61,24 +65,28 @@ const LogForm = ({ logFormData, updateLogForm, handleSubmit, user, editMode, cle
                 name="weight"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.weight}/>
             Body Fat%:
             <input placeholder="body fat %"
                 value={logFormData.bodyFat}
                 name="bodyFat"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.bodyFat}/>
             Active Calories:
             <input placeholder="active calories"
                 value={logFormData.activeCalories}
                 name="activeCalories"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.activeCalories}/>
             Calories:
             <input placeholder="calories"
                 value={logFormData.calories}
                 name="calories"
                 type="text"
                 onChange={handleChange}/>
+            <ClientErrorsCard error={clientErrors.calories}/>
             <input type="submit" value={ editMode ? "Update Log" : "Create Log" }/>
         </form>
     )
@@ -88,8 +96,9 @@ const mapStateToProps = state => {
     return {
         user: state.mainState.user,
         logFormData: state.logForm,
-        errors: state.errors
+        errors: state.errors,
+        clientErrors: state.clientErrors
     }
 }
 
-export default connect(mapStateToProps, { updateLogForm, clearErrors } )(LogForm)
+export default connect(mapStateToProps, { updateLogForm, clearErrors, clearClientErrors } )(LogForm)

@@ -101,6 +101,35 @@ export const validateChallengeGoal = (values) => {
     }
 };
 
+export const validateLog = (values, type) => {
+    let invalid = {};
+
+    if (!values.logDate) {
+        invalid.logDate = "Log date cannot be blank!"
+    }
+
+    if (!values.weight) {
+        invalid.weight = "Weight cannot be blank!"
+    }
+
+    if (!values.bodyFat) {
+        invalid.bodyFat = "Body Fat % cannot be blank!"
+    }
+
+    if (!values.activeCalories) {
+        invalid.activeCalories = "Active Calories cannot be blank!"
+    }
+
+    if (!values.calories) {
+        invalid.calories = "Calories cannot be blank!"
+    }
+
+    return {
+        type: "SET_CLIENT_ERRORS",
+        invalid
+    }
+};
+
 export const clearClientErrors = () => {
     return {
         type: "CLEAR_CLIENT_ERRORS"
