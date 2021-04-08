@@ -4,6 +4,7 @@ import YourChallenges from './YourChallenges';
 import YourLogs from './YourLogs';
 import Challenges from './Challenges';
 import ChallengeShow from './ChallengeShow';
+import ChallengeLogs from './ChallengeLogs';
 import GoalShow from './GoalShow';
 import ChallengeCreateForm from './ChallengeCreateForm';
 import ChallengeEditForm from './ChallengeEditForm';
@@ -53,6 +54,7 @@ class Home extends React.Component {
                         <Route exact path='/challenges' component={Challenges}/>
                         <Route exact path='/challenges/new' component={ChallengeCreateForm}/>
                         <Route exact path='/challenges/:id' render={props => <ChallengeShow challengeId={props.match.params.id}/> }/>
+                        <Route exzct path='/challenges/:id/logs' component={ChallengeLogs}/>
                         <Route exact path='/challenges/:id/edit' render={props => {
                             const challenge = this.props.challenges.find(challenge => challenge.id === props.match.params.id)
                                 return <ChallengeEditForm challenge={challenge} history={props.history}/>

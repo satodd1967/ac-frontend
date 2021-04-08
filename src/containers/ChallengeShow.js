@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ChallengeCard from '../components/ChallengeCard';
+import ChallengeLogsViewButton from '../components/ChallengeLogsViewButton';
 import ChallengeOwner from '../components/ChallengeOwners';
 import ChallengeEditButton from '../components/EditButton';
 import GoalsViewButton from '../components/GoalsViewButton';
@@ -22,6 +23,8 @@ const ChallengeShow = ({ challenges, user, challengeId, users }) => {
     
     const viewGoals = challenge && challenge.attributes.user_id === user.id ?
         <GoalsViewButton challengeId={challenge.id} currentUserCGId={currentUserChallengeGoal.id}/> : ""
+
+    const viewLogs = challenge ? <ChallengeLogsViewButton challengeId={challenge.id}/> : ""
 
     const challengeOwner = challenge ? <ChallengeOwner challenge={challenge}/> : ""
 
@@ -46,6 +49,7 @@ const ChallengeShow = ({ challenges, user, challengeId, users }) => {
                 <h3>{challengeOwner}</h3>
                 {editButton}
                 {viewGoals}
+                {viewLogs}
                 <h3>Ranking</h3>
                 <h5>{challengeRanking}</h5>
             </div>

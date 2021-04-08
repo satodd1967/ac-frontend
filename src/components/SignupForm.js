@@ -28,11 +28,9 @@ const Signup = ({ formData, updateSignupForm, signup, history, errors, clearErro
         }
     };
 
-
-
-    const formErrors = errors.map(error => {
+    const formErrors = Array.isArray(errors) ? errors.map(error => {
         return <li key={error}><ErrorCard error={error}/></li>
-    }) 
+    }) : <ErrorCard key={errors} error={errors}/>
 
     return (
         <div className="signup-form">
