@@ -32,16 +32,6 @@ const ChallengeShow = ({ challenges, user, challengeId, users }) => {
 
     const challengeRanking = challenge ? <ChallengeRanking challenge={challenge} type={"full"}/> : ""
 
-    const logs = challenge ? challenge.attributes.logs.map(log => {
-        const logUser = users.find(user => {
-           return user.attributes.id === log.user_id
-        })
-        return <ul key={`${logUser.attributes.username}-${log.id}`}>
-                    <li key={logUser.attributes.username}>{logUser.attributes.username}</li>
-                    <LogCards key={log.id} log={log} currentUserId={user.id}/>
-                </ul>
-        }) : ""
-
     return (
         <div className="challenge-show">
             <div className="challenge-show-header">
@@ -58,10 +48,6 @@ const ChallengeShow = ({ challenges, user, challengeId, users }) => {
                 <ul>
                     {challengeCard}
                 </ul>
-            </div>
-            <div className="challenge-show-diary-logs">
-                <h1>Diary Logs</h1>
-                {logs}
             </div>
         </div>
     )
