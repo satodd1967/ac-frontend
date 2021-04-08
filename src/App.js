@@ -24,15 +24,6 @@ class App extends React.Component {
             <Welcome/>
           </Route>
         }
-        {/* {
-          this.props.loggedIn ?
-          <Route path='/'>
-            <Redirect to='/home'/><Home/>
-          </Route> :
-          <Route path='/'>
-            <Redirect to='/welcome'/><Welcome/>
-          </Route>
-        } */}
       </div>
     );
   }
