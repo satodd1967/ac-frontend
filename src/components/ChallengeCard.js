@@ -6,7 +6,7 @@ const ChallengeCard = ({ challenge }) => {
         <div className="challenge-cards">
             <li>Start Date: {challenge.attributes.start_date}</li>
             <li>End Date: {challenge.attributes.end_date}</li>
-            <li>Duration: {challenge.attributes.duration}</li>
+            <li>Duration in weeks: {challenge.attributes.duration}</li>
             <li>Description: {challenge.attributes.description}</li>
             <li>Active Calorie Goal: {challenge.attributes.active_calorie_goal}</li>
             <li>Points Worked Out: {challenge.attributes.points_worked_out}</li>
